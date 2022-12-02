@@ -1,0 +1,42 @@
+--------------- Build Started: 11/22/2022 18:22:59 Project: GeneralPurposeMotorBoard, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
+cydsfit.exe -.appdatapath "C:\Users\vboxuser\AppData\Local\Cypress Semiconductor\PSoC Creator\4.4" -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -.fdsreffile=referenced_files.txt -p C:\Users\vboxuser\HuskyRobotics\General_Purpose_Motor_Board_PY2023\GeneralPurposeMotorBoard\GeneralPurposeMotorBoard.cydsn\GeneralPurposeMotorBoard.cyprj -d CY8C4248BZI-L489 -s C:\Users\vboxuser\HuskyRobotics\General_Purpose_Motor_Board_PY2023\GeneralPurposeMotorBoard\GeneralPurposeMotorBoard.cydsn\Generated_Source\PSoC4 -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE
+Elaborating Design...
+ADD: sdb.M0065: information: Analog terminal "ADC_SAR_Seq_1.vinPlus0" on TopDesign is unconnected.
+ * C:\Users\vboxuser\HuskyRobotics\General_Purpose_Motor_Board_PY2023\GeneralPurposeMotorBoard\GeneralPurposeMotorBoard.cydsn\TopDesign\TopDesign.cysch (Signal: Net_1327)
+ * C:\Users\vboxuser\HuskyRobotics\General_Purpose_Motor_Board_PY2023\GeneralPurposeMotorBoard\GeneralPurposeMotorBoard.cydsn\TopDesign\TopDesign.cysch (Shape_624.31)
+ADD: sdb.M0065: information: Analog terminal "ADC_SAR_Seq_1.vinMinus0" on TopDesign is unconnected.
+ * C:\Users\vboxuser\HuskyRobotics\General_Purpose_Motor_Board_PY2023\GeneralPurposeMotorBoard\GeneralPurposeMotorBoard.cydsn\TopDesign\TopDesign.cysch (Signal: Net_1323)
+ * C:\Users\vboxuser\HuskyRobotics\General_Purpose_Motor_Board_PY2023\GeneralPurposeMotorBoard\GeneralPurposeMotorBoard.cydsn\TopDesign\TopDesign.cysch (Shape_624.32)
+ADD: sdb.M0065: information: Analog terminal "ADC_SAR_Seq_1.vinPlus1" on TopDesign is unconnected.
+ * C:\Users\vboxuser\HuskyRobotics\General_Purpose_Motor_Board_PY2023\GeneralPurposeMotorBoard\GeneralPurposeMotorBoard.cydsn\TopDesign\TopDesign.cysch (Signal: Net_1328)
+ * C:\Users\vboxuser\HuskyRobotics\General_Purpose_Motor_Board_PY2023\GeneralPurposeMotorBoard\GeneralPurposeMotorBoard.cydsn\TopDesign\TopDesign.cysch (Shape_624.33)
+ADD: sdb.M0065: information: Analog terminal "ADC_SAR_Seq_1.vinMinus1" on TopDesign is unconnected.
+ * C:\Users\vboxuser\HuskyRobotics\General_Purpose_Motor_Board_PY2023\GeneralPurposeMotorBoard\GeneralPurposeMotorBoard.cydsn\TopDesign\TopDesign.cysch (Signal: Net_1324)
+ * C:\Users\vboxuser\HuskyRobotics\General_Purpose_Motor_Board_PY2023\GeneralPurposeMotorBoard\GeneralPurposeMotorBoard.cydsn\TopDesign\TopDesign.cysch (Shape_624.34)
+ADD: sdb.M0065: information: Analog terminal "ADC_SAR_Seq_1.vinPlus2" on TopDesign is unconnected.
+ * C:\Users\vboxuser\HuskyRobotics\General_Purpose_Motor_Board_PY2023\GeneralPurposeMotorBoard\GeneralPurposeMotorBoard.cydsn\TopDesign\TopDesign.cysch (Signal: Net_1329)
+ * C:\Users\vboxuser\HuskyRobotics\General_Purpose_Motor_Board_PY2023\GeneralPurposeMotorBoard\GeneralPurposeMotorBoard.cydsn\TopDesign\TopDesign.cysch (Shape_624.35)
+ADD: sdb.M0065: information: Analog terminal "ADC_SAR_Seq_1.vinMinus2" on TopDesign is unconnected.
+ * C:\Users\vboxuser\HuskyRobotics\General_Purpose_Motor_Board_PY2023\GeneralPurposeMotorBoard\GeneralPurposeMotorBoard.cydsn\TopDesign\TopDesign.cysch (Signal: Net_1325)
+ * C:\Users\vboxuser\HuskyRobotics\General_Purpose_Motor_Board_PY2023\GeneralPurposeMotorBoard\GeneralPurposeMotorBoard.cydsn\TopDesign\TopDesign.cysch (Shape_624.36)
+ADD: sdb.M0065: information: Analog terminal "ADC_SAR_Seq_1.vinPlus3" on TopDesign is unconnected.
+ * C:\Users\vboxuser\HuskyRobotics\General_Purpose_Motor_Board_PY2023\GeneralPurposeMotorBoard\GeneralPurposeMotorBoard.cydsn\TopDesign\TopDesign.cysch (Signal: Net_1330)
+ * C:\Users\vboxuser\HuskyRobotics\General_Purpose_Motor_Board_PY2023\GeneralPurposeMotorBoard\GeneralPurposeMotorBoard.cydsn\TopDesign\TopDesign.cysch (Shape_624.37)
+ADD: sdb.M0065: information: Analog terminal "ADC_SAR_Seq_1.vinMinus3" on TopDesign is unconnected.
+ * C:\Users\vboxuser\HuskyRobotics\General_Purpose_Motor_Board_PY2023\GeneralPurposeMotorBoard\GeneralPurposeMotorBoard.cydsn\TopDesign\TopDesign.cysch (Signal: Net_1326)
+ * C:\Users\vboxuser\HuskyRobotics\General_Purpose_Motor_Board_PY2023\GeneralPurposeMotorBoard\GeneralPurposeMotorBoard.cydsn\TopDesign\TopDesign.cysch (Shape_624.38)
+ADD: sdb.M0025: error: No input on Instance "Status_Reg_1", terminal "clock".
+ * C:\Users\vboxuser\HuskyRobotics\General_Purpose_Motor_Board_PY2023\GeneralPurposeMotorBoard\GeneralPurposeMotorBoard.cydsn\TopDesign\TopDesign.cysch (Signal: Net_1239)
+ * C:\Users\vboxuser\HuskyRobotics\General_Purpose_Motor_Board_PY2023\GeneralPurposeMotorBoard\GeneralPurposeMotorBoard.cydsn\TopDesign\TopDesign.cysch (Shape_625.19)
+ADD: sdb.M0050: error: Terminal "clock" requires connection when it is visible.
+ * C:\Users\vboxuser\HuskyRobotics\General_Purpose_Motor_Board_PY2023\GeneralPurposeMotorBoard\GeneralPurposeMotorBoard.cydsn\TopDesign\TopDesign.cysch (Signal: Net_1239)
+ * C:\Users\vboxuser\HuskyRobotics\General_Purpose_Motor_Board_PY2023\GeneralPurposeMotorBoard\GeneralPurposeMotorBoard.cydsn\TopDesign\TopDesign.cysch (Shape_625.19)
+ADD: sdb.M0050: error: Terminal "clock" requires connection when it is visible.
+ * C:\Users\vboxuser\HuskyRobotics\General_Purpose_Motor_Board_PY2023\GeneralPurposeMotorBoard\GeneralPurposeMotorBoard.cydsn\TopDesign\TopDesign.cysch (Signal: Net_1309)
+ * C:\Users\vboxuser\HuskyRobotics\General_Purpose_Motor_Board_PY2023\GeneralPurposeMotorBoard\GeneralPurposeMotorBoard.cydsn\TopDesign\TopDesign.cysch (Shape_34.30)
+ADD: sdb.M0059: error: Error in component: CAN_1. The SYSCLK clock is undefined or was changed. For proper bit timing calculation, launch the CAN configuration dialog and select the appropriate values in the Timing tab.
+ * C:\Users\vboxuser\HuskyRobotics\General_Purpose_Motor_Board_PY2023\GeneralPurposeMotorBoard\GeneralPurposeMotorBoard.cydsn\TopDesign\TopDesign.cysch (Instance:CAN_1)
+ADD: sdb.M0060: warning: Warning in component: CAN_1. The SYSCLK clock accuracy should be 0.5% or better. Please, enable WCO PLL in the Design-Wide Resource (*.cydwr) editor or use an external clock to meet the CAN accurate clocking requirements.
+ * C:\Users\vboxuser\HuskyRobotics\General_Purpose_Motor_Board_PY2023\GeneralPurposeMotorBoard\GeneralPurposeMotorBoard.cydsn\TopDesign\TopDesign.cysch (Instance:CAN_1)
+Error: fit.M0050: The fitter aborted due to errors, please address all errors and rebuild. (App=cydsfit)
+--------------- Build Failed: 11/22/2022 18:23:07 ---------------
