@@ -1,10 +1,10 @@
 #include <main.h>
-#include "Motor_Unit_Debug.h"
+// #include "Motor_Unit_Debug.h"
 #include "cyapicallbacks.h"
 #include "MotorDrive.h"
-#include "Motor_Unit_CAN.h"
-#include "Motor_Unit_FSM.h"
-#include "PositionPID.h"
+#include "MotorBoardCAN.h"
+#include "MotorBoardFSM.h"
+#include "PID.h"
 
 #ifdef RGB_LED_ARRAY
 #include "LED_Array.h"
@@ -20,7 +20,7 @@ int32_t millidegreeTarget = 0;
 //Uart variables
 char txData[TX_DATA_SIZE];
 
-//drive varaible
+//drive variable
 int16 nextPWM = 0;
 extern uint8 invalidate;
 uint8_t ignoreLimSw = 0;
@@ -41,14 +41,14 @@ CY_ISR(Period_Reset_Handler) {
     CAN_check_delay ++;
     ERRORTimeLED++;
     encoderTimeOut++;
-    if(encoderTimeOut >= 2){
+    if (encoderTimeOut >= 2){
         encoderTimeOut = 0;
         SendEncoderData(&can_send);
     }
-    if(invalidate >= 20){
+    if (invalidate >= 20){
         set_PWM(0, 0, 0);   
     }
-    if(ERRORTimeLED >= 3) {
+    if (ERRORTimeLED >= 3) {
         #ifdef ERROR_LED
         ERROR_LED_Write(LED_OFF);
         #endif
@@ -59,7 +59,7 @@ CY_ISR(Period_Reset_Handler) {
         Debug_2_Write(LED_OFF);
         #endif
     }
-    if(CAN_time_LED >= 3){
+    if (CAN_time_LED >= 3){
         #ifdef CAN_LED
         CAN_LED_Write(LED_OFF);
         #endif
@@ -134,13 +134,12 @@ int main(void)
         sprintf(txData, "Encoder Value: %d  \r\n", QuadDec_GetCounter());
         UART_UartPutString(txData);
         #endif
-
-        
     }
 }
  
 void Initialize(void) {
-    CyGlobalIntEnable; /* Enable global interrupts. LED arrays need this first */
+     // Enable global interrupts. LED arrays need this first
+    CyGlobalIntEnable;
     
     #ifdef RGB_LED_ARRAY
     initalize_LEDs(LOW_LED_POWER);
@@ -179,8 +178,8 @@ void Initialize(void) {
 }
 
 void PrintCanPacket(CANPacket receivedPacket){
-    for(int i = 0; i < receivedPacket.dlc; i++ ) {
-        sprintf(txData,"Byte%d %x   ", i+1, receivedPacket.data[i]);
+    for(int i = 0; i < receivedPacket.dlc; i++) {
+        sprintf(txData, "Byte%d %x   ", i+1, receivedPacket.data[i]);
         UART_UartPutString(txData);
     }
 
@@ -201,8 +200,8 @@ uint16_t ReadCAN(CANPacket *receivedPacket){
     return NO_NEW_CAN_PACKET; //Means no Packet
 }
 
-void DisplayErrorCode(uint8_t code) {
-    
+void DisplayErrorCode(uint8_t code) 
+{    
     #ifdef ERROR_LED
     ERROR_LED_Write(LED_OFF);
     #endif

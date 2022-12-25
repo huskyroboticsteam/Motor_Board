@@ -13,7 +13,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\Header Files\CANLibrary.h">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\Header Files">
 <ExpandedNodeIds>
 <v>GeneralPurposeMotorBoard</v>
 <v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard</v>
@@ -28,7 +28,6 @@
 <v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\Header Files\CANPower.h</v>
 <v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\Header Files\CANScience.h</v>
 <v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\Header Files\CANSerialNumbers.h</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\Header Files\Port.h</v>
 <v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\Source Files</v>
 <v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\Source Files\CANCommon.c</v>
 <v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\Source Files\CANGPIO.c</v>
@@ -37,6 +36,12 @@
 <v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\Source Files\CANPacket.c</v>
 <v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\Source Files\CANPower.c</v>
 <v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\Source Files\CANScience.c</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\Source Files\MotorBoardCAN.c</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\Source Files\MotorBoardCAN.h</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\Source Files\MotorBoardFSM.c</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\Source Files\MotorBoardFSM.h</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\Source Files\MotorDrive.c</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\Source Files\MotorDrive.h</v>
 </ExpandedNodeIds>
 <VisibleNodeIds>
 <v>GeneralPurposeMotorBoard</v>
@@ -54,7 +59,6 @@
 <v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\Header Files\CANScience.h</v>
 <v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\Header Files\CANSerialNumbers.h</v>
 <v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\Header Files\cyapicallbacks.h</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\Header Files\Port.h</v>
 <v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\Source Files</v>
 <v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\Source Files\CANCommon.c</v>
 <v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\Source Files\CANGPIO.c</v>
@@ -65,6 +69,12 @@
 <v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\Source Files\CANScience.c</v>
 <v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\Source Files\main.c</v>
 <v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\Source Files\main.h</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\Source Files\MotorBoardCAN.c</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\Source Files\MotorBoardCAN.h</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\Source Files\MotorBoardFSM.c</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\Source Files\MotorBoardFSM.h</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\Source Files\MotorDrive.c</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\Source Files\MotorDrive.h</v>
 <v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\Source Files\PID.c</v>
 <v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\Source Files\PID.h</v>
 <v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\Generated_Source</v>
@@ -112,6 +122,19 @@
 <v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\ADC_intClock.lst</v>
 <v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\ADC_IRQ.lst</v>
 <v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\ADC_PM.lst</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\CAN_1.lst</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\CAN_1_HFCLK.lst</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\CAN_1_INT.lst</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\CAN_1_isr.lst</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\CAN_1_PM.lst</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\CAN_1_TX_RX_func.lst</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\CANCommon.lst</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\CANGPIO.lst</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\CANLocalization.lst</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\CANMotorUnit.lst</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\CANPacket.lst</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\CANPower.lst</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\CANScience.lst</v>
 <v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\CapSense.lst</v>
 <v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\CapSense_CSHL.lst</v>
 <v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\CapSense_INT.lst</v>
@@ -120,7 +143,9 @@
 <v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\CapSense_SenseClk.lst</v>
 <v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\CapSense_SMS.lst</v>
 <v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\CapSense_TunerHelper.lst</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\Clock_1.lst</v>
 <v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\Clock_1MHz.lst</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\Clock_2.lst</v>
 <v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\Cm0Start.lst</v>
 <v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\Comp_0.lst</v>
 <v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\Comp_0_PM.lst</v>
@@ -144,19 +169,6 @@
 <v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
 <v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
 <v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\I2CS.lst</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\I2CS_BOOT.lst</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\I2CS_I2C.lst</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\I2CS_I2C_BOOT.lst</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\I2CS_I2C_INT.lst</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\I2CS_I2C_SLAVE.lst</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\I2CS_PM.lst</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\I2CS_SCB_IRQ.lst</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\I2CS_SCBCLK.lst</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\I2CS_scl.lst</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\I2CS_scl_PM.lst</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\I2CS_sda.lst</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\I2CS_sda_PM.lst</v>
 <v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\IDAC_7bit.lst</v>
 <v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\IDAC_7bit_In.lst</v>
 <v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\IDAC_7bit_In_PM.lst</v>
@@ -173,10 +185,14 @@
 <v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\Input_Pin_1_PM.lst</v>
 <v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\LPComp_Int.lst</v>
 <v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\main.lst</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\MotorBoardCAN.lst</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\MotorBoardFSM.lst</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\MotorDrive.lst</v>
 <v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\Output_Pin_0.lst</v>
 <v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\Output_Pin_0_PM.lst</v>
 <v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\Output_Pin_1.lst</v>
 <v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\Output_Pin_1_PM.lst</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\PID.lst</v>
 <v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\PWM_0.lst</v>
 <v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\PWM_0_Int.lst</v>
 <v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\PWM_0_Out.lst</v>
@@ -190,38 +206,32 @@
 <v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\PWM_2_Out.lst</v>
 <v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\PWM_2_Out_PM.lst</v>
 <v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\PWM_2_PM.lst</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\SPI.lst</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\SPI_BOOT.lst</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\SPI_miso_s.lst</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\SPI_miso_s_PM.lst</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\SPI_mosi_s.lst</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\SPI_mosi_s_PM.lst</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\SPI_PM.lst</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\SPI_SCBCLK.lst</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\SPI_sclk_s.lst</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\SPI_sclk_s_PM.lst</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\SPI_SPI.lst</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\SPI_SPI_BOOT.lst</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\SPI_SPI_UART.lst</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\SPI_ss_s.lst</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\SPI_ss_s_PM.lst</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\PWM_3.lst</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\PWM_3_PM.lst</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\RX_1.lst</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\RX_1_PM.lst</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\Status_Reg_1.lst</v>
 <v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\Timer.lst</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\Timer_1.lst</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\Timer_1_PM.lst</v>
 <v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\Timer_Int.lst</v>
 <v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\Timer_Pin.lst</v>
 <v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\Timer_Pin_PM.lst</v>
 <v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\Timer_PM.lst</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\UART.lst</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\UART_BOOT.lst</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\UART_PM.lst</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\UART_rx.lst</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\UART_rx_PM.lst</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\UART_SCBCLK.lst</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\UART_SPI_UART.lst</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\UART_SPI_UART_INT.lst</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\UART_tx.lst</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\UART_tx_PM.lst</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\UART_UART.lst</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\UART_UART_BOOT.lst</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\TX_1.lst</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\TX_1_PM.lst</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\UART_1.lst</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\UART_1_BOOT.lst</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\UART_1_PM.lst</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\UART_1_rx.lst</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\UART_1_rx_PM.lst</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\UART_1_SCBCLK.lst</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\UART_1_SPI_UART.lst</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\UART_1_SPI_UART_INT.lst</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\UART_1_tx.lst</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\UART_1_tx_PM.lst</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\UART_1_UART.lst</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\UART_1_UART_BOOT.lst</v>
 <v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\Wakeup_Pin.lst</v>
 <v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\Wakeup_Pin_Int.lst</v>
 <v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\Wakeup_Pin_PM.lst</v>
@@ -259,6 +269,19 @@
 <v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\ADC_intClock.lst</v>
 <v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\ADC_IRQ.lst</v>
 <v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\ADC_PM.lst</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\CAN_1.lst</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\CAN_1_HFCLK.lst</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\CAN_1_INT.lst</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\CAN_1_isr.lst</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\CAN_1_PM.lst</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\CAN_1_TX_RX_func.lst</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\CANCommon.lst</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\CANGPIO.lst</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\CANLocalization.lst</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\CANMotorUnit.lst</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\CANPacket.lst</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\CANPower.lst</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\CANScience.lst</v>
 <v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\CapSense.lst</v>
 <v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\CapSense_CSHL.lst</v>
 <v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\CapSense_INT.lst</v>
@@ -267,10 +290,22 @@
 <v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\CapSense_SenseClk.lst</v>
 <v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\CapSense_SMS.lst</v>
 <v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\CapSense_TunerHelper.lst</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\Clock_1.lst</v>
 <v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\Clock_1MHz.lst</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\Clock_2.lst</v>
 <v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\Cm0Start.lst</v>
 <v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\Comp_0.lst</v>
 <v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\Comp_0_PM.lst</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\Comp_1.lst</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\Comp_1_PM.lst</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\CompM_0.lst</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\CompM_0_PM.lst</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\CompM_1.lst</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\CompM_1_PM.lst</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\CompP_0.lst</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\CompP_0_PM.lst</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\CompP_1.lst</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\CompP_1_PM.lst</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStates>
@@ -285,32 +320,6 @@
 <v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\PSoC 4 Architecture TRM</v>
 <v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\PSoC 4200L Family Datasheet</v>
 <v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\System Reference Guides</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\System Reference Guides\cy_boot_v6_0</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\System Reference Guides\cy_dmac_v1_10</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\System Reference Guides\cy_lfclk_v1_20</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\ADC_SAR_SEQ_P4_v2_50</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\ADC_SAR_SEQ_P4_v2_50\ADC_SAR_SEQ_P4_v2_50.pdf</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CAN_v3_0.pdf</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CapSense_CSD_P4_v2_60.pdf</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\cy_clock_v2_20</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\cy_clock_v2_20\cy_clock_v2_20.pdf</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\cy_gsref_v2_10.pdf</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\cy_isr_v1_70</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\cy_isr_v1_70\cy_isr_v1_70.pdf</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\cy_pins_v2_20</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CyStatusReg_v1_90.pdf</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\IDAC_P4_v1_10</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\IDAC_P4_v1_10\IDAC_P4_v1_10.pdf</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\LPComp_P4_v2_20</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\LPComp_P4_v2_20\LPComp_P4_v2_20.pdf</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\OpAmp_P4_v1_20</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\OpAmp_P4_v1_20\OpAmp_P4_v1_20.pdf</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\SCB_P4_v4_0.pdf</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\TCPWM_P4_v2_10</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\TCPWM_P4_v2_10\TCPWM_P4_v2_10.pdf</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\Timer_v2_80.pdf</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\ZeroTerminal.pdf</v>
 </ExpandedNodeIds>
 <VisibleNodeIds>
 <v>GeneralPurposeMotorBoard</v>
@@ -318,32 +327,6 @@
 <v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\PSoC 4 Architecture TRM</v>
 <v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\PSoC 4200L Family Datasheet</v>
 <v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\System Reference Guides</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\System Reference Guides\cy_boot_v6_0</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\System Reference Guides\cy_dmac_v1_10</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\System Reference Guides\cy_lfclk_v1_20</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\ADC_SAR_SEQ_P4_v2_50</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\ADC_SAR_SEQ_P4_v2_50\ADC_SAR_SEQ_P4_v2_50.pdf</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CAN_v3_0.pdf</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CapSense_CSD_P4_v2_60.pdf</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\cy_clock_v2_20</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\cy_clock_v2_20\cy_clock_v2_20.pdf</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\cy_gsref_v2_10.pdf</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\cy_isr_v1_70</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\cy_isr_v1_70\cy_isr_v1_70.pdf</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\cy_pins_v2_20</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CyStatusReg_v1_90.pdf</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\IDAC_P4_v1_10</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\IDAC_P4_v1_10\IDAC_P4_v1_10.pdf</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\LPComp_P4_v2_20</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\LPComp_P4_v2_20\LPComp_P4_v2_20.pdf</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\OpAmp_P4_v1_20</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\OpAmp_P4_v1_20\OpAmp_P4_v1_20.pdf</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\SCB_P4_v4_0.pdf</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\TCPWM_P4_v2_10</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\TCPWM_P4_v2_10\TCPWM_P4_v2_10.pdf</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\Timer_v2_80.pdf</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\ZeroTerminal.pdf</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStatesV2>
@@ -366,6 +349,13 @@
 <name v=".\GeneralPurposeMotorBoard.cydsn\main.h" />
 <name v=".\GeneralPurposeMotorBoard.cydsn\PID.c" />
 <name v=".\GeneralPurposeMotorBoard.cydsn\PID.h" />
+<name v=".\GeneralPurposeMotorBoard.cydsn\MotorDrive.c" />
+<name v=".\GeneralPurposeMotorBoard.cydsn\MotorDrive.h" />
+<name v=".\HindsightCAN\CANLibrary.h" />
+<name v=".\GeneralPurposeMotorBoard.cydsn\MotorBoardCAN.c" />
+<name v=".\GeneralPurposeMotorBoard.cydsn\MotorBoardCAN.h" />
+<name v=".\GeneralPurposeMotorBoard.cydsn\MotorBoardFSM.c" />
+<name v=".\GeneralPurposeMotorBoard.cydsn\MotorBoardFSM.h" />
 </OpenDocs>
 <OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
 
@@ -373,7 +363,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="421, 522" SelectedTabbedMdiWindow="b0ca76bc-0821-4dd8-b33b-f89df81b7f3f"><DocumentWindow Key="C:\Users\vboxuser\HuskyRobotics\General_Purpose_Motor_Board_PY2023\GeneralPurposeMotorBoard\GeneralPurposeMotorBoard.cydsn\TopDesign\TopDesign.cysch" Guid="5cb15849-9419-43b0-8448-029cb94619ca" /><DocumentWindow Key="C:\Users\vboxuser\HuskyRobotics\General_Purpose_Motor_Board_PY2023\GeneralPurposeMotorBoard\GeneralPurposeMotorBoard.cydsn\cyapicallbacks.h" Guid="a7b3dbf0-acd7-462e-9b25-5eac9620d665" /><DocumentWindow Key="C:\Users\vboxuser\HuskyRobotics\General_Purpose_Motor_Board_PY2023\GeneralPurposeMotorBoard\GeneralPurposeMotorBoard.cydsn\main.c" Guid="416755fa-4e8e-4545-b087-3d41a7efe4b4" /><DocumentWindow Key="C:\Users\vboxuser\HuskyRobotics\General_Purpose_Motor_Board_PY2023\GeneralPurposeMotorBoard\GeneralPurposeMotorBoard.cydsn\main.h" Guid="d9b6c1e6-e625-4f5a-9ddc-926a61438e6b" /><DocumentWindow Key="C:\Users\vboxuser\HuskyRobotics\General_Purpose_Motor_Board_PY2023\GeneralPurposeMotorBoard\GeneralPurposeMotorBoard.cydsn\PID.c" Guid="ab0f7869-f770-4cac-8b98-ea0ea31829ef" /><DocumentWindow Key="C:\Users\vboxuser\HuskyRobotics\General_Purpose_Motor_Board_PY2023\GeneralPurposeMotorBoard\GeneralPurposeMotorBoard.cydsn\PID.h" Guid="b0ca76bc-0821-4dd8-b33b-f89df81b7f3f" /><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="f0e997e1-e1b6-4cfc-835c-b728a7d82915" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="887, 989" SelectedTabbedMdiWindow="416755fa-4e8e-4545-b087-3d41a7efe4b4"><DocumentWindow Key="C:\Users\vboxuser\HuskyRobotics\General_Purpose_Motor_Board_PY2023\GeneralPurposeMotorBoard\GeneralPurposeMotorBoard.cydsn\TopDesign\TopDesign.cysch" Guid="5cb15849-9419-43b0-8448-029cb94619ca" /><DocumentWindow Key="C:\Users\vboxuser\HuskyRobotics\General_Purpose_Motor_Board_PY2023\GeneralPurposeMotorBoard\GeneralPurposeMotorBoard.cydsn\cyapicallbacks.h" Guid="a7b3dbf0-acd7-462e-9b25-5eac9620d665" /><DocumentWindow Key="C:\Users\vboxuser\HuskyRobotics\General_Purpose_Motor_Board_PY2023\GeneralPurposeMotorBoard\GeneralPurposeMotorBoard.cydsn\main.c" Guid="416755fa-4e8e-4545-b087-3d41a7efe4b4" /><DocumentWindow Key="C:\Users\vboxuser\HuskyRobotics\General_Purpose_Motor_Board_PY2023\GeneralPurposeMotorBoard\GeneralPurposeMotorBoard.cydsn\main.h" Guid="d9b6c1e6-e625-4f5a-9ddc-926a61438e6b" /><DocumentWindow Key="C:\Users\vboxuser\HuskyRobotics\General_Purpose_Motor_Board_PY2023\GeneralPurposeMotorBoard\GeneralPurposeMotorBoard.cydsn\PID.c" Guid="ab0f7869-f770-4cac-8b98-ea0ea31829ef" /><DocumentWindow Key="C:\Users\vboxuser\HuskyRobotics\General_Purpose_Motor_Board_PY2023\GeneralPurposeMotorBoard\GeneralPurposeMotorBoard.cydsn\PID.h" Guid="b0ca76bc-0821-4dd8-b33b-f89df81b7f3f" /><DocumentWindow Key="C:\Users\vboxuser\HuskyRobotics\General_Purpose_Motor_Board_PY2023\GeneralPurposeMotorBoard\GeneralPurposeMotorBoard.cydsn\MotorDrive.c" Guid="d870a852-826c-4c29-9ed6-35400f47705b" /><DocumentWindow Key="C:\Users\vboxuser\HuskyRobotics\General_Purpose_Motor_Board_PY2023\GeneralPurposeMotorBoard\GeneralPurposeMotorBoard.cydsn\MotorDrive.h" Guid="5b25f4ad-263c-4266-8a26-4b9ca715b509" /><DocumentWindow Key="C:\Users\vboxuser\HuskyRobotics\General_Purpose_Motor_Board_PY2023\GeneralPurposeMotorBoard\HindsightCAN\CANLibrary.h" Guid="774ced36-b7be-450a-9486-063910bb1b55" /><DocumentWindow Key="C:\Users\vboxuser\HuskyRobotics\General_Purpose_Motor_Board_PY2023\GeneralPurposeMotorBoard\GeneralPurposeMotorBoard.cydsn\MotorBoardCAN.c" Guid="fc8acc2e-b793-4435-8c19-01a438cdbbc5" /><DocumentWindow Key="C:\Users\vboxuser\HuskyRobotics\General_Purpose_Motor_Board_PY2023\GeneralPurposeMotorBoard\GeneralPurposeMotorBoard.cydsn\MotorBoardCAN.h" Guid="3ee71fe3-a6cb-4d41-899a-e8033379cb98" /><DocumentWindow Key="C:\Users\vboxuser\HuskyRobotics\General_Purpose_Motor_Board_PY2023\GeneralPurposeMotorBoard\GeneralPurposeMotorBoard.cydsn\MotorBoardFSM.c" Guid="84eefa8e-21ac-4835-ad95-8093e7be272f" /><DocumentWindow Key="C:\Users\vboxuser\HuskyRobotics\General_Purpose_Motor_Board_PY2023\GeneralPurposeMotorBoard\GeneralPurposeMotorBoard.cydsn\MotorBoardFSM.h" Guid="7aa50373-f727-43d4-9c58-a46829084cd6" /><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="f0e997e1-e1b6-4cfc-835c-b728a7d82915" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>

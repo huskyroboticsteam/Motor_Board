@@ -1,7 +1,7 @@
 #ifndef MAIN_HEADER
 #define MAIN_HEADER
     
-#include <CANLibrary.h>
+#include "..\HindsightCAN\CANLibrary.h"
 #include "cyapicallbacks.h"
 #include <stdint.h>
     
@@ -27,14 +27,13 @@
 #define RGB_LED_ARRAY
 #endif
 
-
-#define TX_DATA_SIZE            (100u)
+#define TX_DATA_SIZE (100u)
 
 //void check_Pin(void);
-    struct Error
-    {
-        uint8_t code, param, done;  
-    };
+struct Error
+{
+    uint8_t code, param, done;  
+};
     
     void Initialize(void);
     
