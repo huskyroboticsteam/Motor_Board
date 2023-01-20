@@ -5,6 +5,7 @@
 #include "MotorBoardCAN.h"
 #include "MotorBoardFSM.h"
 #include "PID.h"
+#include <project.h>
 
 #ifdef RGB_LED_ARRAY
 #include "LED_Array.h"
