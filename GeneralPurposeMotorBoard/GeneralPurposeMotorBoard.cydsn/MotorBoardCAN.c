@@ -14,6 +14,7 @@ extern int16_t nextPWM;
 extern int32_t millidegreeTarget;
 
 void SendEncoderData (CANPacket *packetToSend){
+    PrintCanPacket(*packetToSend);
     AssembleTelemetryReportPacket(packetToSend, DEVICE_GROUP_JETSON, DEVICE_SERIAL_JETSON, 
         PACKET_TELEMETRY_ANG_POSITION, CurrentPositionMiliDegree());
     SendCANPacket(packetToSend);

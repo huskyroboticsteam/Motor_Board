@@ -178,6 +178,7 @@ void Initialize(void) {
     isr_period_PWM_StartEx(Period_Reset_Handler);
 }
 
+// FIXME: receivedPacket should really be a refernce to the can packet to avoid the copy
 void PrintCanPacket(CANPacket receivedPacket){
     for(int i = 0; i < receivedPacket.dlc; i++) {
         sprintf(txData, "Byte%d %x   ", i+1, receivedPacket.data[i]);
