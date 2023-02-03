@@ -27,6 +27,12 @@ extern uint8 invalidate;
 uint8_t ignoreLimSw = 0;
 uint8_t encoderTimeOut = 0;
 
+// Motor Unit Variables
+uint8_t bound_set1;
+uint8_t bound_set2;
+int32_t enc_lim_1;
+int32_t enc_lim_2;
+
 uint8 address = 0;
 
 //Status and Data Structs
@@ -82,6 +88,11 @@ CY_ISR(Pin_Limit_Handler){
     #endif
     //TODO: Select Which Encoder zeros
     //QuadDec_SetCounter(0);
+    if (bound_set1 && ~Pin_Limit_1_Read()) {
+        QuadDec_SetCounter(enc_lim_1);
+    } else {
+        QuadDec_SetCounter(enc_lim_2);
+    }
 }
 
 int main(void)

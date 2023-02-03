@@ -1,4 +1,4 @@
---------------- Rebuild Started: 01/23/2023 17:05:45 Project: GeneralPurposeMotorBoard, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
+--------------- Rebuild Started: 02/04/2023 12:33:53 Project: GeneralPurposeMotorBoard, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
 Deleting file ".\CortexM0\ARM_GCC_541\Debug\main.o"
 Deleting file ".\CortexM0\ARM_GCC_541\Debug\PID.o"
 Deleting file ".\CortexM0\ARM_GCC_541\Debug\CANCommon.o"
@@ -127,7 +127,7 @@ Dependency Generation...
 Cleanup...
 arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I./HindsightCAN -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/main.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -Og -c main.c -o .\CortexM0\ARM_GCC_541\Debug\main.o
 main.c: In function 'Period_Reset_Handler':
-main.c:39:9: warning: unused variable 'timer' [-Wunused-variable]
+main.c:45:9: warning: unused variable 'timer' [-Wunused-variable]
      int timer = Timer_PWM_ReadStatusRegister();
          ^
 arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I./HindsightCAN -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/PID.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -Og -c PID.c -o .\CortexM0\ARM_GCC_541\Debug\PID.o
@@ -143,12 +143,12 @@ arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I./HindsightCAN -I. -IGenerated_S
 arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I./HindsightCAN -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/MotorBoardFSM.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -Og -c MotorBoardFSM.c -o .\CortexM0\ARM_GCC_541\Debug\MotorBoardFSM.o
 arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I./HindsightCAN -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/PortPSOC_CY8C4248AZI_L485.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -Og -c ..\HindsightCAN\PortFiles\PortPSOC_CY8C4248AZI_L485.c -o .\CortexM0\ARM_GCC_541\Debug\PortPSOC_CY8C4248AZI_L485.o
 In file included from Generated_Source\PSoC4/project.h:27:0,
-                 from ..\HindsightCAN\PortFiles\PortPSOC_CY8C4248AZI_L485.c:12:
+                 from ..\HindsightCAN\PortFiles\PortPSOC_CY8C4248AZI_L485.c:13:
 ..\HindsightCAN\PortFiles\PortPSOC_CY8C4248AZI_L485.c: In function 'CAN_FLAG_ISR':
 Generated_Source\PSoC4/CAN.h:566:58: warning: 'mailbox' may be used uninitialized in this function [-Wmaybe-uninitialized]
  #define CAN_RX_CMD_REG(i)            (*(reg32 *) (&CAN_RX[i].rxcmd))
                                                           ^
-..\HindsightCAN\PortFiles\PortPSOC_CY8C4248AZI_L485.c:172:13: note: 'mailbox' was declared here
+..\HindsightCAN\PortFiles\PortPSOC_CY8C4248AZI_L485.c:173:13: note: 'mailbox' was declared here
      uint8_t mailbox;
              ^
 arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I./HindsightCAN -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/cyfitter_cfg.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC4\cyfitter_cfg.c -o .\CortexM0\ARM_GCC_541\Debug\cyfitter_cfg.o
@@ -246,6 +246,6 @@ No ELF section .cychecksum found, creating one
 Application checksum calculated and stored in ELF section .cychecksum
 Checksum calculated and stored in ELF section .cymeta
 cyelftool.exe -S C:\Users\vboxuser\HuskyRobotics\General_Purpose_Motor_Board_PY2023\GeneralPurposeMotorBoard\GeneralPurposeMotorBoard.cydsn\CortexM0\ARM_GCC_541\Debug\GeneralPurposeMotorBoard.elf
-Flash used: 11054 of 262144 bytes (4.2%).
-SRAM used: 3040 of 32768 bytes (9.3%). Stack: 2048 bytes. Heap: 128 bytes.
---------------- Rebuild Succeeded: 01/23/2023 17:06:16 ---------------
+Flash used: 13934 of 262144 bytes (5.3%).
+SRAM used: 3072 of 32768 bytes (9.4%). Stack: 2048 bytes. Heap: 128 bytes.
+--------------- Rebuild Succeeded: 02/04/2023 12:34:50 ---------------

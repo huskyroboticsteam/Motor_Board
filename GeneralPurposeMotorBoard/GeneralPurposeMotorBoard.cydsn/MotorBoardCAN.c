@@ -13,11 +13,24 @@ extern uint8_t address;
 extern int16_t nextPWM;
 extern int32_t millidegreeTarget;
 
+extern uint8_t bound_set1;
+extern uint8_t bound_set2;
+extern int32_t enc_lim_1;
+extern int32_t enc_lim_2;
+
 void SendEncoderData (CANPacket *packetToSend){
     PrintCanPacket(*packetToSend);
     AssembleTelemetryReportPacket(packetToSend, DEVICE_GROUP_JETSON, DEVICE_SERIAL_JETSON, 
         PACKET_TELEMETRY_ANG_POSITION, CurrentPositionMiliDegree());
     SendCANPacket(packetToSend);
+}
+
+static int32_t GetEncoderValueFromPacket(const CANPacket* packet) {
+    return DecodeBytesToIntMSBFirst(packet->data, 2, 5);   
+}
+
+static int32_t GetLimSwNumFromPacket(const CANPacket* packet) {
+    return packet->data[1];   
 }
 
 //Reads from CAN FIFO and changes the state and mode accordingly
@@ -116,7 +129,21 @@ void NextStateFromCAN(CANPacket *receivedPacket, CANPacket *packetToSend) {
         case(ID_MOTOR_UNIT_MAX_PID_PWM):
             SetMaxPIDPWM(GetMaxPIDPWMFromPacket(receivedPacket));
             SetStateTo(CHECK_CAN);
-            break;    
+            break;
+            
+        case(ID_MOTOR_UNIT_SET_ENCODER_BOUND):
+            // Pin_Limit_1 will read 0 if it is the triggered limit switch.
+            // See top design for the not gates that sit after the limit
+            // switches.
+            if (GetLimSwNumFromPacket(receivedPacket)) { // Limit 1
+                bound_set1 = 1;
+                enc_lim_1 = GetEncoderValueFromPacket(receivedPacket);
+            } else { // Limit 2
+                bound_set2 = 2;
+                enc_lim_2 = GetEncoderValueFromPacket(receivedPacket);
+            }
+            SetStateTo(CHECK_CAN);
+            break;
         
         // Common Packets 
         case(ID_ESTOP):
