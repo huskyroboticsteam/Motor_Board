@@ -3,6 +3,7 @@
 #include "MotorBoardFSM.h"
 #include "MotorDrive.h"
 #include "PID.h"
+#include "../HindsightCAN/CANMotorUnit.h"
 
 #ifdef RGB_LED_ARRAY
 #include "LED_Array.h"
@@ -23,14 +24,6 @@ void SendEncoderData (CANPacket *packetToSend){
     AssembleTelemetryReportPacket(packetToSend, DEVICE_GROUP_JETSON, DEVICE_SERIAL_JETSON, 
         PACKET_TELEMETRY_ANG_POSITION, CurrentPositionMiliDegree());
     SendCANPacket(packetToSend);
-}
-
-static int32_t GetEncoderValueFromPacket(const CANPacket* packet) {
-    return DecodeBytesToIntMSBFirst(packet->data, 2, 5);   
-}
-
-static int32_t GetLimSwNumFromPacket(const CANPacket* packet) {
-    return packet->data[1];   
 }
 
 //Reads from CAN FIFO and changes the state and mode accordingly
@@ -132,9 +125,6 @@ void NextStateFromCAN(CANPacket *receivedPacket, CANPacket *packetToSend) {
             break;
             
         case(ID_MOTOR_UNIT_SET_ENCODER_BOUND):
-            // Pin_Limit_1 will read 0 if it is the triggered limit switch.
-            // See top design for the not gates that sit after the limit
-            // switches.
             if (GetLimSwNumFromPacket(receivedPacket)) { // Limit 1
                 bound_set1 = 1;
                 enc_lim_1 = GetEncoderValueFromPacket(receivedPacket);
