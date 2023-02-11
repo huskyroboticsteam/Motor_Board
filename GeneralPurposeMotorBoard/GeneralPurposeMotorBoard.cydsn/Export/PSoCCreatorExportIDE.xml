@@ -255,6 +255,21 @@
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\Pin_Direction_PM.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\isr_Limit_1.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\isr_Limit_1.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\StripLights.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\StripLights.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\StripLights_fonts.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\StripLights_fonts.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\Array_LED.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\Array_LED.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\Array_LED_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\Array_LED_PM.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\StripLights_StringSel.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\StripLights_StringSel.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\StripLights_StringSel_PM.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\StripLights_cisr.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\StripLights_cisr.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\StripLights_fisr.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\StripLights_fisr.h</File>
         </Files>
       </Folder>
       <Folder BuildType="EXCLUDE" Path=".\codegentemp">
