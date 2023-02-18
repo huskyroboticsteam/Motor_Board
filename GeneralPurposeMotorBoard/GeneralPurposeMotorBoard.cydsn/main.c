@@ -98,6 +98,7 @@ CY_ISR(Pin_Limit_Handler){
 int main(void)
 { 
     Initialize();
+  
     #ifdef RGB_LED_ARRAY
     StripLights_DisplayClear(StripLights_BLACK);
     #endif
@@ -184,7 +185,7 @@ void Initialize(void) {
     Timer_PWM_Start();
     QuadDec_Start();
     PWM_Motor_Start();  
-
+    //set_PWM(0, 0, 0);   
     isr_Limit_1_StartEx(Pin_Limit_Handler);
     isr_period_PWM_StartEx(Period_Reset_Handler);
 }
