@@ -20,7 +20,7 @@ extern int32_t enc_lim_1;
 extern int32_t enc_lim_2;
 
 void SendEncoderData (CANPacket *packetToSend){
-    PrintCanPacket(*packetToSend);
+    //PrintCanPacket(*packetToSend);
     AssembleTelemetryReportPacket(packetToSend, DEVICE_GROUP_JETSON, DEVICE_SERIAL_JETSON, 
         PACKET_TELEMETRY_ANG_POSITION, CurrentPositionMiliDegree());
     SendCANPacket(packetToSend);
@@ -125,13 +125,15 @@ void NextStateFromCAN(CANPacket *receivedPacket, CANPacket *packetToSend) {
             break;
             
         case(ID_MOTOR_UNIT_SET_ENCODER_BOUND):
-            if (GetLimSwNumFromPacket(receivedPacket)) { // Limit 1
+            UART_UartPutString("Updating Encoder");
+            if (GetLimSwNumFromPacket(receivedPacket)) { // Limit 2
+                bound_set2 = 1;
+                enc_lim_2 = GetEncoderValueFromPacket(receivedPacket);
+            } else { // Limit 1
                 bound_set1 = 1;
                 enc_lim_1 = GetEncoderValueFromPacket(receivedPacket);
-            } else { // Limit 2
-                bound_set2 = 2;
-                enc_lim_2 = GetEncoderValueFromPacket(receivedPacket);
             }
+            
             SetStateTo(CHECK_CAN);
             break;
         

@@ -1,11 +1,12 @@
 #include <main.h>
-// #include "Motor_Unit_Debug.h"
+#include "Motor_Unit_Debug.h"
 #include "cyapicallbacks.h"
 #include "MotorDrive.h"
 #include "MotorBoardCAN.h"
 #include "MotorBoardFSM.h"
 #include "PID.h"
 #include <project.h>
+#include <math.h>
 
 #ifdef RGB_LED_ARRAY
 #include "LED_Array.h"
@@ -60,10 +61,10 @@ CY_ISR(Period_Reset_Handler) {
         ERROR_LED_Write(LED_OFF);
         #endif
         #ifdef DEBUG_LED1   
-        Debug_1_Write(LED_OFF);
+        DEBUG_LED_1_Write(LED_OFF);
         #endif
         #ifdef DEBUG_LED2
-        Debug_2_Write(LED_OFF);
+        DEBUG_LED_2_Write(LED_OFF);
         #endif
     }
     if (CAN_time_LED >= 3){
@@ -86,12 +87,24 @@ CY_ISR(Pin_Limit_Handler){
         DEVICE_SERIAL_JETSON, Status_Reg_Switches_Read() & 0b11);
     SendCANPacket(&can_send);
     #endif
-    //TODO: Select Which Encoder zeros
-    //QuadDec_SetCounter(0);
-    if (bound_set1 && ~Pin_Limit_1_Read()) {
-        QuadDec_SetCounter(enc_lim_1);
-    } else {
-        QuadDec_SetCounter(enc_lim_2);
+    
+    char num[256];
+    sprintf(num,"LimitSW enc lim 1: %i \r\n", enc_lim_1);
+    UART_UartPutString(num);
+    
+    char num2[256];
+    sprintf(num2,"LimitSW enc lim 2: %i \r\n", enc_lim_2);
+    UART_UartPutString(num2);
+            
+
+    UART_UartPutString("Limit hit\n\r");
+    if (bound_set1 && Pin_Limit_1_Read()) {
+        QuadDec_SetCounter((int)round(GetkPPJR() / (360*1000.0) * enc_lim_1));
+        UART_UartPutString("Change limit 1\n\r");
+    }
+    if (bound_set2 && Pin_Limit_2_Read()){
+        UART_UartPutString("Change limit 2\n\r");
+        QuadDec_SetCounter((int)round(GetkPPJR() / (360*1000.0) * enc_lim_2));
     }
 }
 
@@ -162,20 +175,18 @@ void Initialize(void) {
     
     address = Can_addr_Read();
     
-    #ifdef ENABLE_DEBUG_UART
     UART_Start();
     sprintf(txData, "Dip Addr: %x \r\n", address);
     UART_UartPutString(txData);
-    #endif
     
     #ifdef ERROR_LED
     ERROR_LED_Write(~(address >> 3 & 1));
     #endif
     #ifdef DEBUG_LED2
-    Debug_2_Write(~(address >> 2) & 1);
+    DEBUG_LED_2_Write(~(address >> 2) & 1);
     #endif
     #ifdef DEBUG_LED1
-    Debug_1_Write(~(address >> 1) & 1);
+    DEBUG_LED_1_Write(~(address >> 1) & 1);
     #endif 
     #ifdef CAN_LED
     CAN_LED_Write(~address & 1);
@@ -185,7 +196,6 @@ void Initialize(void) {
     Timer_PWM_Start();
     QuadDec_Start();
     PWM_Motor_Start();  
-    //set_PWM(0, 0, 0);   
     isr_Limit_1_StartEx(Pin_Limit_Handler);
     isr_period_PWM_StartEx(Period_Reset_Handler);
 }
@@ -220,10 +230,10 @@ void DisplayErrorCode(uint8_t code)
     ERROR_LED_Write(LED_OFF);
     #endif
     #ifdef DEBUG_LED1   
-    Debug_1_Write(LED_OFF);
+    DEBUG_LED_1_Write(LED_OFF);
     #endif
     #ifdef DEBUG_LED2
-    Debug_2_Write(LED_OFF);
+    DEBUG_LED_2_Write(LED_OFF);
     #endif
     
     ERRORTimeLED = 0;
@@ -238,20 +248,20 @@ void DisplayErrorCode(uint8_t code)
         //case0: CAN Packet ERROR
         case 1://Mode Error
             #ifdef DEBUG_LED1
-            Debug_1_Write(LED_ON);
+            DEBUG_LED_1_Write(LED_ON);
             #endif
             break;
         case 2:
             #ifdef DEBUG_LED2
-            Debug_2_Write(LED_ON);
+            DEBUG_LED_2_Write(LED_ON);
             #endif
             break;
         case 3:
             #ifdef DEBUG_LED1
-            Debug_1_Write(LED_ON);
+            DEBUG_LED_1_Write(LED_ON);
             #endif
             #ifdef DEBUG_LED2
-            Debug_2_Write(LED_ON);
+            DEBUG_LED_2_Write(LED_ON);
             #endif
             break;
         default:

@@ -2,11 +2,14 @@
 #include "MotorDrive.h"
 #include "main.h"
 #include <project.h>
+#include <math.h>
 
 int32_t kPosition = 0;
 int32_t kIntegral = 0;
 int32_t kDerivative = 0;
+
 int32_t kPPJR = 0;
+
 int32_t PWM = 0;
 extern uint8_t ignoreLimSw;
 
@@ -103,8 +106,16 @@ void SetEncoderDirReverse() {
 int32_t CurrentPositionMiliDegree() {
     if(kPPJR == 0){
         return(0);
-    }
-    return GetEncoderValWithFlip() * (360*1000) / kPPJR;
+}
+    char num2[256];
+    sprintf(num2, "kPPJR: %i \r\n", kPPJR);
+    UART_UartPutString(num2);
+    sprintf(num2, "encoder val with flip: %i \r\n", GetEncoderValWithFlip());
+    UART_UartPutString(num2);
+    sprintf(num2, "Calculated Output: %i \r\n", GetEncoderValWithFlip() / kPPJR * (360*1000));
+    UART_UartPutString(num2);
+            
+    return  (int)round((360*1000.0) / kPPJR * GetEncoderValWithFlip());
 }
 
 void SetPosition(int32 miliDegrees) {

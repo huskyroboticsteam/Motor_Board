@@ -57,6 +57,7 @@
       <Data key="87751362-f05a-4cc9-b296-a3539249d52a" value="ADC_1M" />
       <Data key="ad82ad6e-322a-4c7c-8682-35f63c06aba0" value="Pin_Direction" />
       <Data key="b2e995a3-8707-4f23-863c-c4376e243667" value="Timer_Pin" />
+      <Data key="b1670605-7250-4a33-985a-95aceb87f38f" value="DEBUG_LED_2" />
       <Data key="b9487517-3c90-471a-95ba-b15914e5156a" value="Output_Pin_1" />
       <Data key="c0de87f6-3ce1-4837-a376-c54a5dde46bb" value="Input_Pin_1" />
       <Data key="c5249b6c-689b-4051-b3d0-0b1dfdd156c9" value="CompP_0" />
@@ -4017,6 +4018,11 @@
         <Data key="Port Format" value="7,1" />
       </Group>
     </Group>
+    <Group key="b1670605-7250-4a33-985a-95aceb87f38f">
+      <Group key="0">
+        <Data key="Port Format" value="2,2" />
+      </Group>
+    </Group>
     <Group key="e3ae2d66-8c66-4c90-bcd0-b660d527cd1a">
       <Group key="0">
         <Data key="Port Format" value="2,5" />
@@ -4043,7 +4049,7 @@
     <Data key="CYDEV_TEMPERATURE" value="-40C - 85C" />
     <Data key="CYDEV_USE_BUNDLED_CMSIS" value="True" />
     <Data key="CYDEV_VARIABLE_VDDA" value="True" />
-    <Data key="CYDEV_VBUS" value="5.0" />
+    <Data key="CYDEV_VBUS" value="3.3" />
     <Data key="CYDEV_VDDA" value="3.3" />
     <Data key="CYDEV_VDDD" value="3.3" />
     <Data key="CYDEV_VDDIO" value="3.3" />

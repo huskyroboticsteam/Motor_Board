@@ -7,7 +7,7 @@
       <Tool Name="prebuild" Command="" Options="" />
       <Tool Name="assembler" Command="arm-none-eabi-as.exe" Options="-mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -alh=${OutputDir}/${CompileFile}.lst -g -W" />
       <Tool Name="compiler" Command="arm-none-eabi-gcc.exe" Options="-mcpu=cortex-m0 -mthumb -I./HindsightCAN -I. -IGenerated_Source\PSoC4 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -Og -D CHIP_TYPE=CHIP_TYPE_PSOC_CY8C4248AZI_L485" />
-      <Tool Name="linker" Command="arm-none-eabi-gcc.exe" Options="-mcpu=cortex-m0 -mthumb -L Generated_Source\PSoC4 -Wl,-Map,${OutputDir}/${ProjectShortName}.map -T Generated_Source\PSoC4\cm0gcc.ld -specs=nano.specs -Wl,--gc-sections -g -ffunction-sections -Og -ffat-lto-objects" />
+      <Tool Name="linker" Command="arm-none-eabi-gcc.exe" Options="-mcpu=cortex-m0 -mthumb -l &quot;\&quot;m\&quot;&quot; -L Generated_Source\PSoC4 -Wl,-Map,${OutputDir}/${ProjectShortName}.map -T Generated_Source\PSoC4\cm0gcc.ld -specs=nano.specs -Wl,--gc-sections -g -ffunction-sections -Og -ffat-lto-objects" />
       <Tool Name="postbuild" Command="" Options="" />
     </Toolchain>
     <Toolchain Name="ARM MDK Generic" Selected="False">
@@ -54,6 +54,7 @@
           <File BuildType="BUILD" Toolchain="">MotorBoardFSM.c</File>
           <File BuildType="BUILD" Toolchain="">MotorBoardFSM.h</File>
           <File BuildType="BUILD" Toolchain="">..\HindsightCAN\PortFiles\PortPSOC_CY8C4248AZI_L485.c</File>
+          <File BuildType="BUILD" Toolchain="">LED_Array.c</File>
           <File BuildType="BUILD" Toolchain="">cyapicallbacks.h</File>
           <File BuildType="BUILD" Toolchain="">..\HindsightCAN\CANCommon.h</File>
           <File BuildType="BUILD" Toolchain="">..\HindsightCAN\CANGPIO.h</File>
@@ -64,6 +65,8 @@
           <File BuildType="BUILD" Toolchain="">..\HindsightCAN\CANPower.h</File>
           <File BuildType="BUILD" Toolchain="">..\HindsightCAN\CANScience.h</File>
           <File BuildType="BUILD" Toolchain="">..\HindsightCAN\CANSerialNumbers.h</File>
+          <File BuildType="BUILD" Toolchain="">Motor_Unit_Debug.h</File>
+          <File BuildType="BUILD" Toolchain="">LED_Array.h</File>
         </Files>
       </Folder>
       <Folder BuildType="STRICT" Path="C:\Users\davis\Documents\PSoC Creator\General_Purpose_Motor_Board_PY2023\GeneralPurposeMotorBoard\GeneralPurposeMotorBoard.cydsn\Generated_Source\PSoC4">
@@ -270,6 +273,10 @@
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\cycodeshareimport.ld</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\cycodeshareexport.ld</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\cycodeshareimport.scat</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\DEBUG_LED_2.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\DEBUG_LED_2.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\DEBUG_LED_2_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC4\DEBUG_LED_2_PM.c</File>
         </Files>
       </Folder>
       <Folder BuildType="EXCLUDE" Path=".\codegentemp">
