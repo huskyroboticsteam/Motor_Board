@@ -37,8 +37,8 @@
     #define CAN_LED
     #define DEBUG_LED
     #define DEBUG_LED1
-    #define DEBUG_LED2
-    #define RGB_LED_ARRAY
+    //#define DEBUG_LED2
+    //#define RGB_LED_ARRAY
     
     #define DEV_TEST
 #endif

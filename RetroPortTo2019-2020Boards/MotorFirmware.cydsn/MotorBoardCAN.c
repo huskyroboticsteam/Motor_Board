@@ -29,6 +29,7 @@ void SendEncoderData (CANPacket *packetToSend){
 //Reads from CAN FIFO and changes the state and mode accordingly
 void NextStateFromCAN(CANPacket *receivedPacket, CANPacket *packetToSend) {
     uint16_t packageID = ReadCAN(receivedPacket);
+    
     switch(packageID) {
         case(ID_MOTOR_UNIT_MODE_SEL):
             if(GetModeFromPacket(receivedPacket) == MOTOR_UNIT_MODE_PWM) {

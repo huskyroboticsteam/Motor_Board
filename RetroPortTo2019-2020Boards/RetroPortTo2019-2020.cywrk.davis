@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CyXmlSerializer>
+<!--This file is machine generated and read. It is not intended to be edited by hand.-->
+<!--Due to this, there is no schema for this file.-->
+<CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21 type_name="CyDesigner.Common.ProjMgmt.Model.CyPrjMgmtWrkspcCustomData" version="4">
+<CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997 type_name="CyDesigner.Common.Base.CyCustomData" version="2">
+<userData>
+<dataGuid v="1b906a0f-a7b6-4e4d-a428-82f98b53cb35">
+<CyGuid_1b906a0f-a7b6-4e4d-a428-82f98b53cb35 type_name="CyDesigner.Common.ProjMgmt.GUI.CyExplorerWindow+CyExplorerWindowState" version="3" SelectedTab="Source">
+<TreeKeys>
+<v>Source</v>
+<v>Components</v>
+<v>Output</v>
+</TreeKeys>
+<TreeStates>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="RetroPortTo2019-2020\MotorFirmware\Source Files\MotorDrive.c">
+<ExpandedNodeIds>
+<v>RetroPortTo2019-2020</v>
+<v>RetroPortTo2019-2020\MotorFirmware</v>
+<v>RetroPortTo2019-2020\MotorFirmware\TopDesign</v>
+<v>RetroPortTo2019-2020\MotorFirmware\MotorFirmware.cydwr</v>
+<v>RetroPortTo2019-2020\MotorFirmware\MotorFirmware.cydwr\Pins</v>
+<v>RetroPortTo2019-2020\MotorFirmware\MotorFirmware.cydwr\Analog</v>
+<v>RetroPortTo2019-2020\MotorFirmware\MotorFirmware.cydwr\DMA</v>
+<v>RetroPortTo2019-2020\MotorFirmware\MotorFirmware.cydwr\Clocks</v>
+<v>RetroPortTo2019-2020\MotorFirmware\MotorFirmware.cydwr\Interrupts</v>
+<v>RetroPortTo2019-2020\MotorFirmware\MotorFirmware.cydwr\System</v>
+<v>RetroPortTo2019-2020\MotorFirmware\MotorFirmware.cydwr\Directives</v>
+<v>RetroPortTo2019-2020\MotorFirmware\MotorFirmware.cydwr\Flash Security</v>
+<v>RetroPortTo2019-2020\MotorFirmware\Header Files</v>
+<v>RetroPortTo2019-2020\MotorFirmware\Header Files\CANCommon.h</v>
+<v>RetroPortTo2019-2020\MotorFirmware\Header Files\CANGPIO.h</v>
+<v>RetroPortTo2019-2020\MotorFirmware\Header Files\CANLibrary.h</v>
+<v>RetroPortTo2019-2020\MotorFirmware\Header Files\CANLocalization.h</v>
+<v>RetroPortTo2019-2020\MotorFirmware\Header Files\CANMotorUnit.h</v>
+<v>RetroPortTo2019-2020\MotorFirmware\Header Files\CANPacket.h</v>
+<v>RetroPortTo2019-2020\MotorFirmware\Header Files\CANPower.h</v>
+<v>RetroPortTo2019-2020\MotorFirmware\Header Files\CANScience.h</v>
+<v>RetroPortTo2019-2020\MotorFirmware\Header Files\CANSerialNumbers.h</v>
+<v>RetroPortTo2019-2020\MotorFirmware\Header Files\cyapicallbacks.h</v>
+<v>RetroPortTo2019-2020\MotorFirmware\Header Files\LED_Array.h</v>
+<v>RetroPortTo2019-2020\MotorFirmware\Header Files\Motor_Unit_Debug.h</v>
+<v>RetroPortTo2019-2020\MotorFirmware\Source Files</v>
+<v>RetroPortTo2019-2020\MotorFirmware\Source Files\CANCommon.c</v>
+<v>RetroPortTo2019-2020\MotorFirmware\Source Files\CANGPIO.c</v>
+<v>RetroPortTo2019-2020\MotorFirmware\Source Files\CANLocalization.c</v>
+<v>RetroPortTo2019-2020\MotorFirmware\Source Files\CANMotorUnit.c</v>
+<v>RetroPortTo2019-2020\MotorFirmware\Source Files\CANPacket.c</v>
+<v>RetroPortTo2019-2020\MotorFirmware\Source Files\CANPower.c</v>
+<v>RetroPortTo2019-2020\MotorFirmware\Source Files\CANScience.c</v>
+<v>RetroPortTo2019-2020\MotorFirmware\Source Files\LED_Array.c</v>
+<v>RetroPortTo2019-2020\MotorFirmware\Source Files\main.c</v>
+<v>RetroPortTo2019-2020\MotorFirmware\Source Files\main.h</v>
+<v>RetroPortTo2019-2020\MotorFirmware\Source Files\MotorBoardCAN.c</v>
+<v>RetroPortTo2019-2020\MotorFirmware\Source Files\MotorBoardCAN.h</v>
+<v>RetroPortTo2019-2020\MotorFirmware\Source Files\MotorBoardFSM.c</v>
+<v>RetroPortTo2019-2020\MotorFirmware\Source Files\MotorBoardFSM.h</v>
+<v>RetroPortTo2019-2020\MotorFirmware\Source Files\MotorDrive.c</v>
+<v>RetroPortTo2019-2020\MotorFirmware\Source Files\MotorDrive.h</v>
+<v>RetroPortTo2019-2020\MotorFirmware\Source Files\PID.c</v>
+<v>RetroPortTo2019-2020\MotorFirmware\Source Files\PID.h</v>
+<v>RetroPortTo2019-2020\MotorFirmware\Source Files\PortPSOC_CY8C4248AZI_L485.c</v>
+<v>RetroPortTo2019-2020\MotorFirmware\Generated_Source</v>
+<v>RetroPortTo2019-2020\MotorFirmware\Generated_Source\PSoC4</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>RetroPortTo2019-2020\MotorFirmware\MotorFirmware.cydwr\DMA</v>
+<v>RetroPortTo2019-2020\MotorFirmware\MotorFirmware.cydwr\Clocks</v>
+<v>RetroPortTo2019-2020\MotorFirmware\MotorFirmware.cydwr\Interrupts</v>
+<v>RetroPortTo2019-2020\MotorFirmware\MotorFirmware.cydwr\System</v>
+<v>RetroPortTo2019-2020\MotorFirmware\MotorFirmware.cydwr\Directives</v>
+<v>RetroPortTo2019-2020\MotorFirmware\MotorFirmware.cydwr\Flash Security</v>
+<v>RetroPortTo2019-2020\MotorFirmware\Header Files</v>
+<v>RetroPortTo2019-2020\MotorFirmware\Header Files\CANCommon.h</v>
+<v>RetroPortTo2019-2020\MotorFirmware\Header Files\CANGPIO.h</v>
+<v>RetroPortTo2019-2020\MotorFirmware\Header Files\CANLibrary.h</v>
+<v>RetroPortTo2019-2020\MotorFirmware\Header Files\CANLocalization.h</v>
+<v>RetroPortTo2019-2020\MotorFirmware\Header Files\CANMotorUnit.h</v>
+<v>RetroPortTo2019-2020\MotorFirmware\Header Files\CANPacket.h</v>
+<v>RetroPortTo2019-2020\MotorFirmware\Header Files\CANPower.h</v>
+<v>RetroPortTo2019-2020\MotorFirmware\Header Files\CANScience.h</v>
+<v>RetroPortTo2019-2020\MotorFirmware\Header Files\CANSerialNumbers.h</v>
+<v>RetroPortTo2019-2020\MotorFirmware\Header Files\cyapicallbacks.h</v>
+<v>RetroPortTo2019-2020\MotorFirmware\Header Files\LED_Array.h</v>
+<v>RetroPortTo2019-2020\MotorFirmware\Header Files\Motor_Unit_Debug.h</v>
+<v>RetroPortTo2019-2020\MotorFirmware\Source Files</v>
+<v>RetroPortTo2019-2020\MotorFirmware\Source Files\CANCommon.c</v>
+<v>RetroPortTo2019-2020\MotorFirmware\Source Files\CANGPIO.c</v>
+<v>RetroPortTo2019-2020\MotorFirmware\Source Files\CANLocalization.c</v>
+<v>RetroPortTo2019-2020\MotorFirmware\Source Files\CANMotorUnit.c</v>
+<v>RetroPortTo2019-2020\MotorFirmware\Source Files\CANPacket.c</v>
+<v>RetroPortTo2019-2020\MotorFirmware\Source Files\CANPower.c</v>
+<v>RetroPortTo2019-2020\MotorFirmware\Source Files\CANScience.c</v>
+<v>RetroPortTo2019-2020\MotorFirmware\Source Files\LED_Array.c</v>
+<v>RetroPortTo2019-2020\MotorFirmware\Source Files\main.c</v>
+<v>RetroPortTo2019-2020\MotorFirmware\Source Files\main.h</v>
+<v>RetroPortTo2019-2020\MotorFirmware\Source Files\MotorBoardCAN.c</v>
+<v>RetroPortTo2019-2020\MotorFirmware\Source Files\MotorBoardCAN.h</v>
+<v>RetroPortTo2019-2020\MotorFirmware\Source Files\MotorBoardFSM.c</v>
+<v>RetroPortTo2019-2020\MotorFirmware\Source Files\MotorBoardFSM.h</v>
+<v>RetroPortTo2019-2020\MotorFirmware\Source Files\MotorDrive.c</v>
+<v>RetroPortTo2019-2020\MotorFirmware\Source Files\MotorDrive.h</v>
+<v>RetroPortTo2019-2020\MotorFirmware\Source Files\PID.c</v>
+<v>RetroPortTo2019-2020\MotorFirmware\Source Files\PID.h</v>
+<v>RetroPortTo2019-2020\MotorFirmware\Source Files\PortPSOC_CY8C4248AZI_L485.c</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<ExpandedNodeIds>
+<v>RetroPortTo2019-2020</v>
+<v>RetroPortTo2019-2020\MotorFirmware</v>
+<v>RetroPortTo2019-2020\MotorFirmware\TopDesign</v>
+<v>RetroPortTo2019-2020\MotorFirmware\TopDesign\TopDesign.cysch</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>RetroPortTo2019-2020</v>
+<v>RetroPortTo2019-2020\MotorFirmware</v>
+<v>RetroPortTo2019-2020\MotorFirmware\TopDesign</v>
+<v>RetroPortTo2019-2020\MotorFirmware\TopDesign\TopDesign.cysch</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<ExpandedNodeIds>
+<v>RetroPortTo2019-2020</v>
+<v>RetroPortTo2019-2020\MotorFirmware</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\ADC_SAR_Seq_1.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\ADC_SAR_Seq_1_INT.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\ADC_SAR_Seq_1_intClock.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\ADC_SAR_Seq_1_IRQ.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\ADC_SAR_Seq_1_PM.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\Array_LED.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\Array_LED_PM.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\CAN.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\Can_addr.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\CAN_HFCLK.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\CAN_INT.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\CAN_isr.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\CAN_LED.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\CAN_LED_PM.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\CAN_PM.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\CAN_TX_RX_func.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\CANCommon.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\CANGPIO.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\CANLocalization.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\CANMotorUnit.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\CANPacket.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\CANPower.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\CANScience.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\Clock_2.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\Clock_PWM.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\Cm0Start.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\cy_em_eeprom.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\CyBootAsmGnu.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\CyDMA.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\cyfitter_cfg.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\CyFlash.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\CyLFClk.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\CyLib.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\DEBUG_LED_1.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\DEBUG_LED_1_PM.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\DEBUG_LED_2.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\DEBUG_LED_2_PM.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\Dip_1.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\Dip_1_PM.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\Dip_2.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\Dip_2_PM.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\Dip_3.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\Dip_3_PM.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\Dip_4.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\Dip_4_PM.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\ERROR_LED.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\ERROR_LED_PM.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\FAULT_MOTOR.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\FAULT_MOTOR_PM.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\isr_Limit_1.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\isr_period_PWM.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\LED_Array.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\main.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\MotorBoardCAN.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\MotorBoardFSM.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\MotorDrive.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\PID.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\Pin_Direction.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\Pin_Direction_PM.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\Pin_Encoder_A.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\Pin_Encoder_A_PM.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\Pin_Encoder_B.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\Pin_Encoder_B_PM.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\Pin_Encoder_Z.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\Pin_Encoder_Z_PM.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\Pin_Limit_1.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\Pin_Limit_1_PM.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\Pin_Limit_2.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\Pin_Limit_2_PM.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\Pin_Motor.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\Pin_Motor_PM.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\Pin_Pot.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\Pin_Pot_PM.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\PortPSOC_CY8C4248AZI_L485.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\PWM_Motor.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\PWM_Motor_PM.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\QuadDec.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\QuadDec_Cnt16.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\QuadDec_Cnt16_PM.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\QuadDec_INT.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\QuadDec_isr.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\QuadDec_PM.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\RX_1.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\RX_1_PM.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\Status_Reg_Switches.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\StripLights.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\StripLights_cisr.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\StripLights_fisr.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\StripLights_fonts.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\StripLights_StringSel.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\StripLights_StringSel_PM.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\timer_clock.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\Timer_PWM.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\Timer_PWM_PM.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\TX_1.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\TX_1_PM.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\UART.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\UART_BOOT.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\UART_PM.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\UART_rx.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\UART_rx_PM.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\UART_SCBCLK.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\UART_SPI_UART.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\UART_SPI_UART_INT.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\UART_tx.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\UART_tx_PM.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\UART_UART.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\UART_UART_BOOT.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\MotorFirmware.elf</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\MotorFirmware.hex</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\MotorFirmware.map</v>
+<v>RetroPortTo2019-2020\MotorFirmware\MotorFirmware.gpdsc</v>
+<v>RetroPortTo2019-2020\MotorFirmware\MotorFirmware.rpt</v>
+<v>RetroPortTo2019-2020\MotorFirmware\MotorFirmware_timing.html</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>RetroPortTo2019-2020</v>
+<v>RetroPortTo2019-2020\MotorFirmware</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\ADC_SAR_Seq_1.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\ADC_SAR_Seq_1_INT.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\ADC_SAR_Seq_1_intClock.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\ADC_SAR_Seq_1_IRQ.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\ADC_SAR_Seq_1_PM.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\Array_LED.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\Array_LED_PM.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\CAN.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\Can_addr.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\CAN_HFCLK.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\CAN_INT.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\CAN_isr.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\CAN_LED.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\CAN_LED_PM.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\CAN_PM.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\CAN_TX_RX_func.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\CANCommon.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\CANGPIO.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\CANLocalization.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\CANMotorUnit.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\CANPacket.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\CANPower.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\CANScience.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\Clock_2.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\Clock_PWM.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\Cm0Start.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\cy_em_eeprom.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\CyBootAsmGnu.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\CyDMA.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\cyfitter_cfg.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\CyFlash.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\CyLFClk.lst</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CortexM0\ARM_GCC_541\Debug\Listing Files\CyLib.lst</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+</TreeStates>
+<TreeKeysV2>
+<v>Datasheet</v>
+</TreeKeysV2>
+<TreeStatesV2>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<ExpandedNodeIds>
+<v>RetroPortTo2019-2020</v>
+<v>RetroPortTo2019-2020\MotorFirmware</v>
+<v>RetroPortTo2019-2020\MotorFirmware\PSoC 4 Architecture TRM</v>
+<v>RetroPortTo2019-2020\MotorFirmware\PSoC 4200L Family Datasheet</v>
+<v>RetroPortTo2019-2020\MotorFirmware\System Reference Guides</v>
+<v>RetroPortTo2019-2020\MotorFirmware\System Reference Guides\cy_boot_v6_0</v>
+<v>RetroPortTo2019-2020\MotorFirmware\System Reference Guides\cy_dmac_v1_10</v>
+<v>RetroPortTo2019-2020\MotorFirmware\System Reference Guides\cy_lfclk_v1_20</v>
+<v>RetroPortTo2019-2020\MotorFirmware\ADC_SAR_SEQ_P4_v2_50.pdf</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CAN_v3_0.pdf</v>
+<v>RetroPortTo2019-2020\MotorFirmware\cy_clock_v2_20</v>
+<v>RetroPortTo2019-2020\MotorFirmware\cy_clock_v2_20\cy_clock_v2_20.pdf</v>
+<v>RetroPortTo2019-2020\MotorFirmware\cy_isr_v1_70</v>
+<v>RetroPortTo2019-2020\MotorFirmware\cy_isr_v1_70\cy_isr_v1_70.pdf</v>
+<v>RetroPortTo2019-2020\MotorFirmware\cy_pins_v2_20</v>
+<v>RetroPortTo2019-2020\MotorFirmware\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CyStatusReg_v1_90</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CyStatusReg_v1_90\CyStatusReg_v1_90.pdf</v>
+<v>RetroPortTo2019-2020\MotorFirmware\Debouncer_v1_0.pdf</v>
+<v>RetroPortTo2019-2020\MotorFirmware\Gnd_v1_0</v>
+<v>RetroPortTo2019-2020\MotorFirmware\Gnd_v1_0\Gnd_v1_0.pdf</v>
+<v>RetroPortTo2019-2020\MotorFirmware\not_v1_0</v>
+<v>RetroPortTo2019-2020\MotorFirmware\not_v1_0\not_v1_0.pdf</v>
+<v>RetroPortTo2019-2020\MotorFirmware\QuadDec_v3_0.pdf</v>
+<v>RetroPortTo2019-2020\MotorFirmware\SCB_P4_v4_0.pdf</v>
+<v>RetroPortTo2019-2020\MotorFirmware\StripLights.pdf</v>
+<v>RetroPortTo2019-2020\MotorFirmware\SwitchSPST_v1_0</v>
+<v>RetroPortTo2019-2020\MotorFirmware\SwitchSPST_v1_0\SwitchSPST_v1_0.pdf</v>
+<v>RetroPortTo2019-2020\MotorFirmware\TCPWM_P4_v2_10.pdf</v>
+<v>RetroPortTo2019-2020\MotorFirmware\Timer_v2_80.pdf</v>
+<v>RetroPortTo2019-2020\MotorFirmware\ZeroTerminal.pdf</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>RetroPortTo2019-2020</v>
+<v>RetroPortTo2019-2020\MotorFirmware</v>
+<v>RetroPortTo2019-2020\MotorFirmware\PSoC 4 Architecture TRM</v>
+<v>RetroPortTo2019-2020\MotorFirmware\PSoC 4200L Family Datasheet</v>
+<v>RetroPortTo2019-2020\MotorFirmware\System Reference Guides</v>
+<v>RetroPortTo2019-2020\MotorFirmware\System Reference Guides\cy_boot_v6_0</v>
+<v>RetroPortTo2019-2020\MotorFirmware\System Reference Guides\cy_dmac_v1_10</v>
+<v>RetroPortTo2019-2020\MotorFirmware\System Reference Guides\cy_lfclk_v1_20</v>
+<v>RetroPortTo2019-2020\MotorFirmware\ADC_SAR_SEQ_P4_v2_50.pdf</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CAN_v3_0.pdf</v>
+<v>RetroPortTo2019-2020\MotorFirmware\cy_clock_v2_20</v>
+<v>RetroPortTo2019-2020\MotorFirmware\cy_clock_v2_20\cy_clock_v2_20.pdf</v>
+<v>RetroPortTo2019-2020\MotorFirmware\cy_isr_v1_70</v>
+<v>RetroPortTo2019-2020\MotorFirmware\cy_isr_v1_70\cy_isr_v1_70.pdf</v>
+<v>RetroPortTo2019-2020\MotorFirmware\cy_pins_v2_20</v>
+<v>RetroPortTo2019-2020\MotorFirmware\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CyStatusReg_v1_90</v>
+<v>RetroPortTo2019-2020\MotorFirmware\CyStatusReg_v1_90\CyStatusReg_v1_90.pdf</v>
+<v>RetroPortTo2019-2020\MotorFirmware\Debouncer_v1_0.pdf</v>
+<v>RetroPortTo2019-2020\MotorFirmware\Gnd_v1_0</v>
+<v>RetroPortTo2019-2020\MotorFirmware\Gnd_v1_0\Gnd_v1_0.pdf</v>
+<v>RetroPortTo2019-2020\MotorFirmware\not_v1_0</v>
+<v>RetroPortTo2019-2020\MotorFirmware\not_v1_0\not_v1_0.pdf</v>
+<v>RetroPortTo2019-2020\MotorFirmware\QuadDec_v3_0.pdf</v>
+<v>RetroPortTo2019-2020\MotorFirmware\SCB_P4_v4_0.pdf</v>
+<v>RetroPortTo2019-2020\MotorFirmware\StripLights.pdf</v>
+<v>RetroPortTo2019-2020\MotorFirmware\SwitchSPST_v1_0</v>
+<v>RetroPortTo2019-2020\MotorFirmware\SwitchSPST_v1_0\SwitchSPST_v1_0.pdf</v>
+<v>RetroPortTo2019-2020\MotorFirmware\TCPWM_P4_v2_10.pdf</v>
+<v>RetroPortTo2019-2020\MotorFirmware\Timer_v2_80.pdf</v>
+<v>RetroPortTo2019-2020\MotorFirmware\ZeroTerminal.pdf</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+</TreeStatesV2>
+</CyGuid_1b906a0f-a7b6-4e4d-a428-82f98b53cb35>
+</dataGuid>
+<dataGuid v="5f2be1a5-0687-4501-bb8c-cf21cb8211bf">
+<CyGuid_5f2be1a5-0687-4501-bb8c-cf21cb8211bf type_name="CyDesigner.Common.ProjMgmt.GUI.CyBookmarkData" version="1">
+<indicators />
+</CyGuid_5f2be1a5-0687-4501-bb8c-cf21cb8211bf>
+</dataGuid>
+</userData>
+</CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>
+<Unloaded />
+<OpenDocs>
+<name v=".\MotorFirmware.cydsn\MotorFirmware.cydwr" />
+<name v=".\MotorFirmware.cydsn\TopDesign\TopDesign.cysch" />
+<name v=".\MotorFirmware.cydsn\main.c" />
+<name v=".\MotorFirmware.cydsn\MotorBoardCAN.c" />
+<name v=".\MotorFirmware.cydsn\MotorDrive.c" />
+</OpenDocs>
+<OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
+
+  Actipro Docking/MDI for WinForms
+  Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
+  http://www.actiprosoftware.com
+
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1536, 757" SelectedTabbedMdiWindow="48f2b410-e71a-4f76-b766-359404862fc7"><DocumentWindow Key="C:\Users\davis\Documents\PSoC Creator\General_Purpose_Motor_Board_PY2023\RetroPortTo2019-2020Boards\MotorFirmware.cydsn\MotorFirmware.cydwr" Guid="c2d4f6a1-6e69-4ba0-8368-19cec5024c55" /><DocumentWindow Key="C:\Users\davis\Documents\PSoC Creator\General_Purpose_Motor_Board_PY2023\RetroPortTo2019-2020Boards\MotorFirmware.cydsn\TopDesign\TopDesign.cysch" Guid="56ca04e3-00c7-4dfe-96ac-981d4c1331a0" /><DocumentWindow Key="C:\Users\davis\Documents\PSoC Creator\General_Purpose_Motor_Board_PY2023\RetroPortTo2019-2020Boards\MotorFirmware.cydsn\main.c" Guid="782fafe9-f9a0-40db-9f9d-cfe212db65a2" /><DocumentWindow Key="C:\Users\davis\Documents\PSoC Creator\General_Purpose_Motor_Board_PY2023\RetroPortTo2019-2020Boards\MotorFirmware.cydsn\MotorBoardCAN.c" Guid="48f2b410-e71a-4f76-b766-359404862fc7" /><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="601d7438-0df5-4c65-973b-eaad6f0e5381" /><DocumentWindow Key="C:\Users\davis\Documents\PSoC Creator\General_Purpose_Motor_Board_PY2023\RetroPortTo2019-2020Boards\MotorFirmware.cydsn\MotorDrive.c" Guid="33094f04-bfe3-4fcf-bdd6-072531b92b55" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+<config v="" />
+<AutoUpdate v="true" />
+</CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>
+</CyXmlSerializer>

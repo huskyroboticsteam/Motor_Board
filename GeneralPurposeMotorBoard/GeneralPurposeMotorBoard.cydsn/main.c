@@ -49,6 +49,7 @@ CY_ISR(Period_Reset_Handler) {
     CAN_check_delay ++;
     ERRORTimeLED++;
     encoderTimeOut++;
+    
     if (encoderTimeOut >= 2){
         encoderTimeOut = 0;
         SendEncoderData(&can_send);
@@ -80,22 +81,15 @@ CY_ISR(Pin_Limit_Handler){
     UART_UartPutString(txData);
     #endif
     
+    UART_UartPutString("LIMIT HIT\n\r");
+    
     set_PWM(GetCurrentPWM(), ignoreLimSw, Status_Reg_Switches_Read());
     
     #ifdef CAN_TELEM_SEND
     AssembleLimitSwitchAlertPacket(&can_send, DEVICE_GROUP_JETSON, 
         DEVICE_SERIAL_JETSON, Status_Reg_Switches_Read() & 0b11);
     SendCANPacket(&can_send);
-    #endif
-    
-    char num[256];
-    sprintf(num,"LimitSW enc lim 1: %i \r\n", enc_lim_1);
-    UART_UartPutString(num);
-    
-    char num2[256];
-    sprintf(num2,"LimitSW enc lim 2: %i \r\n", enc_lim_2);
-    UART_UartPutString(num2);
-            
+    #endif         
 
     if (bound_set1 && Pin_Limit_1_Read()) {
         QuadDec_SetCounter((int)round(GetkPPJR() / (360*1000.0) * enc_lim_1));

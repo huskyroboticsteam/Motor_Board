@@ -191,7 +191,7 @@ void Initialize(void) {
     CAN_LED_Write(~address & 1);
     #endif
     
-    InitCAN(0x4, (int)address);
+    InitCAN(DEVICE_GROUP_MOTOR_CONTROL, (int)address);
     Timer_PWM_Start();
     QuadDec_Start();
     PWM_Motor_Start();  

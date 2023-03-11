@@ -10,6 +10,7 @@ extern char txData[TX_DATA_SIZE];
 int32_t currentPWM = 0;
 
 void set_PWM(int16_t compare, uint8_t disable_limit, uint8 limitSW) {
+    //#define PRINT_PWM_COMMAND
     #ifdef PRINT_PWM_COMMAND
     sprintf(txData, "PWM:%d disable_limit: %d\r\n",compare,disable_limit);
     UART_UartPutString(txData); 
