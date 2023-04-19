@@ -3,18 +3,19 @@
 <!--This file is machine generated and read. It is not intended to be edited by hand.-->
 <!--Due to this, there is no schema for this file.-->
 <CyGuid_2867d519-54d2-4c01-9830-c51cb08bc3dd type_name="CyDesigner.Common.ProjMgmt.Model.CyPrjMgmtWorkspaceSerialize" version="5" xml_contents_version="3" name="GeneralPurposeMotorBoard" persistent="GeneralPurposeMotorBoard.cywrk" platform="NOT_USED">
-<current_project name=".\GeneralPurposeMotorBoard.cydsn\GeneralPurposeMotorBoard.cyprj" />
+<current_project name=".\MotorUnitRev4.cydsn\MotorUnitRev4.cyprj" />
 <wrkspc_folders />
 <files />
 <projects>
-<v>.\GeneralPurposeMotorBoard.cydsn\GeneralPurposeMotorBoard.cyprj</v>
+<v>.\MotorUnitRev4.cydsn\MotorUnitRev4.cyprj</v>
+<v>.\MotorUnitRev3.cydsn\MotorUnitRev3.cyprj</v>
 </projects>
 <workspace_id v="87f0b022-3642-427f-98cd-1356b77b2666" />
 <WriteAppVersionLastSavedWith v="4.4.0.80" />
 <WriteAppMarketingVersionLastSavedWith v="4.4" />
 <CyGuid_dcbd9771-0334-43dc-9cc3-fe99dc3c5316 type_name="CyDesigner.Common.ProjMgmt.Model.CyPrjMgmtWorkspaceSerialize+CyPrjDependencyList" version="4">
 <wrkspc_dependencies>
-<wrkspc_dependency project="GeneralPurposeMotorBoard.cydsn\GeneralPurposeMotorBoard.cyprj" dependency="StripLightLib.cylib\StripLightLib.cyprj" />
+<wrkspc_dependency project="MotorUnitRev4.cydsn\MotorUnitRev4.cyprj" dependency="StripLightLib.cylib\StripLightLib.cyprj" />
 </wrkspc_dependencies>
 </CyGuid_dcbd9771-0334-43dc-9cc3-fe99dc3c5316>
 <CyGuid_63b68103-67f5-4406-8da6-5c8625765b82 type_name="CyDesigner.Common.ProjMgmt.Model.CyPrjMgmtWorkspaceSerialize+CyIgnoredSystemDepsList" version="1">

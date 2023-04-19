@@ -4,12 +4,6 @@
 #include "MotorDrive.h"
 #include "PID.h"
 
-#ifdef RGB_LED_ARRAY
-#include "LED_Array.h"
-extern const uint32 StripLights_CLUT[ ];
-extern uint8_t address;
-#endif
-
 extern int16_t nextPWM;
 extern int32_t millidegreeTarget;
 
