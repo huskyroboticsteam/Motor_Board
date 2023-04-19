@@ -106,15 +106,7 @@ void SetEncoderDirReverse() {
 int32_t CurrentPositionMiliDegree() {
     if(kPPJR == 0){
         return(0);
-}
-    char num2[256];
-    sprintf(num2, "kPPJR: %i \r\n", kPPJR);
-    UART_UartPutString(num2);
-    sprintf(num2, "encoder val with flip: %i \r\n", GetEncoderValWithFlip());
-    UART_UartPutString(num2);
-    sprintf(num2, "Calculated Output: %i \r\n", GetEncoderValWithFlip() / kPPJR * (360*1000));
-    UART_UartPutString(num2);
-            
+}            
     return  (int)round((360*1000.0) / kPPJR * GetEncoderValWithFlip());
 }
 

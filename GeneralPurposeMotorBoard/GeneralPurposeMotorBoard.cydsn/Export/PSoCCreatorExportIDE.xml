@@ -5,7 +5,7 @@
   <Toolchains>
     <Toolchain Name="ARM GCC Generic" Selected="True">
       <Tool Name="prebuild" Command="" Options="" />
-      <Tool Name="assembler" Command="arm-none-eabi-as.exe" Options="-mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -alh=${OutputDir}/${CompileFile}.lst -g -W" />
+      <Tool Name="assembler" Command="arm-none-eabi-as.exe" Options="-mcpu=cortex-m0 -mthumb -I..\HindsightCAN -I. -IGenerated_Source\PSoC4 -alh=${OutputDir}/${CompileFile}.lst -g -W" />
       <Tool Name="compiler" Command="arm-none-eabi-gcc.exe" Options="-mcpu=cortex-m0 -mthumb -I./HindsightCAN -I. -IGenerated_Source\PSoC4 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -Og -D CHIP_TYPE=CHIP_TYPE_PSOC_CY8C4248AZI_L485" />
       <Tool Name="linker" Command="arm-none-eabi-gcc.exe" Options="-mcpu=cortex-m0 -mthumb -l &quot;\&quot;m\&quot;&quot; -L Generated_Source\PSoC4 -Wl,-Map,${OutputDir}/${ProjectShortName}.map -T Generated_Source\PSoC4\cm0gcc.ld -specs=nano.specs -Wl,--gc-sections -g -ffunction-sections -Og -ffat-lto-objects" />
       <Tool Name="postbuild" Command="" Options="" />
@@ -60,11 +60,12 @@
           <File BuildType="BUILD" Toolchain="">..\HindsightCAN\CANLibrary.h</File>
           <File BuildType="BUILD" Toolchain="">..\HindsightCAN\CANLocalization.h</File>
           <File BuildType="BUILD" Toolchain="">..\HindsightCAN\CANMotorUnit.h</File>
-          <File BuildType="BUILD" Toolchain="">..\HindsightCAN\CANPacket.h</File>
           <File BuildType="BUILD" Toolchain="">..\HindsightCAN\CANPower.h</File>
           <File BuildType="BUILD" Toolchain="">..\HindsightCAN\CANScience.h</File>
           <File BuildType="BUILD" Toolchain="">..\HindsightCAN\CANSerialNumbers.h</File>
           <File BuildType="BUILD" Toolchain="">Motor_Unit_Debug.h</File>
+          <File BuildType="BUILD" Toolchain="">..\HindsightCAN\CANPacket.h</File>
+          <File BuildType="BUILD" Toolchain="">..\HindsightCAN\Port.h</File>
         </Files>
       </Folder>
       <Folder BuildType="STRICT" Path="C:\Users\davis\Documents\PSoC Creator\General_Purpose_Motor_Board_PY2023\GeneralPurposeMotorBoard\GeneralPurposeMotorBoard.cydsn\Generated_Source\PSoC4">

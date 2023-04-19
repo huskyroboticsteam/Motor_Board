@@ -173,7 +173,7 @@ void NextStateFromCAN(CANPacket *receivedPacket, CANPacket *packetToSend) {
             }
             
             //recieved Packet with Non Valid ID
-            if (packageID != NO_NEW_CAN_PACKET && packageID != 0xF6) {
+            if (packageID != NO_NEW_CAN_PACKET) {
         
                 DisplayErrorCode(MOTOR_ERROR_INVALID_PACKET);
             }

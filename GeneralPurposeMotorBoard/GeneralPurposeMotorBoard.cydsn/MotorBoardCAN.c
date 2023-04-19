@@ -3,7 +3,6 @@
 #include "MotorBoardFSM.h"
 #include "MotorDrive.h"
 #include "PID.h"
-#include "../HindsightCAN/CANMotorUnit.h"
 
 #ifdef RGB_LED_ARRAY
 #include "LED_Array.h"
@@ -33,21 +32,11 @@ void NextStateFromCAN(CANPacket *receivedPacket, CANPacket *packetToSend) {
         case(ID_MOTOR_UNIT_MODE_SEL):
             if(GetModeFromPacket(receivedPacket) == MOTOR_UNIT_MODE_PWM) {
                 set_PWM(0, 0, 0);
-                #ifdef RGB_LED_ARRAY
-                StripLights_MemClear(StripLights_BLACK);
-                StripLights_Pixel(0, 0, get_color_packet(0,0,255));
-                StripLights_Trigger(1);
-                #endif
                 SetModeTo(MOTOR_UNIT_MODE_PWM);
                 SetStateTo(CHECK_CAN);
             }
             else if (GetModeFromPacket(receivedPacket) == MOTOR_UNIT_MODE_PID) {
                 InitializePID();
-                #ifdef RGB_LED_ARRAY
-                StripLights_MemClear(StripLights_BLACK);
-                StripLights_Pixel(1, 0, get_color_packet(0,0,255));
-                StripLights_Trigger(1);
-                #endif
                 SetModeTo(MOTOR_UNIT_MODE_PID);
                 SetStateTo(CHECK_CAN);
             } else {
@@ -140,11 +129,6 @@ void NextStateFromCAN(CANPacket *receivedPacket, CANPacket *packetToSend) {
         case(ID_ESTOP):
             set_PWM(0, 0, 0);
             GotoUninitState();
-            #ifdef RGB_LED_ARRAY
-            StripLights_MemClear(StripLights_BLACK);
-            StripLights_Pixel(0, 0, get_color_packet(0,0,255));
-            StripLights_Trigger(1);
-            #endif
             break;
         
         case(ID_TELEMETRY_PULL):
@@ -172,7 +156,7 @@ void NextStateFromCAN(CANPacket *receivedPacket, CANPacket *packetToSend) {
             }
             
             //recieved Packet with Non Valid ID
-            if (packageID != NO_NEW_CAN_PACKET && packageID != 0xF6) {
+            if (packageID != NO_NEW_CAN_PACKET) {
         
                 DisplayErrorCode(MOTOR_ERROR_INVALID_PACKET);
             }

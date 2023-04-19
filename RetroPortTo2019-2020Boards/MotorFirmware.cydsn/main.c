@@ -1,11 +1,10 @@
-#include <main.h>
+#include "main.h"
 #include "Motor_Unit_Debug.h"
 #include "cyapicallbacks.h"
 #include "MotorDrive.h"
 #include "MotorBoardCAN.h"
 #include "MotorBoardFSM.h"
 #include "PID.h"
-#include <project.h>
 #include <math.h>
 
 #ifdef RGB_LED_ARRAY

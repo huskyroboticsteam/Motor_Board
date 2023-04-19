@@ -34,7 +34,7 @@ uint8_t bound_set2;
 int32_t enc_lim_1;
 int32_t enc_lim_2;
 
-uint8 address = 0;
+// uint8 address = 0;
 
 //Status and Data Structs
 volatile uint8 drive = 0;
@@ -63,9 +63,6 @@ CY_ISR(Period_Reset_Handler) {
         #endif
         #ifdef DEBUG_LED1   
         DEBUG_LED_1_Write(LED_OFF);
-        #endif
-        #ifdef DEBUG_LED2
-        DEBUG_LED_2_Write(LED_OFF);
         #endif
     }
     if (CAN_time_LED >= 3){
@@ -104,10 +101,6 @@ CY_ISR(Pin_Limit_Handler){
 int main(void)
 { 
     Initialize();
-  
-    #ifdef RGB_LED_ARRAY
-    StripLights_DisplayClear(StripLights_BLACK);
-    #endif
     
     for(;;)
     {
@@ -160,13 +153,9 @@ void Initialize(void) {
      // Enable global interrupts. LED arrays need this first
     CyGlobalIntEnable;
     
-    #ifdef RGB_LED_ARRAY
-    initalize_LEDs(LOW_LED_POWER);
-    #endif
-    
     Status_Reg_Switches_InterruptEnable();
     
-    address = Can_addr_Read();
+    uint address = Can_addr_Read();
     
     UART_Start();
     sprintf(txData, "Dip Addr: %x \r\n", address);
@@ -174,9 +163,6 @@ void Initialize(void) {
     
     #ifdef ERROR_LED
     ERROR_LED_Write(~(address >> 3 & 1));
-    #endif
-    #ifdef DEBUG_LED2
-    DEBUG_LED_2_Write(~(address >> 2) & 1);
     #endif
     #ifdef DEBUG_LED1
     DEBUG_LED_1_Write(~(address >> 1) & 1);
@@ -225,9 +211,6 @@ void DisplayErrorCode(uint8_t code)
     #ifdef DEBUG_LED1   
     DEBUG_LED_1_Write(LED_OFF);
     #endif
-    #ifdef DEBUG_LED2
-    DEBUG_LED_2_Write(LED_OFF);
-    #endif
     
     ERRORTimeLED = 0;
     ERROR_LED_Write(LED_ON);
@@ -242,19 +225,6 @@ void DisplayErrorCode(uint8_t code)
         case 1://Mode Error
             #ifdef DEBUG_LED1
             DEBUG_LED_1_Write(LED_ON);
-            #endif
-            break;
-        case 2:
-            #ifdef DEBUG_LED2
-            DEBUG_LED_2_Write(LED_ON);
-            #endif
-            break;
-        case 3:
-            #ifdef DEBUG_LED1
-            DEBUG_LED_1_Write(LED_ON);
-            #endif
-            #ifdef DEBUG_LED2
-            DEBUG_LED_2_Write(LED_ON);
             #endif
             break;
         default:

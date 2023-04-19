@@ -13,7 +13,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\Header Files\Motor_Unit_Debug.h">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\Header Files\cyapicallbacks.h">
 <ExpandedNodeIds>
 <v>GeneralPurposeMotorBoard</v>
 <v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard</v>
@@ -39,6 +39,7 @@
 <v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\Header Files\CANSerialNumbers.h</v>
 <v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\Header Files\cyapicallbacks.h</v>
 <v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\Header Files\Motor_Unit_Debug.h</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\Header Files\Port.h</v>
 <v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\Source Files</v>
 <v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\Source Files\CANCommon.c</v>
 <v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\Source Files\CANGPIO.c</v>
@@ -62,34 +63,6 @@
 <v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\Generated_Source\PSoC4</v>
 </ExpandedNodeIds>
 <VisibleNodeIds>
-<v>GeneralPurposeMotorBoard</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\TopDesign</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\GeneralPurposeMotorBoard.cydwr</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\GeneralPurposeMotorBoard.cydwr\Pins</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\GeneralPurposeMotorBoard.cydwr\Analog</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\GeneralPurposeMotorBoard.cydwr\DMA</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\GeneralPurposeMotorBoard.cydwr\Clocks</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\GeneralPurposeMotorBoard.cydwr\Interrupts</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\GeneralPurposeMotorBoard.cydwr\System</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\GeneralPurposeMotorBoard.cydwr\Directives</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\GeneralPurposeMotorBoard.cydwr\Flash Security</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\Header Files</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\Header Files\CANCommon.h</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\Header Files\CANGPIO.h</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\Header Files\CANLibrary.h</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\Header Files\CANLocalization.h</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\Header Files\CANMotorUnit.h</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\Header Files\CANPacket.h</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\Header Files\CANPower.h</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\Header Files\CANScience.h</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\Header Files\CANSerialNumbers.h</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\Header Files\cyapicallbacks.h</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\Header Files\Motor_Unit_Debug.h</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\Source Files</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\Source Files\CANCommon.c</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\Source Files\CANGPIO.c</v>
-<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\Source Files\CANLocalization.c</v>
 <v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\Source Files\CANMotorUnit.c</v>
 <v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\Source Files\CANPacket.c</v>
 <v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\Source Files\CANPower.c</v>
@@ -101,6 +74,33 @@
 <v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\Source Files\MotorBoardFSM.c</v>
 <v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\Source Files\MotorBoardFSM.h</v>
 <v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\Source Files\MotorDrive.c</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\Source Files\MotorDrive.h</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\Source Files\PID.c</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\Source Files\PID.h</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\Source Files\PortPSOC_CY8C4248AZI_L485.c</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\Generated_Source</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\Generated_Source\PSoC4</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\Generated_Source\PSoC4\ADC_SAR_Seq_1</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\Generated_Source\PSoC4\ADC_SAR_Seq_1_intClock</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\Generated_Source\PSoC4\ADC_SAR_Seq_1_IRQ</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\Generated_Source\PSoC4\CAN</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\Generated_Source\PSoC4\Can_addr</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\Generated_Source\PSoC4\CAN_HFCLK</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\Generated_Source\PSoC4\CAN_isr</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\Generated_Source\PSoC4\CAN_LED</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\Generated_Source\PSoC4\Clock_2</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\Generated_Source\PSoC4\Clock_PWM</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\Generated_Source\PSoC4\cy_boot</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\Generated_Source\PSoC4\cy_dmac</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\Generated_Source\PSoC4\cy_lfclk</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\Generated_Source\PSoC4\DEBUG_LED_1</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\Generated_Source\PSoC4\Dip_1</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\Generated_Source\PSoC4\Dip_2</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\Generated_Source\PSoC4\Dip_3</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\Generated_Source\PSoC4\Dip_4</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\Generated_Source\PSoC4\Em_EEPROM_Dynamic</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\Generated_Source\PSoC4\ERROR_LED</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\Generated_Source\PSoC4\FAULT_MOTOR</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
@@ -235,6 +235,42 @@
 <VisibleNodeIds>
 <v>GeneralPurposeMotorBoard</v>
 <v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\ADC_SAR_Seq_1.lst</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\ADC_SAR_Seq_1_INT.lst</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\ADC_SAR_Seq_1_intClock.lst</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\ADC_SAR_Seq_1_IRQ.lst</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\ADC_SAR_Seq_1_PM.lst</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\CAN.lst</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\Can_addr.lst</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\CAN_HFCLK.lst</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\CAN_INT.lst</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\CAN_isr.lst</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\CAN_LED.lst</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\CAN_LED_PM.lst</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\CAN_PM.lst</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\CAN_TX_RX_func.lst</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\CANCommon.lst</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\CANGPIO.lst</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\CANLocalization.lst</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\CANMotorUnit.lst</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\CANPacket.lst</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\CANPower.lst</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\CANScience.lst</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\Clock_2.lst</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\Clock_PWM.lst</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\Cm0Start.lst</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\cy_em_eeprom.lst</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\CyBootAsmGnu.lst</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\CyDMA.lst</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\cyfitter_cfg.lst</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\CyFlash.lst</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\CyLFClk.lst</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\CyLib.lst</v>
+<v>GeneralPurposeMotorBoard\GeneralPurposeMotorBoard\CortexM0\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStates>
@@ -319,6 +355,16 @@
 <name v=".\GeneralPurposeMotorBoard.cydsn\main.c" />
 <name v=".\GeneralPurposeMotorBoard.cydsn\TopDesign\TopDesign.cysch" />
 <name v=".\GeneralPurposeMotorBoard.cydsn\Motor_Unit_Debug.h" />
+<name v=".\GeneralPurposeMotorBoard.cydsn\Generated_Source\PSoC4\Can_addr.c" />
+<name v=".\HindsightCAN\PortFiles\PortPSOC_CY8C4248AZI_L485.c" />
+<name v=".\GeneralPurposeMotorBoard.cydsn\MotorBoardCAN.c" />
+<name v=".\HindsightCAN\Port.h" />
+<name v=".\GeneralPurposeMotorBoard.cydsn\main.h" />
+<name v=".\GeneralPurposeMotorBoard.cydsn\PID.c" />
+<name v=".\GeneralPurposeMotorBoard.cydsn\PID.h" />
+<name v=".\GeneralPurposeMotorBoard.cydsn\cyapicallbacks.h" />
+<name v=".\HindsightCAN\CANScience.h" />
+<name v=".\HindsightCAN\CANSerialNumbers.h" />
 </OpenDocs>
 <OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
 
@@ -326,7 +372,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1536, 757" SelectedTabbedMdiWindow="f613b65c-a836-4d80-b3ec-83518cc7d6d1"><DocumentWindow Key="C:\Users\davis\Documents\PSoC Creator\General_Purpose_Motor_Board_PY2023\GeneralPurposeMotorBoard\GeneralPurposeMotorBoard.cydsn\GeneralPurposeMotorBoard.cydwr" Guid="189b599a-c67b-4c9a-940b-a494e66badf2" /><DocumentWindow Key="C:\Users\davis\Documents\PSoC Creator\General_Purpose_Motor_Board_PY2023\GeneralPurposeMotorBoard\GeneralPurposeMotorBoard.cydsn\main.c" Guid="f613b65c-a836-4d80-b3ec-83518cc7d6d1" /><DocumentWindow Key="C:\Users\davis\Documents\PSoC Creator\General_Purpose_Motor_Board_PY2023\GeneralPurposeMotorBoard\GeneralPurposeMotorBoard.cydsn\TopDesign\TopDesign.cysch" Guid="884bd6d1-1931-403d-9f55-7f4107723f44" /><DocumentWindow Key="C:\Users\davis\Documents\PSoC Creator\General_Purpose_Motor_Board_PY2023\GeneralPurposeMotorBoard\GeneralPurposeMotorBoard.cydsn\Motor_Unit_Debug.h" Guid="1bf7e9db-0e79-40b8-b9cb-a9f3f78f9435" /><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="601d7438-0df5-4c65-973b-eaad6f0e5381" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="758, 748" SelectedTabbedMdiWindow="8c85e996-9f60-472d-832a-13b4921dce5d"><DocumentWindow Key="C:\Users\davis\Documents\PSoC Creator\General_Purpose_Motor_Board_PY2023\GeneralPurposeMotorBoard\GeneralPurposeMotorBoard.cydsn\GeneralPurposeMotorBoard.cydwr" Guid="189b599a-c67b-4c9a-940b-a494e66badf2" /><DocumentWindow Key="C:\Users\davis\Documents\PSoC Creator\General_Purpose_Motor_Board_PY2023\GeneralPurposeMotorBoard\GeneralPurposeMotorBoard.cydsn\main.c" Guid="f613b65c-a836-4d80-b3ec-83518cc7d6d1" /><DocumentWindow Key="C:\Users\davis\Documents\PSoC Creator\General_Purpose_Motor_Board_PY2023\GeneralPurposeMotorBoard\GeneralPurposeMotorBoard.cydsn\TopDesign\TopDesign.cysch" Guid="884bd6d1-1931-403d-9f55-7f4107723f44" /><DocumentWindow Key="C:\Users\davis\Documents\PSoC Creator\General_Purpose_Motor_Board_PY2023\GeneralPurposeMotorBoard\GeneralPurposeMotorBoard.cydsn\Motor_Unit_Debug.h" Guid="1bf7e9db-0e79-40b8-b9cb-a9f3f78f9435" /><DocumentWindow Key="C:\Users\davis\Documents\PSoC Creator\General_Purpose_Motor_Board_PY2023\GeneralPurposeMotorBoard\GeneralPurposeMotorBoard.cydsn\Generated_Source\PSoC4\Can_addr.c" Guid="14adfe71-2720-4817-97b9-b69d23419c45" /><DocumentWindow Key="C:\Users\davis\Documents\PSoC Creator\General_Purpose_Motor_Board_PY2023\GeneralPurposeMotorBoard\HindsightCAN\PortFiles\PortPSOC_CY8C4248AZI_L485.c" Guid="c6c29532-c515-4e5f-a45a-c63a9a4d30c6" /><DocumentWindow Key="C:\Users\davis\Documents\PSoC Creator\General_Purpose_Motor_Board_PY2023\GeneralPurposeMotorBoard\GeneralPurposeMotorBoard.cydsn\MotorBoardCAN.c" Guid="204389cc-4f58-4ee0-aad0-62691d1ef20e" /><DocumentWindow Key="C:\Users\davis\Documents\PSoC Creator\General_Purpose_Motor_Board_PY2023\GeneralPurposeMotorBoard\HindsightCAN\Port.h" Guid="58df2ff0-af80-4963-98eb-1091c953ffbc" /><DocumentWindow Key="C:\Users\davis\Documents\PSoC Creator\General_Purpose_Motor_Board_PY2023\GeneralPurposeMotorBoard\GeneralPurposeMotorBoard.cydsn\main.h" Guid="0f48fe64-b89a-4fe5-83ad-5ad516198cd8" /><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="601d7438-0df5-4c65-973b-eaad6f0e5381" /><DocumentWindow Key="C:\Users\davis\Documents\PSoC Creator\General_Purpose_Motor_Board_PY2023\GeneralPurposeMotorBoard\GeneralPurposeMotorBoard.cydsn\PID.c" Guid="83a101fa-24ec-40be-a406-d25500d3bb9b" /><DocumentWindow Key="C:\Users\davis\Documents\PSoC Creator\General_Purpose_Motor_Board_PY2023\GeneralPurposeMotorBoard\GeneralPurposeMotorBoard.cydsn\PID.h" Guid="7d726766-1650-4e7a-a462-c3d48c6cd2b1" /><DocumentWindow Key="C:\Users\davis\Documents\PSoC Creator\General_Purpose_Motor_Board_PY2023\GeneralPurposeMotorBoard\GeneralPurposeMotorBoard.cydsn\cyapicallbacks.h" Guid="df380104-3a11-4ff1-8dbe-29bccd284c64" /><DocumentWindow Key="C:\Users\davis\Documents\PSoC Creator\General_Purpose_Motor_Board_PY2023\GeneralPurposeMotorBoard\HindsightCAN\CANScience.h" Guid="01cba63b-ab81-4222-bc5c-96e229c01187" /><DocumentWindow Key="C:\Users\davis\Documents\PSoC Creator\General_Purpose_Motor_Board_PY2023\GeneralPurposeMotorBoard\HindsightCAN\CANSerialNumbers.h" Guid="8c85e996-9f60-472d-832a-13b4921dce5d" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>
