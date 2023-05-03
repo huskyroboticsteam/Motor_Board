@@ -13,10 +13,9 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="Motor Unit\Motor_Board_Rev3\Header Files\PositionPID.h">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="Motor Unit\Motor_Board_Rev4\CAN Library">
 <ExpandedNodeIds>
 <v>Motor Unit</v>
-<v>Motor Unit\Motor_Board_Rev3</v>
 <v>Motor Unit\Motor_Board_Rev3\TopDesign</v>
 <v>Motor Unit\Motor_Board_Rev3\Motor_Board_Rev3.cydwr</v>
 <v>Motor Unit\Motor_Board_Rev3\Motor_Board_Rev3.cydwr\Pins</v>
@@ -54,6 +53,7 @@
 <v>Motor Unit\Motor_Board_Rev3\Source Files\PositionPID.c</v>
 <v>Motor Unit\Motor_Board_Rev3\Generated_Source</v>
 <v>Motor Unit\Motor_Board_Rev3\Generated_Source\PSoC4</v>
+<v>Motor Unit\Motor_Board_Rev4</v>
 <v>Motor Unit\Motor_Board_Rev4\TopDesign</v>
 <v>Motor Unit\Motor_Board_Rev4\Motor_Board_Rev4.cydwr</v>
 <v>Motor Unit\Motor_Board_Rev4\Motor_Board_Rev4.cydwr\Pins</v>
@@ -95,43 +95,43 @@
 <VisibleNodeIds>
 <v>Motor Unit</v>
 <v>Motor Unit\Motor_Board_Rev3</v>
-<v>Motor Unit\Motor_Board_Rev3\TopDesign</v>
-<v>Motor Unit\Motor_Board_Rev3\Motor_Board_Rev3.cydwr</v>
-<v>Motor Unit\Motor_Board_Rev3\Motor_Board_Rev3.cydwr\Pins</v>
-<v>Motor Unit\Motor_Board_Rev3\Motor_Board_Rev3.cydwr\Analog</v>
-<v>Motor Unit\Motor_Board_Rev3\Motor_Board_Rev3.cydwr\DMA</v>
-<v>Motor Unit\Motor_Board_Rev3\Motor_Board_Rev3.cydwr\Clocks</v>
-<v>Motor Unit\Motor_Board_Rev3\Motor_Board_Rev3.cydwr\Interrupts</v>
-<v>Motor Unit\Motor_Board_Rev3\Motor_Board_Rev3.cydwr\System</v>
-<v>Motor Unit\Motor_Board_Rev3\Motor_Board_Rev3.cydwr\Directives</v>
-<v>Motor Unit\Motor_Board_Rev3\Motor_Board_Rev3.cydwr\Flash Security</v>
-<v>Motor Unit\Motor_Board_Rev3\CAN Library</v>
-<v>Motor Unit\Motor_Board_Rev3\CAN Library\CANCommon.c</v>
-<v>Motor Unit\Motor_Board_Rev3\CAN Library\CANCommon.h</v>
-<v>Motor Unit\Motor_Board_Rev3\CAN Library\CANLibrary.h</v>
-<v>Motor Unit\Motor_Board_Rev3\CAN Library\CANMotorUnit.c</v>
-<v>Motor Unit\Motor_Board_Rev3\CAN Library\CANMotorUnit.h</v>
-<v>Motor Unit\Motor_Board_Rev3\CAN Library\CANPacket.c</v>
-<v>Motor Unit\Motor_Board_Rev3\CAN Library\CANPacket.h</v>
-<v>Motor Unit\Motor_Board_Rev3\CAN Library\CANSerialNumbers.h</v>
-<v>Motor Unit\Motor_Board_Rev3\CAN Library\Port.h</v>
-<v>Motor Unit\Motor_Board_Rev3\CAN Library\PortPSOC_CY8C4248AZI_L485.c</v>
-<v>Motor Unit\Motor_Board_Rev3\Header Files</v>
-<v>Motor Unit\Motor_Board_Rev3\Header Files\cyapicallbacks.h</v>
-<v>Motor Unit\Motor_Board_Rev3\Header Files\main.h</v>
-<v>Motor Unit\Motor_Board_Rev3\Header Files\Motor_Unit_CAN.h</v>
-<v>Motor Unit\Motor_Board_Rev3\Header Files\Motor_Unit_Debug.h</v>
-<v>Motor Unit\Motor_Board_Rev3\Header Files\Motor_Unit_FSM.h</v>
-<v>Motor Unit\Motor_Board_Rev3\Header Files\MotorDrive.h</v>
-<v>Motor Unit\Motor_Board_Rev3\Header Files\PositionPID.h</v>
-<v>Motor Unit\Motor_Board_Rev3\Source Files</v>
-<v>Motor Unit\Motor_Board_Rev3\Source Files\main.c</v>
-<v>Motor Unit\Motor_Board_Rev3\Source Files\Motor_Unit_CAN.c</v>
-<v>Motor Unit\Motor_Board_Rev3\Source Files\Motor_Unit_FSM.c</v>
-<v>Motor Unit\Motor_Board_Rev3\Source Files\MotorDrive.c</v>
-<v>Motor Unit\Motor_Board_Rev3\Source Files\PositionPID.c</v>
-<v>Motor Unit\Motor_Board_Rev3\Generated_Source</v>
-<v>Motor Unit\Motor_Board_Rev3\Generated_Source\PSoC4</v>
+<v>Motor Unit\Motor_Board_Rev4</v>
+<v>Motor Unit\Motor_Board_Rev4\TopDesign</v>
+<v>Motor Unit\Motor_Board_Rev4\Motor_Board_Rev4.cydwr</v>
+<v>Motor Unit\Motor_Board_Rev4\Motor_Board_Rev4.cydwr\Pins</v>
+<v>Motor Unit\Motor_Board_Rev4\Motor_Board_Rev4.cydwr\Analog</v>
+<v>Motor Unit\Motor_Board_Rev4\Motor_Board_Rev4.cydwr\DMA</v>
+<v>Motor Unit\Motor_Board_Rev4\Motor_Board_Rev4.cydwr\Clocks</v>
+<v>Motor Unit\Motor_Board_Rev4\Motor_Board_Rev4.cydwr\Interrupts</v>
+<v>Motor Unit\Motor_Board_Rev4\Motor_Board_Rev4.cydwr\System</v>
+<v>Motor Unit\Motor_Board_Rev4\Motor_Board_Rev4.cydwr\Directives</v>
+<v>Motor Unit\Motor_Board_Rev4\Motor_Board_Rev4.cydwr\Flash Security</v>
+<v>Motor Unit\Motor_Board_Rev4\CAN Library</v>
+<v>Motor Unit\Motor_Board_Rev4\CAN Library\CANCommon.c</v>
+<v>Motor Unit\Motor_Board_Rev4\CAN Library\CANCommon.h</v>
+<v>Motor Unit\Motor_Board_Rev4\CAN Library\CANLibrary.h</v>
+<v>Motor Unit\Motor_Board_Rev4\CAN Library\CANMotorUnit.c</v>
+<v>Motor Unit\Motor_Board_Rev4\CAN Library\CANMotorUnit.h</v>
+<v>Motor Unit\Motor_Board_Rev4\CAN Library\CANPacket.c</v>
+<v>Motor Unit\Motor_Board_Rev4\CAN Library\CANPacket.h</v>
+<v>Motor Unit\Motor_Board_Rev4\CAN Library\CANSerialNumbers.h</v>
+<v>Motor Unit\Motor_Board_Rev4\CAN Library\Port.h</v>
+<v>Motor Unit\Motor_Board_Rev4\CAN Library\PortPSOC_CY8C4248AZI_L485.c</v>
+<v>Motor Unit\Motor_Board_Rev4\Header Files</v>
+<v>Motor Unit\Motor_Board_Rev4\Header Files\cyapicallbacks.h</v>
+<v>Motor Unit\Motor_Board_Rev4\Header Files\main.h</v>
+<v>Motor Unit\Motor_Board_Rev4\Header Files\Motor_Unit_CAN.h</v>
+<v>Motor Unit\Motor_Board_Rev4\Header Files\Motor_Unit_Debug.h</v>
+<v>Motor Unit\Motor_Board_Rev4\Header Files\Motor_Unit_FSM.h</v>
+<v>Motor Unit\Motor_Board_Rev4\Header Files\MotorDrive.h</v>
+<v>Motor Unit\Motor_Board_Rev4\Header Files\PositionPID.h</v>
+<v>Motor Unit\Motor_Board_Rev4\Source Files</v>
+<v>Motor Unit\Motor_Board_Rev4\Source Files\main.c</v>
+<v>Motor Unit\Motor_Board_Rev4\Source Files\Motor_Unit_CAN.c</v>
+<v>Motor Unit\Motor_Board_Rev4\Source Files\Motor_Unit_FSM.c</v>
+<v>Motor Unit\Motor_Board_Rev4\Source Files\MotorDrive.c</v>
+<v>Motor Unit\Motor_Board_Rev4\Source Files\PositionPID.c</v>
+<v>Motor Unit\Motor_Board_Rev4\Generated_Source</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
@@ -494,15 +494,12 @@
 </CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>
 <Unloaded />
 <OpenDocs>
-<name v=".\Motor_Board_Rev4.cydsn\TopDesign\TopDesign.cysch" />
-<name v=".\Motor_Board_Rev4.cydsn\Motor_Board_Rev4.cydwr" />
-<name v=".\MotorFirmware\main.c" />
-<name v=".\MotorFirmware\Motor_Unit_CAN.c" />
-<name v=".\MotorFirmware\PositionPID.c" />
 <name v=".\Motor_Board_Rev3.cydsn\TopDesign\TopDesign.cysch" />
-<name v=".\MotorFirmware\main.h" />
-<name v=".\MotorFirmware\Motor_Unit_Debug.h" />
-<name v=".\CANLib\PortFiles\PortPSOC_CY8C4248AZI_L485.c" />
+<name v=".\Motor_Board_Rev4.cydsn\TopDesign\TopDesign.cysch" />
+<name v=".\MotorFirmware\main.c" />
+<name v=".\MotorFirmware\PositionPID.h" />
+<name v=".\MotorFirmware\PositionPID.c" />
+<name v=".\Motor_Board_Rev4.cydsn\Motor_Board_Rev4.cydwr" />
 </OpenDocs>
 <OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
 
@@ -510,7 +507,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1451, 757" SelectedTabbedMdiWindow="7abe4550-ba68-45c2-b066-1ca1db031f44"><DocumentWindow Key="C:\Users\davis\Documents\PSoC Creator\MotorUnitRev4\Motor_Board_Rev4.cydsn\TopDesign\TopDesign.cysch" Guid="0ecf3ae5-1b38-47a1-b595-5c988dae32fc" /><DocumentWindow Key="C:\Users\davis\Documents\PSoC Creator\MotorUnitRev4\Motor_Board_Rev4.cydsn\Motor_Board_Rev4.cydwr" Guid="ab918bcf-ae2c-40df-89e6-630396291370" /><DocumentWindow Key="C:\Users\davis\Documents\PSoC Creator\MotorUnitRev4\MotorFirmware\main.c" Guid="56edff13-4951-4d10-b4d4-c02216824ebd" /><DocumentWindow Key="C:\Users\davis\Documents\PSoC Creator\MotorUnitRev4\MotorFirmware\Motor_Unit_CAN.c" Guid="4247e2b8-38b2-40c0-9a53-14ee24ef36c6" /><DocumentWindow Key="C:\Users\davis\Documents\PSoC Creator\MotorUnitRev4\MotorFirmware\PositionPID.c" Guid="7abe4550-ba68-45c2-b066-1ca1db031f44" /><DocumentWindow Key="C:\Users\davis\Documents\PSoC Creator\MotorUnitRev4\Motor_Board_Rev3.cydsn\TopDesign\TopDesign.cysch" Guid="a6858926-6b01-4203-8fdb-3ceb8ccb19f4" /><DocumentWindow Key="C:\Users\davis\Documents\PSoC Creator\MotorUnitRev4\MotorFirmware\main.h" Guid="1ec27311-ff9f-411d-80af-98193ed8c0a8" /><DocumentWindow Key="C:\Users\davis\Documents\PSoC Creator\MotorUnitRev4\MotorFirmware\Motor_Unit_Debug.h" Guid="123fa4d2-b744-476b-b39d-57e3b18ed2da" /><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="601d7438-0df5-4c65-973b-eaad6f0e5381" /><DocumentWindow Key="C:\Users\davis\Documents\PSoC Creator\MotorUnitRev4\CANLib\PortFiles\PortPSOC_CY8C4248AZI_L485.c" Guid="46f80a4a-d7a8-42db-bf43-c0a43cf17e1e" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1451, 757" SelectedTabbedMdiWindow="d5d716f1-b7c2-4008-a52b-478744d89b87"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="601d7438-0df5-4c65-973b-eaad6f0e5381" /><DocumentWindow Key="C:\Users\davis\Documents\PSoC Creator\General_Purpose_Motor_Board_PY2023\MotorUnitRev4\Motor_Board_Rev3.cydsn\TopDesign\TopDesign.cysch" Guid="bc22296a-ea42-4ca1-856e-79195b69ce48" /><DocumentWindow Key="C:\Users\davis\Documents\PSoC Creator\General_Purpose_Motor_Board_PY2023\MotorUnitRev4\Motor_Board_Rev4.cydsn\TopDesign\TopDesign.cysch" Guid="a169325e-a0e2-4277-8b2b-cf3355212c64" /><DocumentWindow Key="C:\Users\davis\Documents\PSoC Creator\General_Purpose_Motor_Board_PY2023\MotorUnitRev4\MotorFirmware\main.c" Guid="d5d716f1-b7c2-4008-a52b-478744d89b87" /><DocumentWindow Key="C:\Users\davis\Documents\PSoC Creator\General_Purpose_Motor_Board_PY2023\MotorUnitRev4\MotorFirmware\PositionPID.h" Guid="edcb0e3b-5d0d-45fa-b8c0-905d430d0e98" /><DocumentWindow Key="C:\Users\davis\Documents\PSoC Creator\General_Purpose_Motor_Board_PY2023\MotorUnitRev4\MotorFirmware\PositionPID.c" Guid="6ba714c6-f822-493e-9f87-d4f651d5a666" /><DocumentWindow Key="C:\Users\davis\Documents\PSoC Creator\General_Purpose_Motor_Board_PY2023\MotorUnitRev4\Motor_Board_Rev4.cydsn\Motor_Board_Rev4.cydwr" Guid="a34f5dc5-5f57-42ad-a8ba-3a4786943806" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>
