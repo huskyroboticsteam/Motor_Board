@@ -34,6 +34,7 @@ int32_t GetEncoderValWithFlip();
 void SetEncoderDirDefault();
 void SetEncoderDirReverse();
 void SetMaxPIDPWM(uint16_t setValue);
+void setEncoderAtLimit(int enc_limit);
 int32_t GetMaxPIDPWM();
 
 int32_t GetkPosition();

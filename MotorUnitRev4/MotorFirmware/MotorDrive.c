@@ -29,11 +29,11 @@ void set_PWM(int16_t compare, uint8_t disable_limit, uint8 limitSW) {
     #endif
     
     invalidate = 0;
-    if (compare < 0 && (!(limitSW & 0b01) || disable_limit) ) {
+    if (compare < 0 && (!(limitSW & 0b10) || disable_limit) ) {
         Pin_Direction_Write(0);
         currentPWM = compare;
         PWM_Motor_WriteCompare(-compare);
-    } else if (compare > 0 && (!(limitSW & 0b10) || disable_limit) ){
+    } else if (compare > 0 && (!(limitSW & 0b01) || disable_limit) ){
         Pin_Direction_Write(1);
         currentPWM = compare;
         PWM_Motor_WriteCompare(compare);

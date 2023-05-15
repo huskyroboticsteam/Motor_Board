@@ -1,5 +1,20 @@
---------------- Build Started: 05/02/2023 18:07:31 Project: Motor_Board_Rev4, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
-The code generation step is up to date.
+--------------- Build Started: 05/13/2023 14:00:18 Project: Motor_Board_Rev4, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
+cydsfit.exe -.appdatapath "C:\Users\davis\AppData\Local\Cypress Semiconductor\PSoC Creator\4.4" -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -.fdsreffile=referenced_files.txt -p "C:\Users\davis\Documents\PSoC Creator\General_Purpose_Motor_Board_PY2023\MotorUnitRev4\Motor_Board_Rev4.cydsn\Motor_Board_Rev4.cyprj" -d CY8C4247LTI-L485 -s "C:\Users\davis\Documents\PSoC Creator\General_Purpose_Motor_Board_PY2023\MotorUnitRev4\Motor_Board_Rev4.cydsn\Generated_Source\PSoC4" -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE
+Elaborating Design...
+HDL Generation...
+Synthesis...
+Tech Mapping...
+Analog Placement...
+Analog Routing...
+Analog Code Generation...
+Digital Placement...
+Digital Routing...
+Bitstream Generation...
+Bitstream Verification...
+Static timing analysis...
+API Generation...
+Dependency Generation...
+Cleanup...
 arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/main.lst -g -D DEBUG -D CY_CORE_ID=0 -D CHIP_TYPE=CHIP_TYPE_PSOC_CY8C4248AZI_L485 -Wall -ffunction-sections -ffat-lto-objects -Og -c ..\MotorFirmware\main.c -o .\CortexM0\ARM_GCC_541\Debug\main.o
 In file included from ..\MotorFirmware\../CANLib/CANLibrary.h:12:0,
                  from ..\MotorFirmware\main.h:15,
@@ -54,7 +69,7 @@ In file included from ..\MotorFirmware\../CANLib/CANPacket.h:13:0,
  #define DEVICE_GROUP_POWER      0x3
  ^
 ..\MotorFirmware\main.c: In function 'Period_Reset_Handler':
-..\MotorFirmware\main.c:52:9: warning: unused variable 'timer' [-Wunused-variable]
+..\MotorFirmware\main.c:53:9: warning: unused variable 'timer' [-Wunused-variable]
      int timer = Timer_PWM_ReadStatusRegister();
          ^
 arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/Motor_Unit_CAN.lst -g -D DEBUG -D CY_CORE_ID=0 -D CHIP_TYPE=CHIP_TYPE_PSOC_CY8C4248AZI_L485 -Wall -ffunction-sections -ffat-lto-objects -Og -c ..\MotorFirmware\Motor_Unit_CAN.c -o .\CortexM0\ARM_GCC_541\Debug\Motor_Unit_CAN.o
@@ -114,6 +129,7 @@ arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-
 In file included from ..\MotorFirmware\../CANLib/CANLibrary.h:12:0,
                  from ..\MotorFirmware\main.h:15,
                  from ..\MotorFirmware\MotorDrive.c:15:
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/PositionPID.lst -g -D DEBUG -D CY_CORE_ID=0 -D CHIP_TYPE=CHIP_TYPE_PSOC_CY8C4248AZI_L485 -Wall -ffunction-sections -ffat-lto-objects -Og -c ..\MotorFirmware\PositionPID.c -o .\CortexM0\ARM_GCC_541\Debug\PositionPID.o
 ..\MotorFirmware\../CANLib/CANPacket.h:59:0: warning: "DEVICE_GROUP_BROADCAST" redefined
  #define DEVICE_GROUP_BROADCAST          (uint8_t) 0x00
  ^
@@ -163,7 +179,6 @@ In file included from ..\MotorFirmware\../CANLib/CANPacket.h:13:0,
 ..\MotorFirmware\../CANLib/CANSerialNumbers.h:67:0: note: this is the location of the previous definition
  #define DEVICE_GROUP_POWER      0x3
  ^
-arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/PositionPID.lst -g -D DEBUG -D CY_CORE_ID=0 -D CHIP_TYPE=CHIP_TYPE_PSOC_CY8C4248AZI_L485 -Wall -ffunction-sections -ffat-lto-objects -Og -c ..\MotorFirmware\PositionPID.c -o .\CortexM0\ARM_GCC_541\Debug\PositionPID.o
 In file included from ..\MotorFirmware\../CANLib/CANLibrary.h:12:0,
                  from ..\MotorFirmware\main.h:15,
                  from ..\MotorFirmware\PositionPID.c:18:
@@ -217,13 +232,15 @@ In file included from ..\MotorFirmware\../CANLib/CANPacket.h:13:0,
  #define DEVICE_GROUP_POWER      0x3
  ^
 ..\MotorFirmware\PositionPID.c: In function 'Position_PID':
-arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/PortPSOC_CY8C4248AZI_L485.lst -g -D DEBUG -D CY_CORE_ID=0 -D CHIP_TYPE=CHIP_TYPE_PSOC_CY8C4248AZI_L485 -Wall -ffunction-sections -ffat-lto-objects -Og -c ..\CANLib\PortFiles\PortPSOC_CY8C4248AZI_L485.c -o .\CortexM0\ARM_GCC_541\Debug\PortPSOC_CY8C4248AZI_L485.o
-..\MotorFirmware\PositionPID.c:156:24: warning: format '%d' expects argument of type 'int', but argument 3 has type 'int32 {aka volatile long int}' [-Wformat=]
-         sprintf(txData,"c:%d, P:%d, I%d, D:%d, Out:%d\n\r", current, position, integral, derivative, PWMOut);
+..\MotorFirmware\PositionPID.c:164:24: warning: format '%d' expects argument of type 'int', but argument 3 has type 'int32 {aka volatile long int}' [-Wformat=]
+         sprintf(txData,"c:%d, P:%d, I%d, D:%d, Out:%d Time:%d\n\r", current, position, integral, derivative, PWMOut, Timer_PWM_ReadCounter());
                         ^
-..\MotorFirmware\PositionPID.c:156:24: warning: format '%d' expects argument of type 'int', but argument 4 has type 'int32 {aka long int}' [-Wformat=]
-..\MotorFirmware\PositionPID.c:156:24: warning: format '%d' expects argument of type 'int', but argument 3 has type 'int32 {aka volatile long int}' [-Wformat=]
-..\MotorFirmware\PositionPID.c:156:24: warning: format '%d' expects argument of type 'int', but argument 4 has type 'int32 {aka long int}' [-Wformat=]
+..\MotorFirmware\PositionPID.c:164:24: warning: format '%d' expects argument of type 'int', but argument 4 has type 'int32 {aka long int}' [-Wformat=]
+..\MotorFirmware\PositionPID.c:164:24: warning: format '%d' expects argument of type 'int', but argument 8 has type 'uint32 {aka long unsigned int}' [-Wformat=]
+..\MotorFirmware\PositionPID.c:164:24: warning: format '%d' expects argument of type 'int', but argument 3 has type 'int32 {aka volatile long int}' [-Wformat=]
+..\MotorFirmware\PositionPID.c:164:24: warning: format '%d' expects argument of type 'int', but argument 4 has type 'int32 {aka long int}' [-Wformat=]
+..\MotorFirmware\PositionPID.c:164:24: warning: format '%d' expects argument of type 'int', but argument 8 has type 'uint32 {aka long unsigned int}' [-Wformat=]
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/PortPSOC_CY8C4248AZI_L485.lst -g -D DEBUG -D CY_CORE_ID=0 -D CHIP_TYPE=CHIP_TYPE_PSOC_CY8C4248AZI_L485 -Wall -ffunction-sections -ffat-lto-objects -Og -c ..\CANLib\PortFiles\PortPSOC_CY8C4248AZI_L485.c -o .\CortexM0\ARM_GCC_541\Debug\PortPSOC_CY8C4248AZI_L485.o
 In file included from ..\CANLib\PortFiles\../Port.h:18:0,
                  from ..\CANLib\PortFiles\PortPSOC_CY8C4248AZI_L485.c:11:
 ..\CANLib\PortFiles\../CANPacket.h:59:0: warning: "DEVICE_GROUP_BROADCAST" redefined
@@ -285,6 +302,6 @@ No ELF section .cychecksum found, creating one
 Application checksum calculated and stored in ELF section .cychecksum
 Checksum calculated and stored in ELF section .cymeta
 cyelftool.exe -S "C:\Users\davis\Documents\PSoC Creator\General_Purpose_Motor_Board_PY2023\MotorUnitRev4\Motor_Board_Rev4.cydsn\CortexM0\ARM_GCC_541\Debug\Motor_Board_Rev4.elf"
-Flash used: 19750 of 131072 bytes (15.1%).
+Flash used: 19958 of 131072 bytes (15.2%).
 SRAM used: 3064 of 16384 bytes (18.7%). Stack: 2048 bytes. Heap: 128 bytes.
---------------- Build Succeeded: 05/02/2023 18:07:33 ---------------
+--------------- Build Succeeded: 05/13/2023 14:00:35 ---------------

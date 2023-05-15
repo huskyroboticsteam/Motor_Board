@@ -13,7 +13,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="Motor Unit\Motor_Board_Rev4\CAN Library">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="Motor Unit\Motor_Board_Rev3">
 <ExpandedNodeIds>
 <v>Motor Unit</v>
 <v>Motor Unit\Motor_Board_Rev3\TopDesign</v>
@@ -371,6 +371,43 @@
 <VisibleNodeIds>
 <v>Motor Unit</v>
 <v>Motor Unit\Motor_Board_Rev3</v>
+<v>Motor Unit\Motor_Board_Rev3\CortexM0</v>
+<v>Motor Unit\Motor_Board_Rev3\CortexM0\ARM_GCC_541</v>
+<v>Motor Unit\Motor_Board_Rev3\CortexM0\ARM_GCC_541\Debug</v>
+<v>Motor Unit\Motor_Board_Rev3\CortexM0\ARM_GCC_541\Debug\Listing Files</v>
+<v>Motor Unit\Motor_Board_Rev3\CortexM0\ARM_GCC_541\Debug\Listing Files\ADC_SAR_Seq_1.lst</v>
+<v>Motor Unit\Motor_Board_Rev3\CortexM0\ARM_GCC_541\Debug\Listing Files\ADC_SAR_Seq_1_INT.lst</v>
+<v>Motor Unit\Motor_Board_Rev3\CortexM0\ARM_GCC_541\Debug\Listing Files\ADC_SAR_Seq_1_intClock.lst</v>
+<v>Motor Unit\Motor_Board_Rev3\CortexM0\ARM_GCC_541\Debug\Listing Files\ADC_SAR_Seq_1_IRQ.lst</v>
+<v>Motor Unit\Motor_Board_Rev3\CortexM0\ARM_GCC_541\Debug\Listing Files\ADC_SAR_Seq_1_PM.lst</v>
+<v>Motor Unit\Motor_Board_Rev3\CortexM0\ARM_GCC_541\Debug\Listing Files\CAN.lst</v>
+<v>Motor Unit\Motor_Board_Rev3\CortexM0\ARM_GCC_541\Debug\Listing Files\Can_addr.lst</v>
+<v>Motor Unit\Motor_Board_Rev3\CortexM0\ARM_GCC_541\Debug\Listing Files\CAN_HFCLK.lst</v>
+<v>Motor Unit\Motor_Board_Rev3\CortexM0\ARM_GCC_541\Debug\Listing Files\CAN_INT.lst</v>
+<v>Motor Unit\Motor_Board_Rev3\CortexM0\ARM_GCC_541\Debug\Listing Files\CAN_isr.lst</v>
+<v>Motor Unit\Motor_Board_Rev3\CortexM0\ARM_GCC_541\Debug\Listing Files\CAN_LED.lst</v>
+<v>Motor Unit\Motor_Board_Rev3\CortexM0\ARM_GCC_541\Debug\Listing Files\CAN_LED_PM.lst</v>
+<v>Motor Unit\Motor_Board_Rev3\CortexM0\ARM_GCC_541\Debug\Listing Files\CAN_PM.lst</v>
+<v>Motor Unit\Motor_Board_Rev3\CortexM0\ARM_GCC_541\Debug\Listing Files\CAN_TX_RX_func.lst</v>
+<v>Motor Unit\Motor_Board_Rev3\CortexM0\ARM_GCC_541\Debug\Listing Files\CANCommon.lst</v>
+<v>Motor Unit\Motor_Board_Rev3\CortexM0\ARM_GCC_541\Debug\Listing Files\CANMotorUnit.lst</v>
+<v>Motor Unit\Motor_Board_Rev3\CortexM0\ARM_GCC_541\Debug\Listing Files\CANPacket.lst</v>
+<v>Motor Unit\Motor_Board_Rev3\CortexM0\ARM_GCC_541\Debug\Listing Files\Clock_2.lst</v>
+<v>Motor Unit\Motor_Board_Rev3\CortexM0\ARM_GCC_541\Debug\Listing Files\Clock_PWM.lst</v>
+<v>Motor Unit\Motor_Board_Rev3\CortexM0\ARM_GCC_541\Debug\Listing Files\Cm0Start.lst</v>
+<v>Motor Unit\Motor_Board_Rev3\CortexM0\ARM_GCC_541\Debug\Listing Files\cy_em_eeprom.lst</v>
+<v>Motor Unit\Motor_Board_Rev3\CortexM0\ARM_GCC_541\Debug\Listing Files\CyBootAsmGnu.lst</v>
+<v>Motor Unit\Motor_Board_Rev3\CortexM0\ARM_GCC_541\Debug\Listing Files\CyDMA.lst</v>
+<v>Motor Unit\Motor_Board_Rev3\CortexM0\ARM_GCC_541\Debug\Listing Files\cyfitter_cfg.lst</v>
+<v>Motor Unit\Motor_Board_Rev3\CortexM0\ARM_GCC_541\Debug\Listing Files\CyFlash.lst</v>
+<v>Motor Unit\Motor_Board_Rev3\CortexM0\ARM_GCC_541\Debug\Listing Files\CyLFClk.lst</v>
+<v>Motor Unit\Motor_Board_Rev3\CortexM0\ARM_GCC_541\Debug\Listing Files\CyLib.lst</v>
+<v>Motor Unit\Motor_Board_Rev3\CortexM0\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
+<v>Motor Unit\Motor_Board_Rev3\CortexM0\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
+<v>Motor Unit\Motor_Board_Rev3\CortexM0\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
+<v>Motor Unit\Motor_Board_Rev3\CortexM0\ARM_GCC_541\Debug\Listing Files\Debug_1.lst</v>
+<v>Motor Unit\Motor_Board_Rev3\CortexM0\ARM_GCC_541\Debug\Listing Files\Debug_1_PM.lst</v>
+<v>Motor Unit\Motor_Board_Rev3\CortexM0\ARM_GCC_541\Debug\Listing Files\Dip_1.lst</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStates>
@@ -494,12 +531,16 @@
 </CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>
 <Unloaded />
 <OpenDocs>
-<name v=".\Motor_Board_Rev3.cydsn\TopDesign\TopDesign.cysch" />
 <name v=".\Motor_Board_Rev4.cydsn\TopDesign\TopDesign.cysch" />
 <name v=".\MotorFirmware\main.c" />
 <name v=".\MotorFirmware\PositionPID.h" />
 <name v=".\MotorFirmware\PositionPID.c" />
-<name v=".\Motor_Board_Rev4.cydsn\Motor_Board_Rev4.cydwr" />
+<name v=".\MotorFirmware\Motor_Unit_CAN.h" />
+<name v=".\MotorFirmware\Motor_Unit_CAN.c" />
+<name v=".\MotorFirmware\Motor_Unit_FSM.c" />
+<name v=".\Motor_Board_Rev3.cydsn\Motor_Board_Rev3.cydwr" />
+<name v=".\Motor_Board_Rev3.cydsn\TopDesign\TopDesign.cysch" />
+<name v=".\MotorFirmware\MotorDrive.c" />
 </OpenDocs>
 <OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
 
@@ -507,7 +548,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1451, 757" SelectedTabbedMdiWindow="d5d716f1-b7c2-4008-a52b-478744d89b87"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="601d7438-0df5-4c65-973b-eaad6f0e5381" /><DocumentWindow Key="C:\Users\davis\Documents\PSoC Creator\General_Purpose_Motor_Board_PY2023\MotorUnitRev4\Motor_Board_Rev3.cydsn\TopDesign\TopDesign.cysch" Guid="bc22296a-ea42-4ca1-856e-79195b69ce48" /><DocumentWindow Key="C:\Users\davis\Documents\PSoC Creator\General_Purpose_Motor_Board_PY2023\MotorUnitRev4\Motor_Board_Rev4.cydsn\TopDesign\TopDesign.cysch" Guid="a169325e-a0e2-4277-8b2b-cf3355212c64" /><DocumentWindow Key="C:\Users\davis\Documents\PSoC Creator\General_Purpose_Motor_Board_PY2023\MotorUnitRev4\MotorFirmware\main.c" Guid="d5d716f1-b7c2-4008-a52b-478744d89b87" /><DocumentWindow Key="C:\Users\davis\Documents\PSoC Creator\General_Purpose_Motor_Board_PY2023\MotorUnitRev4\MotorFirmware\PositionPID.h" Guid="edcb0e3b-5d0d-45fa-b8c0-905d430d0e98" /><DocumentWindow Key="C:\Users\davis\Documents\PSoC Creator\General_Purpose_Motor_Board_PY2023\MotorUnitRev4\MotorFirmware\PositionPID.c" Guid="6ba714c6-f822-493e-9f87-d4f651d5a666" /><DocumentWindow Key="C:\Users\davis\Documents\PSoC Creator\General_Purpose_Motor_Board_PY2023\MotorUnitRev4\Motor_Board_Rev4.cydsn\Motor_Board_Rev4.cydwr" Guid="a34f5dc5-5f57-42ad-a8ba-3a4786943806" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1451, 757" SelectedTabbedMdiWindow="9d292144-cf63-4414-8c6d-df24de20d31c"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="601d7438-0df5-4c65-973b-eaad6f0e5381" /><DocumentWindow Key="C:\Users\davis\Documents\PSoC Creator\General_Purpose_Motor_Board_PY2023\MotorUnitRev4\Motor_Board_Rev4.cydsn\TopDesign\TopDesign.cysch" Guid="a169325e-a0e2-4277-8b2b-cf3355212c64" /><DocumentWindow Key="C:\Users\davis\Documents\PSoC Creator\General_Purpose_Motor_Board_PY2023\MotorUnitRev4\MotorFirmware\main.c" Guid="d5d716f1-b7c2-4008-a52b-478744d89b87" /><DocumentWindow Key="C:\Users\davis\Documents\PSoC Creator\General_Purpose_Motor_Board_PY2023\MotorUnitRev4\MotorFirmware\PositionPID.h" Guid="edcb0e3b-5d0d-45fa-b8c0-905d430d0e98" /><DocumentWindow Key="C:\Users\davis\Documents\PSoC Creator\General_Purpose_Motor_Board_PY2023\MotorUnitRev4\MotorFirmware\PositionPID.c" Guid="6ba714c6-f822-493e-9f87-d4f651d5a666" /><DocumentWindow Key="C:\Users\davis\Documents\PSoC Creator\General_Purpose_Motor_Board_PY2023\MotorUnitRev4\MotorFirmware\Motor_Unit_CAN.h" Guid="cb95d955-4eac-4fc7-b431-ce7c360ec2d1" /><DocumentWindow Key="C:\Users\davis\Documents\PSoC Creator\General_Purpose_Motor_Board_PY2023\MotorUnitRev4\MotorFirmware\Motor_Unit_CAN.c" Guid="c5e340bb-cd5e-4453-9d9b-4b2f5812264b" /><DocumentWindow Key="C:\Users\davis\Documents\PSoC Creator\General_Purpose_Motor_Board_PY2023\MotorUnitRev4\MotorFirmware\Motor_Unit_FSM.c" Guid="0a88bed6-0a75-4a38-84d9-b876f4cb07c3" /><DocumentWindow Key="C:\Users\davis\Documents\PSoC Creator\General_Purpose_Motor_Board_PY2023\MotorUnitRev4\Motor_Board_Rev3.cydsn\Motor_Board_Rev3.cydwr" Guid="59bb2c6d-a1c0-471f-b081-eb4284d3aacd" /><DocumentWindow Key="C:\Users\davis\Documents\PSoC Creator\General_Purpose_Motor_Board_PY2023\MotorUnitRev4\Motor_Board_Rev3.cydsn\TopDesign\TopDesign.cysch" Guid="7c83e8b4-c1e6-4243-85e2-90d4ac23ad2e" /><DocumentWindow Key="C:\Users\davis\Documents\PSoC Creator\General_Purpose_Motor_Board_PY2023\MotorUnitRev4\MotorFirmware\MotorDrive.c" Guid="9d292144-cf63-4414-8c6d-df24de20d31c" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>

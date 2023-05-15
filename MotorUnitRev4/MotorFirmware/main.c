@@ -18,6 +18,7 @@
 #include "Motor_Unit_FSM.h"
 #include "PositionPID.h"
 #include <math.h>
+#include "PositionPID.h"
 
 //LED
 uint8_t CAN_time_LED = 0;
@@ -94,12 +95,12 @@ CY_ISR(Pin_Limit_Handler){
     #endif         
 
     if (bound_set1 && Pin_Limit_1_Read()) {
-        QuadDec_SetCounter((int)round(GetkPPJR() / (360*1000.0) * enc_lim_1));
+        setEncoderAtLimit(enc_lim_1);
         UART_UartPutString("Change limit 1\n\r");
     }
     if (bound_set2 && Pin_Limit_2_Read()){
+        setEncoderAtLimit(enc_lim_2);
         UART_UartPutString("Change limit 2\n\r");
-        QuadDec_SetCounter((int)round(GetkPPJR() / (360*1000.0) * enc_lim_2));
     }
 }
 

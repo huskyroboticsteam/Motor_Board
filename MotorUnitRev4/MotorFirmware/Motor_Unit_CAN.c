@@ -133,6 +133,7 @@ void NextStateFromCAN(CANPacket *receivedPacket, CANPacket *packetToSend) {
                         
                     // Common Packets 
                     case(ID_ESTOP):
+                        UART_UartPutString("\r\n\r\n\r\nSTOP\r\n\r\n\r\n");
                         set_PWM(0, 0, 0);
                         GotoUninitState();
                         break;

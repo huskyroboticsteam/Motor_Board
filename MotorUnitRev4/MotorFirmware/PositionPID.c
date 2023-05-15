@@ -100,6 +100,11 @@ void SetEncoderDirDefault(){
 void SetEncoderDirReverse(){
     flipEncoder = -1;
 }
+
+void setEncoderAtLimit(int enc_limit){
+    QuadDec_SetCounter((int)round(GetkPPJR() / (360*1000.0) * enc_limit * flipEncoder));    
+}
+    
 int32_t CurrentPositionMiliDegree(){
     if(kPPJR == 0){
         return(0);
@@ -121,7 +126,7 @@ void SetPosition(int32 miliDegrees) {
 }
 
 int32_t MiliDegreesToTicks(int32_t miliDegrees){
-    int32_t ticks = miliDegrees * kPPJR/(360*1000);// make float
+    int32_t ticks = (int)round(miliDegrees/(360.0*1000.0) * kPPJR);// make float
     return(ticks);
 }
 
@@ -130,8 +135,8 @@ int32_t Position_PID(int32 targetTick){
         return(0);
     }
     //TODO: Make Potenitometer Compatible
-    volatile int32 current =  GetEncoderValWithFlip();
-    int32 position = targetTick - current;
+    volatile int32 current = (int)round(GetEncoderValWithFlip() * 360.0 * 1000.0 / kPPJR);
+    int32 position = (int)round(targetTick * 360.0 * 1000.0 / kPPJR) - current;
     
     //if within tolerance exit
     if(position <= 5 && position >= -5) {
@@ -139,6 +144,10 @@ int32_t Position_PID(int32 targetTick){
     }
     
     integral = integral + position;
+    
+    int derivative = position - lastPosition;
+    
+    lastPosition = position;
     
     //integral clamp
     if (integral > integralClamp) {
@@ -148,12 +157,11 @@ int32_t Position_PID(int32 targetTick){
         integral = -integralClamp;
     }
     
-    int derivative = position - lastPosition;
+    // CALC PWM
     int PWMOut = position*kPosition/10 + integral*kIntegral/10 + derivative*kDerivative/10;
-    lastPosition = position;
     
     #ifdef PRINT_PID_DEBUG
-        sprintf(txData,"c:%d, P:%d, I%d, D:%d, Out:%d\n\r", current, position, integral, derivative, PWMOut);
+        sprintf(txData,"c:%d, P:%d, I%d, D:%d, Out:%d Time:%d\n\r", current, position, integral, derivative, PWMOut, Timer_PWM_ReadCounter());
         UART_UartPutString(txData);   
     #endif
  
