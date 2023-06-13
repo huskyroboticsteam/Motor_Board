@@ -27,13 +27,16 @@ extern int32_t enc_lim_2;
 
 void SendEncoderData (CANPacket *packetToSend){
     AssembleTelemetryReportPacket(packetToSend, DEVICE_GROUP_JETSON, DEVICE_SERIAL_JETSON, 
-        PACKET_TELEMETRY_ANG_POSITION, CurrentPositionMiliDegree());
+        PACKET_TELEMETRY_ANG_POSITION, GetPositionmDeg());
     SendCANPacket(packetToSend);
 }
 
 //Reads from CAN FIFO and changes the state and mode accordingly
 void NextStateFromCAN(CANPacket *receivedPacket, CANPacket *packetToSend) {
     uint16_t packageID = ReadCAN(receivedPacket);
+    uint8_t motor_serial = GetDeviceSerialNumber(receivedPacket); //get which motor
+    uint8_t sender_DG = GetSenderDeviceGroupCode(receivedPacket);
+    uint8_t sender_SN = GetSenderDeviceSerialNumber(receivedPacket);
     switch(packageID){
                     case(ID_MOTOR_UNIT_MODE_SEL):
                         if(GetModeFromPacket(receivedPacket) == MOTOR_UNIT_MODE_PWM) {
@@ -90,15 +93,32 @@ void NextStateFromCAN(CANPacket *receivedPacket, CANPacket *packetToSend) {
                         break;
                      
                     case(ID_MOTOR_UNIT_ENC_PPJR_SET):
-                        SetkPPJR(GetEncoderPPJRFromPacket(receivedPacket));
-                        PPJRConstIsSet();
+                        SetConversion(360.0*1000/GetEncoderPPJRFromPacket(receivedPacket));
                         SetStateTo(CHECK_CAN);
                         break;
                     /*
                     case(ID_MOTOR_UNIT_MAX_JNT_REV_SET):
                         break;
                     */
+                    case (ID_MOTOR_UNIT_POT_INIT_LO):
+                        //printf("pot init low: %0llX",(uint64_t) receivedPacket->data);
+                        setTickMin(GetPotADCFromPacket(receivedPacket));
+                        setmDegMin(GetPotmDegFromPacket(receivedPacket));
+                        UpdateConversion();
+                        setUsingPot(1);
+                        SetStateTo(CHECK_CAN);
+                        break;
+                        
+                    case (ID_MOTOR_UNIT_POT_INIT_HI):
+                        //printf("pot init hi: %0llX",(uint64_t) receivedPacket->data);
+                        setTickMax(GetPotADCFromPacket(receivedPacket));
+                        setmDegMax(GetPotmDegFromPacket(receivedPacket));
+                        UpdateConversion();
+                        setUsingPot(1);
+                        SetStateTo(CHECK_CAN);
+                        break;
                     case(ID_MOTOR_UNIT_ENC_INIT):
+                        setUsingPot(0);
                         if(GetMode() == MOTOR_UNIT_MODE_PID){ //turn off and clear PID Loop if encoder is reinit while running
                             set_PWM(0, 0, 0);
                             ClearPIDProgress();
@@ -107,11 +127,7 @@ void NextStateFromCAN(CANPacket *receivedPacket, CANPacket *packetToSend) {
                         if(GetEncoderZeroFromPacket(receivedPacket)) {
                             QuadDec_SetCounter(0);                        
                         }
-                        if(GetEncoderDirectionFromPacket(receivedPacket)) {
-                            SetEncoderDirReverse();
-                        } else {
-                            SetEncoderDirDefault();
-                        }
+                        SetEncoderDir(GetEncoderDirectionFromPacket(receivedPacket));
                         SetStateTo(CHECK_CAN);
                         break;
                     case(ID_MOTOR_UNIT_MAX_PID_PWM):
@@ -139,12 +155,18 @@ void NextStateFromCAN(CANPacket *receivedPacket, CANPacket *packetToSend) {
                         break;
                     
                     case(ID_TELEMETRY_PULL):
-                        //AssembleChipTypeReportPacket(packetToSend, GetSenderDeviceGroupCode(receivedPacket),
-                        //    GetSenderDeviceSerialNumber(receivedPacket));
-                        //SendCANPacket(packetToSend);
-			SendEncoderData(packetToSend);
+                        switch (DecodeTelemetryType(receivedPacket)) {
+                            case(PACKET_TELEMETRY_ADC_RAW):
+                                AssembleTelemetryReportPacket(packetToSend, sender_DG, sender_SN, 
+                                                              PACKET_TELEMETRY_ADC_RAW, GetPotVal());
+                            default:
+                                AssembleChipTypeReportPacket(packetToSend, sender_DG, sender_SN);
+                            break;
+                        }
+                        
+                        SendCANPacket(packetToSend);
+                        SetStateTo(CHECK_CAN);
                         break;
-
                         
                         /*
                     case(ID_LED_COLOR):

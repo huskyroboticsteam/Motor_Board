@@ -12,15 +12,20 @@
 
 /* [] END OF FILE */
 #include <project.h>
-void SetPosition(int32 miliDegrees) ;
+void SetPosition(int32_t mDegs) ;
 int32_t MiliDegreesToTicks(int32_t miliDegrees);
-int32_t Position_PID(int32 targetTick);
-int32_t CurrentPositionMiliDegree();
+int32_t Position_PID(int32 targetmDeg);
+int32_t GetEncoderValWithFlip();
+int32_t GetPotVal();
+int32_t GetPositionmDeg();
 
 void SetkPosition(int32_t kP);
 void SetkIntegral(int32_t kI);
 void SetkDerivative(int32_t kD);
-void SetkPPJR(uint32_t kppjr);
+void SetConversion(double conv);
+double UpdateConversion();
+void SetEncoderDir(uint8_t flip);
+void setEncoderAtLimit(int enc_limit);
 
 //used for mode change 
 void ClearPIDProgress();
@@ -30,14 +35,17 @@ void DisablePID();
 void EnablePID();
 uint8_t PIDIsEnabled();
 
-int32_t GetEncoderValWithFlip();
 void SetEncoderDirDefault();
 void SetEncoderDirReverse();
 void SetMaxPIDPWM(uint16_t setValue);
-void setEncoderAtLimit(int enc_limit);
-int32_t GetMaxPIDPWM();
+void setUsingPot(uint8_t pot);
+void setTickMin(int32_t val);
+void setTickMax(int32_t val);
+void setmDegMin(int32_t val);
+void setmDegMax(int32_t val);
 
+int32_t GetMaxPIDPWM();
 int32_t GetkPosition();
 int32_t GetkIntegral();
 int32_t GetkDerivative();
-uint32_t GetkPPJR();//pulses per joint revolution
+double GetConversion();

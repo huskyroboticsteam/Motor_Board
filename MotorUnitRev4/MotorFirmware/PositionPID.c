@@ -10,7 +10,6 @@
  * ========================================
 */
 
-//PID varaibles
 #include "Motor_Unit_Debug.h"
 #include <project.h>
 #include "PositionPID.h"
@@ -18,30 +17,29 @@
 #include "main.h"
 #include <math.h>
 
-int32_t kPosition = 0;
-int32_t kIntegral = 0;
-int32_t kDerivative = 0;
-int32_t kPPJR = 0;
 int32_t PWM = 0;
-extern uint8_t ignoreLimSw;
-
-extern char txData[TX_DATA_SIZE];
+int32_t kPosition = 0, kIntegral = 0, kDerivative = 0;
+int32_t tickMax = 0, tickMin = 0, mDegMax = 0, mDegMin = 0;
 int8 flipEncoder = 1;
-uint8_t usingPot = 0;
+double mDegPerTick;
 
 int integral = 0;     //needs to be reset upon mode change
-int lastPosition = 0; //needs to be reset upon mode change
-int integralClamp = 5000;
-
-double ratio;
-uint8 complete = 0;
+int lastError = 0;    //needs to be reset upon mode change
+int integralClamp = 500;
 int32 maxPWM = 32767;
 
+// double ratio;
+// uint8 complete = 0;
+
+uint8_t usingPot = 0;
 uint8_t enabledPID = 0;
+
+extern uint8_t ignoreLimSw;
+extern char txData[TX_DATA_SIZE];
 
 void ClearPIDProgress() {
     integral = 0;
-    lastPosition = 0;
+    lastError = 0;
 }
 void DisablePID() {
     enabledPID = 0;
@@ -56,7 +54,7 @@ void InitializePID() {
     set_PWM(0, 0, 0);
     ClearPIDProgress();
     DisablePID();
-    lastPosition = GetEncoderValWithFlip();
+    lastError = 0;
 }
 
 void SetkPosition(int32_t kP){
@@ -68,8 +66,25 @@ void SetkIntegral(int32_t kI){
 void SetkDerivative(int32_t kD){
     kDerivative = kD;
 }
-void SetkPPJR(uint32_t kppjr){
-    kPPJR = kppjr;
+int32_t GetPotVal() {
+    int32_t n = 1000;
+    int32_t sum = 0;
+    for (int i = 0; i < n; i++) {
+        ADC_Pot_StartConvert();
+        ADC_Pot_IsEndConversion(ADC_Pot_WAIT_FOR_RESULT);
+        sum += ADC_Pot_GetResult16(0);
+    }    
+    
+    return sum/n;
+}
+
+void SetConversion(double conv) {
+    mDegPerTick = conv;
+}
+double UpdateConversion() {
+    if (mDegMin == mDegMax) return 0;
+    mDegPerTick = (double) (tickMax-tickMin)/(mDegMax-mDegMin);
+    return mDegPerTick;
 }
 int32_t GetkPosition(){
     return kPosition;
@@ -80,74 +95,69 @@ int32_t GetkIntegral(){
 int32_t GetkDerivative(){
     return kDerivative;
 }
-uint32_t GetkPPJR(){
-    return kPPJR;
+double GetConversion(){
+    return mDegPerTick;
 }
-
+void setUsingPot(uint8_t pot) {
+    usingPot = pot;
+}
 void SetMaxPIDPWM(uint16_t setValue){
     maxPWM = setValue;
 }
 int32_t GetMaxPIDPWM(){
     return maxPWM;
 }
+void setTickMin(int32_t val) { tickMin = val; }
+void setTickMax(int32_t val) { tickMax = val; }
+void setmDegMin(int32_t val) { mDegMin = val; }
+void setmDegMax(int32_t val) { mDegMax = val; }
 
-int32_t GetEncoderValWithFlip() {
-    return flipEncoder * QuadDec_GetCounter();
-}
-void SetEncoderDirDefault(){
-    flipEncoder = 1;
-}
-void SetEncoderDirReverse(){
-    flipEncoder = -1;
+void SetEncoderDir(uint8_t flip){
+    flipEncoder = (flip ? -1 : 1);
 }
 
 void setEncoderAtLimit(int enc_limit){
-    QuadDec_SetCounter((int)round(GetkPPJR() / (360*1000.0) * enc_limit * flipEncoder));    
+    QuadDec_SetCounter((int)round(enc_limit * flipEncoder / mDegPerTick));    
 }
-    
-int32_t CurrentPositionMiliDegree(){
-    if(kPPJR == 0){
+
+int32_t GetPositionmDeg() {
+    if (mDegPerTick == 0.0)
         return(0);
-    }
-    return (int)round((360*1000.0) / kPPJR * GetEncoderValWithFlip());
+    
+    if (usingPot) 
+        return (GetPotVal()-tickMin) * mDegPerTick + mDegMin;
+
+    return QuadDec_GetCounter() * mDegPerTick * flipEncoder;
+    // return 0 * mDegPerTick;
 }
-void SetPosition(int32 miliDegrees) {
+void SetPosition(int32_t mDegs) {
         //TODO: Make Potentiometer Compatible
-        PWM = Position_PID(MiliDegreesToTicks(miliDegrees));
+        PWM = Position_PID(mDegs);
         
         //Max Power clamp
-        if(PWM > GetMaxPIDPWM()){
-            set_PWM(GetMaxPIDPWM(), ignoreLimSw, Status_Reg_Switches_Read());   
-        } else if(PWM < -GetMaxPIDPWM()) {
-            set_PWM(-GetMaxPIDPWM(), ignoreLimSw, Status_Reg_Switches_Read());
+        if(PWM > maxPWM){
+            set_PWM(maxPWM, ignoreLimSw, Status_Reg_Switches_Read());   
+        } else if(PWM < -maxPWM) {
+            set_PWM(-maxPWM, ignoreLimSw, Status_Reg_Switches_Read());
         } else {
             set_PWM(PWM, ignoreLimSw, Status_Reg_Switches_Read());   
         }
 }
 
-int32_t MiliDegreesToTicks(int32_t miliDegrees){
-    int32_t ticks = (int)round(miliDegrees/(360.0*1000.0) * kPPJR);// make float
-    return(ticks);
-}
-
-int32_t Position_PID(int32 targetTick){
+int32_t Position_PID(int32 targetmDeg){
     if(!PIDIsEnabled()){
         return(0);
     }
-    //TODO: Make Potenitometer Compatible
-    volatile int32 current = (int)round(GetEncoderValWithFlip() * 360.0 * 1000.0 / kPPJR);
-    int32 position = (int)round(targetTick * 360.0 * 1000.0 / kPPJR) - current;
+    
+    int32 current = GetPositionmDeg();
+    int32 error = targetmDeg - current;
     
     //if within tolerance exit
-    if(position <= 5 && position >= -5) {
+    if(error <= 5 && error >= -5) {
       return(0);
     }
     
-    integral = integral + position;
-    
-    int derivative = position - lastPosition;
-    
-    lastPosition = position;
+    integral = integral + error;
     
     //integral clamp
     if (integral > integralClamp) {
@@ -157,11 +167,12 @@ int32_t Position_PID(int32 targetTick){
         integral = -integralClamp;
     }
     
-    // CALC PWM
-    int PWMOut = position*kPosition/10 + integral*kIntegral/10 + derivative*kDerivative/10;
+    int derivative = error - lastError;
+    int PWMOut = error*kPosition/10 + integral*kIntegral/10 + derivative*kDerivative/10;
+    lastError = error;
     
     #ifdef PRINT_PID_DEBUG
-        sprintf(txData,"c:%d, P:%d, I%d, D:%d, Out:%d Time:%d\n\r", current, position, integral, derivative, PWMOut, Timer_PWM_ReadCounter());
+        sprintf(txData,"c:%li, P:%li, I%d, D:%d, Out:%d", current, error, integral, derivative, PWMOut);
         UART_UartPutString(txData);   
     #endif
  
