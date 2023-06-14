@@ -25,6 +25,8 @@ extern uint8_t bound_set2;
 extern int32_t enc_lim_1;
 extern int32_t enc_lim_2;
 
+extern char txData[TX_DATA_SIZE];
+
 void SendEncoderData (CANPacket *packetToSend){
     AssembleTelemetryReportPacket(packetToSend, DEVICE_GROUP_JETSON, DEVICE_SERIAL_JETSON, 
         PACKET_TELEMETRY_ANG_POSITION, GetPositionmDeg());
@@ -157,13 +159,21 @@ void NextStateFromCAN(CANPacket *receivedPacket, CANPacket *packetToSend) {
                     
                     case(ID_TELEMETRY_PULL):
                         switch (DecodeTelemetryType(receivedPacket)) {
+                            case(PACKET_TELEMETRY_ANG_POSITION):
+                                AssembleTelemetryReportPacket(packetToSend, sender_DG, sender_SN, 
+                                                              PACKET_TELEMETRY_ANG_POSITION, GetPositionmDeg());
+                                break;
                             case(PACKET_TELEMETRY_ADC_RAW):
                                 AssembleTelemetryReportPacket(packetToSend, sender_DG, sender_SN, 
                                                               PACKET_TELEMETRY_ADC_RAW, GetPotVal());
+                                break;
                             default:
                                 AssembleChipTypeReportPacket(packetToSend, sender_DG, sender_SN);
-                            break;
+                                break;
                         }
+                        // sprintf(txData, "TELE PULL %i\r\n", DecodeTelemetryType(receivedPacket));
+                        UART_UartPutString("TELE PULL ");
+                        PrintCanPacket(*packetToSend);
                         
                         SendCANPacket(packetToSend);
                         SetStateTo(CHECK_CAN);
