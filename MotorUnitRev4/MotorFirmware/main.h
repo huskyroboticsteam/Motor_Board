@@ -36,6 +36,7 @@
         #define ERROR_LED
         #define CAN_LED
         #define RGB_LED_ARRAY
+        // #define PRINT_PID_DEBUG
         #endif
 
 

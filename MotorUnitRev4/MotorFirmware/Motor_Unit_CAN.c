@@ -94,6 +94,7 @@ void NextStateFromCAN(CANPacket *receivedPacket, CANPacket *packetToSend) {
                      
                     case(ID_MOTOR_UNIT_ENC_PPJR_SET):
                         SetConversion(360.0*1000/GetEncoderPPJRFromPacket(receivedPacket));
+                        PPJRConstIsSet();
                         SetStateTo(CHECK_CAN);
                         break;
                     /*

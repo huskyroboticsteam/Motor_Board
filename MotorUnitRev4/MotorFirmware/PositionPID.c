@@ -21,11 +21,11 @@ int32_t PWM = 0;
 int32_t kPosition = 0, kIntegral = 0, kDerivative = 0;
 int32_t tickMax = 0, tickMin = 0, mDegMax = 0, mDegMin = 0;
 int8 flipEncoder = 1;
-double mDegPerTick;
+double mDegPerTick = 0.0;
 
 int integral = 0;     //needs to be reset upon mode change
 int lastError = 0;    //needs to be reset upon mode change
-int integralClamp = 500;
+int integralClamp = 5000;
 int32 maxPWM = 32767;
 
 // double ratio;
@@ -145,6 +145,7 @@ void SetPosition(int32_t mDegs) {
 }
 
 int32_t Position_PID(int32 targetmDeg){
+        
     if(!PIDIsEnabled()){
         return(0);
     }
@@ -172,7 +173,7 @@ int32_t Position_PID(int32 targetmDeg){
     lastError = error;
     
     #ifdef PRINT_PID_DEBUG
-        sprintf(txData,"c:%li, P:%li, I%d, D:%d, Out:%d", current, error, integral, derivative, PWMOut);
+        sprintf(txData,"c:%li, P:%li, I%d, D:%d, Out:%d Time:%lu\n\r", current, error, integral, derivative, PWMOut, Timer_PWM_ReadCounter());
         UART_UartPutString(txData);   
     #endif
  

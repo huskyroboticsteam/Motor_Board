@@ -1,4 +1,4 @@
---------------- Build Started: 06/13/2023 16:52:51 Project: Motor_Board_Rev4, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
+--------------- Build Started: 06/13/2023 17:44:56 Project: Motor_Board_Rev4, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
 The code generation step is up to date.
 arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/main.lst -g -D DEBUG -D CY_CORE_ID=0 -D CHIP_TYPE=CHIP_TYPE_PSOC_CY8C4248AZI_L485 -Wall -ffunction-sections -ffat-lto-objects -Og -c ..\MotorFirmware\main.c -o .\CortexM0\ARM_GCC_541\Debug\main.o
 In file included from ..\MotorFirmware\../CANLib/CANLibrary.h:12:0,
@@ -111,10 +111,10 @@ In file included from ..\MotorFirmware\../CANLib/CANPacket.h:13:0,
  #define DEVICE_GROUP_POWER      0x3
  ^
 ..\MotorFirmware\Motor_Unit_CAN.c: In function 'NextStateFromCAN':
-..\MotorFirmware\Motor_Unit_CAN.c:105:36: warning: implicit declaration of function 'GetPotADCFromPacket' [-Wimplicit-function-declaration]
+..\MotorFirmware\Motor_Unit_CAN.c:106:36: warning: implicit declaration of function 'GetPotADCFromPacket' [-Wimplicit-function-declaration]
                          setTickMin(GetPotADCFromPacket(receivedPacket));
                                     ^
-..\MotorFirmware\Motor_Unit_CAN.c:106:36: warning: implicit declaration of function 'GetPotmDegFromPacket' [-Wimplicit-function-declaration]
+..\MotorFirmware\Motor_Unit_CAN.c:107:36: warning: implicit declaration of function 'GetPotmDegFromPacket' [-Wimplicit-function-declaration]
                          setmDegMin(GetPotmDegFromPacket(receivedPacket));
                                     ^
 ..\MotorFirmware\Motor_Unit_CAN.c:37:13: warning: unused variable 'motor_serial' [-Wunused-variable]
@@ -124,6 +124,7 @@ arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-
 In file included from ..\MotorFirmware\../CANLib/CANLibrary.h:12:0,
                  from ..\MotorFirmware\main.h:15,
                  from ..\MotorFirmware\MotorDrive.c:15:
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/PositionPID.lst -g -D DEBUG -D CY_CORE_ID=0 -D CHIP_TYPE=CHIP_TYPE_PSOC_CY8C4248AZI_L485 -Wall -ffunction-sections -ffat-lto-objects -Og -c ..\MotorFirmware\PositionPID.c -o .\CortexM0\ARM_GCC_541\Debug\PositionPID.o
 ..\MotorFirmware\../CANLib/CANPacket.h:59:0: warning: "DEVICE_GROUP_BROADCAST" redefined
  #define DEVICE_GROUP_BROADCAST          (uint8_t) 0x00
  ^
@@ -173,7 +174,6 @@ In file included from ..\MotorFirmware\../CANLib/CANPacket.h:13:0,
 ..\MotorFirmware\../CANLib/CANSerialNumbers.h:67:0: note: this is the location of the previous definition
  #define DEVICE_GROUP_POWER      0x3
  ^
-arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/PositionPID.lst -g -D DEBUG -D CY_CORE_ID=0 -D CHIP_TYPE=CHIP_TYPE_PSOC_CY8C4248AZI_L485 -Wall -ffunction-sections -ffat-lto-objects -Og -c ..\MotorFirmware\PositionPID.c -o .\CortexM0\ARM_GCC_541\Debug\PositionPID.o
 In file included from ..\MotorFirmware\../CANLib/CANLibrary.h:12:0,
                  from ..\MotorFirmware\main.h:15,
                  from ..\MotorFirmware\PositionPID.c:17:
@@ -288,6 +288,6 @@ No ELF section .cychecksum found, creating one
 Application checksum calculated and stored in ELF section .cychecksum
 Checksum calculated and stored in ELF section .cymeta
 cyelftool.exe -S "C:\Users\casey\Desktop\Robotics Stuff\General_Purpose_Motor_Board_PY2023\MotorUnitRev4\Motor_Board_Rev4.cydsn\CortexM0\ARM_GCC_541\Debug\Motor_Board_Rev4.elf"
-Flash used: 20950 of 131072 bytes (16.0%).
+Flash used: 21006 of 131072 bytes (16.0%).
 SRAM used: 3096 of 16384 bytes (18.9%). Stack: 2048 bytes. Heap: 128 bytes.
---------------- Build Succeeded: 06/13/2023 16:52:53 ---------------
+--------------- Build Succeeded: 06/13/2023 17:44:58 ---------------
