@@ -171,9 +171,6 @@ void NextStateFromCAN(CANPacket *receivedPacket, CANPacket *packetToSend) {
                                 AssembleChipTypeReportPacket(packetToSend, sender_DG, sender_SN);
                                 break;
                         }
-                        // sprintf(txData, "TELE PULL %i\r\n", DecodeTelemetryType(receivedPacket));
-                        UART_UartPutString("TELE PULL ");
-                        PrintCanPacket(*packetToSend);
                         
                         SendCANPacket(packetToSend);
                         SetStateTo(CHECK_CAN);

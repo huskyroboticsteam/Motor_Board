@@ -36,19 +36,18 @@
         #define ERROR_LED
         #define CAN_LED
         #define RGB_LED_ARRAY
-        // #define PRINT_PID_DEBUG
         #endif
 
 
         #define TX_DATA_SIZE            (100u)
 
         //void check_Pin(void);
-            struct Error
-            {
-                uint8_t code, param, done;  
-            };
-            
-            void Initialize(void);
+        struct Error
+        {
+            uint8_t code, param, done;  
+        };
+        
+        void Initialize(void);
             
         //debug tool for that prints packet to UART
         void PrintCanPacket(CANPacket receivedPacket);
@@ -59,6 +58,7 @@
         */
         uint16_t ReadCAN(CANPacket *receivedPacket);
         
+        void DebugPrint(char input);
         void DisplayErrorCode(uint8_t code);
         #define MOTOR_ERROR_INVALID_PACKET  0x0
         #define MOTOR_ERROR_WRONG_MODE      0x1

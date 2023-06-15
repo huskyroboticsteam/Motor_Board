@@ -57,15 +57,6 @@ void InitializePID() {
     lastError = 0;
 }
 
-void SetkPosition(int32_t kP){
-    kPosition = kP;
-}
-void SetkIntegral(int32_t kI){
-    kIntegral = kI;
-}
-void SetkDerivative(int32_t kD){
-    kDerivative = kD;
-}
 int32_t GetPotVal() {
     int32_t n = 1000;
     int32_t sum = 0;
@@ -74,43 +65,36 @@ int32_t GetPotVal() {
         ADC_Pot_IsEndConversion(ADC_Pot_WAIT_FOR_RESULT);
         sum += ADC_Pot_GetResult16(0);
     }    
-    
     return sum/n;
 }
 
-void SetConversion(double conv) {
-    mDegPerTick = conv;
-}
 double UpdateConversion() {
     if (mDegMin == mDegMax) return 0;
     mDegPerTick = (double) (tickMax-tickMin)/(mDegMax-mDegMin);
     return mDegPerTick;
 }
-int32_t GetkPosition(){
-    return kPosition;
-}
-int32_t GetkIntegral(){
-    return kIntegral;
-}
-int32_t GetkDerivative(){
-    return kDerivative;
-}
-double GetConversion(){
-    return mDegPerTick;
-}
-void setUsingPot(uint8_t pot) {
-    usingPot = pot;
-}
-void SetMaxPIDPWM(uint16_t setValue){
-    maxPWM = setValue;
-}
-int32_t GetMaxPIDPWM(){
-    return maxPWM;
-}
-void setTickMin(int32_t val) { tickMin = val; }
-void setTickMax(int32_t val) { tickMax = val; }
-void setmDegMin(int32_t val) { mDegMin = val; }
-void setmDegMax(int32_t val) { mDegMax = val; }
+
+int32_t GetMaxPIDPWM(){ return maxPWM; }
+int32_t GetkPosition(){ return kPosition; }
+int32_t GetkIntegral(){ return kIntegral; }
+int32_t GetkDerivative(){ return kDerivative; }
+double GetConversion(){ return mDegPerTick; }
+int32_t GetTickMax(){ return tickMax; }
+int32_t GetTickMin(){ return tickMin; }
+int32_t GetmDegMax(){ return mDegMax; }
+int32_t GetmDegMin(){ return mDegMin; }
+uint8_t GetUsingPot(){ return usingPot; }
+
+void SetMaxPIDPWM(uint16_t setValue){ maxPWM = setValue; }
+void SetkPosition(int32_t kP){ kPosition = kP; }
+void SetkIntegral(int32_t kI){ kIntegral = kI; }
+void SetkDerivative(int32_t kD){ kDerivative = kD; }
+void setTickMin(int32_t val){ tickMin = val; }
+void setTickMax(int32_t val){ tickMax = val; }
+void setmDegMin(int32_t val){ mDegMin = val; }
+void setmDegMax(int32_t val){ mDegMax = val; }
+void setUsingPot(uint8_t pot){ usingPot = pot; }
+void SetConversion(double conv){ mDegPerTick = conv; }
 
 void SetEncoderDir(uint8_t flip){
     flipEncoder = (flip ? -1 : 1);

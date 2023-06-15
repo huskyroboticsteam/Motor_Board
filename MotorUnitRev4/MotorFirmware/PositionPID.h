@@ -18,6 +18,7 @@ int32_t Position_PID(int32 targetmDeg);
 int32_t GetEncoderValWithFlip();
 int32_t GetPotVal();
 int32_t GetPositionmDeg();
+uint8_t GetUsingPot();
 
 void SetkPosition(int32_t kP);
 void SetkIntegral(int32_t kI);
@@ -49,3 +50,7 @@ int32_t GetkPosition();
 int32_t GetkIntegral();
 int32_t GetkDerivative();
 double GetConversion();
+int32_t GetTickMax();
+int32_t GetTickMin();
+int32_t GetmDegMax();
+int32_t GetmDegMin();

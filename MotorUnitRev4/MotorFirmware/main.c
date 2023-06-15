@@ -137,23 +137,11 @@ int main(void)
                 //TODO: ERROR
                 GotoUninitState();
                 break;
-
         }
-        #ifdef PRINT_FSM_STATE_MODE
-        sprintf(txData, "Mode: %x State:%x \r\n", GetMode(), GetState());
-        UART_UartPutString(txData);
-        #endif
-        #ifdef PRINT_SET_PID_CONST
-        sprintf(txData, "P: %d I: %d D: %d PPJ: %d Ready: %d \r\n", GetkPosition(), GetkIntegral() 
-        ,GetkDerivative(), GetkPPJR(), PIDconstsSet());
-        UART_UartPutString(txData);
-        #endif
-        #ifdef PRINT_ENCODER_VALUE
-        sprintf(txData, "Encoder Value: %d  \r\n", QuadDec_GetCounter());
-        UART_UartPutString(txData);
-        #endif
-
         
+        if (UART_SpiUartGetRxBufferSize()) {
+            DebugPrint(UART_UartGetByte());
+        }        
     }
 }
  
@@ -187,6 +175,33 @@ void Initialize(void) {
 
     isr_Limit_1_StartEx(Pin_Limit_Handler);
     isr_period_PWM_StartEx(Period_Reset_Handler);
+}
+
+void DebugPrint(char input) {
+    switch(input) {
+        case 'e':
+            sprintf(txData, "Encoder Value: %li  \r\n", QuadDec_GetCounter());
+            break;
+        case 'f':
+            sprintf(txData, "Mode: %x State:%x \r\n", GetMode(), GetState());
+            break;
+        case 'd':
+            sprintf(txData, "P: %i I: %i D: %i Conv: %f Ready: %i \r\n", 
+            GetkPosition(), GetkIntegral(), GetkDerivative(), GetConversion(), PIDconstsSet());
+            break;
+        case 'p':
+            sprintf(txData, "Position (mDeg): %i \r\n", GetPositionmDeg());
+            break;
+        case 'x':
+            sprintf(txData, "Value: %d  ADC range: %d-%d  mDeg range: %d-%d  usePot=%d\r\n", 
+                            GetPotVal(), GetTickMin(), GetTickMax(),
+                            GetmDegMin(), GetmDegMax(), GetUsingPot());
+            break;
+        default:
+            sprintf(txData, "what\r\n");
+            break;
+    }
+    UART_UartPutString(txData);
 }
 
 void PrintCanPacket(CANPacket receivedPacket){
