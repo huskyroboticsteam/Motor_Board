@@ -13,7 +13,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="Motor Unit\Motor_Board_Rev4\TopDesign">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="Motor Unit\Motor_Board_Rev3">
 <ExpandedNodeIds>
 <v>Motor Unit</v>
 <v>Motor Unit\Motor_Board_Rev3</v>
@@ -385,59 +385,6 @@
 <VisibleNodeIds>
 <v>Motor Unit</v>
 <v>Motor Unit\Motor_Board_Rev3</v>
-<v>Motor Unit\Motor_Board_Rev3\CortexM0</v>
-<v>Motor Unit\Motor_Board_Rev3\CortexM0\ARM_GCC_541</v>
-<v>Motor Unit\Motor_Board_Rev3\CortexM0\ARM_GCC_541\Debug</v>
-<v>Motor Unit\Motor_Board_Rev3\CortexM0\ARM_GCC_541\Debug\Listing Files</v>
-<v>Motor Unit\Motor_Board_Rev3\CortexM0\ARM_GCC_541\Debug\Listing Files\ADC_Pot.lst</v>
-<v>Motor Unit\Motor_Board_Rev3\CortexM0\ARM_GCC_541\Debug\Listing Files\ADC_Pot_INT.lst</v>
-<v>Motor Unit\Motor_Board_Rev3\CortexM0\ARM_GCC_541\Debug\Listing Files\ADC_Pot_intClock.lst</v>
-<v>Motor Unit\Motor_Board_Rev3\CortexM0\ARM_GCC_541\Debug\Listing Files\ADC_Pot_IRQ.lst</v>
-<v>Motor Unit\Motor_Board_Rev3\CortexM0\ARM_GCC_541\Debug\Listing Files\ADC_Pot_PM.lst</v>
-<v>Motor Unit\Motor_Board_Rev3\CortexM0\ARM_GCC_541\Debug\Listing Files\CAN.lst</v>
-<v>Motor Unit\Motor_Board_Rev3\CortexM0\ARM_GCC_541\Debug\Listing Files\Can_addr.lst</v>
-<v>Motor Unit\Motor_Board_Rev3\CortexM0\ARM_GCC_541\Debug\Listing Files\CAN_HFCLK.lst</v>
-<v>Motor Unit\Motor_Board_Rev3\CortexM0\ARM_GCC_541\Debug\Listing Files\CAN_INT.lst</v>
-<v>Motor Unit\Motor_Board_Rev3\CortexM0\ARM_GCC_541\Debug\Listing Files\CAN_isr.lst</v>
-<v>Motor Unit\Motor_Board_Rev3\CortexM0\ARM_GCC_541\Debug\Listing Files\CAN_LED.lst</v>
-<v>Motor Unit\Motor_Board_Rev3\CortexM0\ARM_GCC_541\Debug\Listing Files\CAN_LED_PM.lst</v>
-<v>Motor Unit\Motor_Board_Rev3\CortexM0\ARM_GCC_541\Debug\Listing Files\CAN_PM.lst</v>
-<v>Motor Unit\Motor_Board_Rev3\CortexM0\ARM_GCC_541\Debug\Listing Files\CAN_TX_RX_func.lst</v>
-<v>Motor Unit\Motor_Board_Rev3\CortexM0\ARM_GCC_541\Debug\Listing Files\CANCommon.lst</v>
-<v>Motor Unit\Motor_Board_Rev3\CortexM0\ARM_GCC_541\Debug\Listing Files\CANMotorUnit.lst</v>
-<v>Motor Unit\Motor_Board_Rev3\CortexM0\ARM_GCC_541\Debug\Listing Files\CANPacket.lst</v>
-<v>Motor Unit\Motor_Board_Rev3\CortexM0\ARM_GCC_541\Debug\Listing Files\Clock_2.lst</v>
-<v>Motor Unit\Motor_Board_Rev3\CortexM0\ARM_GCC_541\Debug\Listing Files\Clock_PWM.lst</v>
-<v>Motor Unit\Motor_Board_Rev3\CortexM0\ARM_GCC_541\Debug\Listing Files\Cm0Start.lst</v>
-<v>Motor Unit\Motor_Board_Rev3\CortexM0\ARM_GCC_541\Debug\Listing Files\cy_em_eeprom.lst</v>
-<v>Motor Unit\Motor_Board_Rev3\CortexM0\ARM_GCC_541\Debug\Listing Files\CyBootAsmGnu.lst</v>
-<v>Motor Unit\Motor_Board_Rev3\CortexM0\ARM_GCC_541\Debug\Listing Files\CyDMA.lst</v>
-<v>Motor Unit\Motor_Board_Rev3\CortexM0\ARM_GCC_541\Debug\Listing Files\cyfitter_cfg.lst</v>
-<v>Motor Unit\Motor_Board_Rev3\CortexM0\ARM_GCC_541\Debug\Listing Files\CyFlash.lst</v>
-<v>Motor Unit\Motor_Board_Rev3\CortexM0\ARM_GCC_541\Debug\Listing Files\CyLFClk.lst</v>
-<v>Motor Unit\Motor_Board_Rev3\CortexM0\ARM_GCC_541\Debug\Listing Files\CyLib.lst</v>
-<v>Motor Unit\Motor_Board_Rev3\CortexM0\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
-<v>Motor Unit\Motor_Board_Rev3\CortexM0\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
-<v>Motor Unit\Motor_Board_Rev3\CortexM0\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
-<v>Motor Unit\Motor_Board_Rev3\CortexM0\ARM_GCC_541\Debug\Listing Files\Debug_1.lst</v>
-<v>Motor Unit\Motor_Board_Rev3\CortexM0\ARM_GCC_541\Debug\Listing Files\Debug_1_PM.lst</v>
-<v>Motor Unit\Motor_Board_Rev3\CortexM0\ARM_GCC_541\Debug\Listing Files\Dip_1.lst</v>
-<v>Motor Unit\Motor_Board_Rev3\CortexM0\ARM_GCC_541\Debug\Listing Files\Dip_1_PM.lst</v>
-<v>Motor Unit\Motor_Board_Rev3\CortexM0\ARM_GCC_541\Debug\Listing Files\Dip_2.lst</v>
-<v>Motor Unit\Motor_Board_Rev3\CortexM0\ARM_GCC_541\Debug\Listing Files\Dip_2_PM.lst</v>
-<v>Motor Unit\Motor_Board_Rev3\CortexM0\ARM_GCC_541\Debug\Listing Files\Dip_3.lst</v>
-<v>Motor Unit\Motor_Board_Rev3\CortexM0\ARM_GCC_541\Debug\Listing Files\Dip_3_PM.lst</v>
-<v>Motor Unit\Motor_Board_Rev3\CortexM0\ARM_GCC_541\Debug\Listing Files\Dip_4.lst</v>
-<v>Motor Unit\Motor_Board_Rev3\CortexM0\ARM_GCC_541\Debug\Listing Files\Dip_4_PM.lst</v>
-<v>Motor Unit\Motor_Board_Rev3\CortexM0\ARM_GCC_541\Debug\Listing Files\ERROR_LED.lst</v>
-<v>Motor Unit\Motor_Board_Rev3\CortexM0\ARM_GCC_541\Debug\Listing Files\ERROR_LED_PM.lst</v>
-<v>Motor Unit\Motor_Board_Rev3\CortexM0\ARM_GCC_541\Debug\Listing Files\FAULT_MOTOR.lst</v>
-<v>Motor Unit\Motor_Board_Rev3\CortexM0\ARM_GCC_541\Debug\Listing Files\FAULT_MOTOR_PM.lst</v>
-<v>Motor Unit\Motor_Board_Rev3\CortexM0\ARM_GCC_541\Debug\Listing Files\isr_Limit_1.lst</v>
-<v>Motor Unit\Motor_Board_Rev3\CortexM0\ARM_GCC_541\Debug\Listing Files\isr_period_PWM.lst</v>
-<v>Motor Unit\Motor_Board_Rev3\CortexM0\ARM_GCC_541\Debug\Listing Files\main.lst</v>
-<v>Motor Unit\Motor_Board_Rev3\CortexM0\ARM_GCC_541\Debug\Listing Files\Motor_Unit_CAN.lst</v>
-<v>Motor Unit\Motor_Board_Rev3\CortexM0\ARM_GCC_541\Debug\Listing Files\Motor_Unit_FSM.lst</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStates>
