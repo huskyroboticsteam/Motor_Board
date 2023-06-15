@@ -2464,7 +2464,7 @@
 <name_val_pair name="Generated_Source\PSoC4\ADC_Pot_INT.c" v="-mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -D CY_CORE_ID=0 -D CHIP_TYPE=CHIP_TYPE_PSOC_CY8C4248AZI_L485 -Wall -ffunction-sections -ffat-lto-objects -Og" />
 <name_val_pair name="Generated_Source\PSoC4\ADC_Pot_IRQ.c" v="-mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -D CY_CORE_ID=0 -D CHIP_TYPE=CHIP_TYPE_PSOC_CY8C4248AZI_L485 -Wall -ffunction-sections -ffat-lto-objects -Og" />
 <name_val_pair name="Generated_Source\PSoC4\ADC_Pot_intClock.c" v="-mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -D CY_CORE_ID=0 -D CHIP_TYPE=CHIP_TYPE_PSOC_CY8C4248AZI_L485 -Wall -ffunction-sections -ffat-lto-objects -Og" />
-<name_val_pair name="C:\Users\casey\Desktop\Robotics Stuff\General_Purpose_Motor_Board_PY2023\MotorUnitRev4\Motor_Board_Rev3.cydsn\CortexM0\ARM_GCC_541\Debug\Motor_Board_Rev3.hex" v="-mcpu=cortex-m0 -mthumb -l m -L Generated_Source\PSoC4 -Wl,-Map,${OutputDir}/${ProjectShortName}.map -T Generated_Source\PSoC4\cm0gcc.ld -specs=nano.specs -Wl,--gc-sections -g -ffunction-sections -Og -ffat-lto-objects" />
+<name_val_pair name="C:\Users\casey\Desktop\Robotics Stuff\General_Purpose_Motor_Board_PY2023\MotorUnitRev4\Motor_Board_Rev3.cydsn\CortexM0\ARM_GCC_541\Debug\Motor_Board_Rev3.hex" v="-mcpu=cortex-m0 -mthumb -l m -L Generated_Source\PSoC4 -Wl,-Map,${OutputDir}/${ProjectShortName}.map -T Generated_Source\PSoC4\cm0gcc.ld -specs=nano.specs -u _printf_float -Wl,--gc-sections -g -ffunction-sections -Og -ffat-lto-objects" />
 </name>
 </genericCmdLineData>
 <codeGenCmdLineTag v="-.appdatapath &quot;C:\Users\casey\AppData\Local\Cypress Semiconductor\PSoC Creator\4.4&quot; -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -.fdsreffile=referenced_files.txt -p &quot;C:\Users\casey\Desktop\Robotics Stuff\General_Purpose_Motor_Board_PY2023\MotorUnitRev4\Motor_Board_Rev3.cydsn\Motor_Board_Rev3.cyprj&quot; -d CY8C4248AZI-L485 -s &quot;C:\Users\casey\Desktop\Robotics Stuff\General_Purpose_Motor_Board_PY2023\MotorUnitRev4\Motor_Board_Rev3.cydsn\Generated_Source\PSoC4&quot; -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE" />
@@ -2473,7 +2473,7 @@
 <dataGuid v="769d31ea-68b1-4f0c-b90a-7c10a43ee563">
 <CyGuid_769d31ea-68b1-4f0c-b90a-7c10a43ee563 type_name="CyDesigner.Common.ProjMgmt.Model.CyLinkCustomData" version="1">
 <link_deps_times>
-<name_val_pair name="c9323d49-d323-40b8-9b59-cc008d68a989@Debug@CortexM0" v="133313329819892813" />
+<name_val_pair name="c9323d49-d323-40b8-9b59-cc008d68a989@Debug@CortexM0" v="133313352726220953" />
 </link_deps_times>
 </CyGuid_769d31ea-68b1-4f0c-b90a-7c10a43ee563>
 </dataGuid>

@@ -13,7 +13,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="Motor Unit\Motor_Board_Rev3">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="Motor Unit\Motor_Board_Rev4\Source Files\main.c">
 <ExpandedNodeIds>
 <v>Motor Unit</v>
 <v>Motor Unit\Motor_Board_Rev3</v>
@@ -64,6 +64,7 @@
 <v>Motor Unit\Motor_Board_Rev4\Motor_Board_Rev4.cydwr\System</v>
 <v>Motor Unit\Motor_Board_Rev4\Motor_Board_Rev4.cydwr\Directives</v>
 <v>Motor Unit\Motor_Board_Rev4\Motor_Board_Rev4.cydwr\Flash Security</v>
+<v>Motor Unit\Motor_Board_Rev4\CAN Library</v>
 <v>Motor Unit\Motor_Board_Rev4\CAN Library\CANCommon.c</v>
 <v>Motor Unit\Motor_Board_Rev4\CAN Library\CANCommon.h</v>
 <v>Motor Unit\Motor_Board_Rev4\CAN Library\CANLibrary.h</v>
@@ -91,28 +92,6 @@
 <v>Motor Unit\Motor_Board_Rev4\Generated_Source</v>
 </ExpandedNodeIds>
 <VisibleNodeIds>
-<v>Motor Unit</v>
-<v>Motor Unit\Motor_Board_Rev3</v>
-<v>Motor Unit\Motor_Board_Rev3\TopDesign</v>
-<v>Motor Unit\Motor_Board_Rev3\Motor_Board_Rev3.cydwr</v>
-<v>Motor Unit\Motor_Board_Rev3\Motor_Board_Rev3.cydwr\Pins</v>
-<v>Motor Unit\Motor_Board_Rev3\Motor_Board_Rev3.cydwr\Analog</v>
-<v>Motor Unit\Motor_Board_Rev3\Motor_Board_Rev3.cydwr\DMA</v>
-<v>Motor Unit\Motor_Board_Rev3\Motor_Board_Rev3.cydwr\Clocks</v>
-<v>Motor Unit\Motor_Board_Rev3\Motor_Board_Rev3.cydwr\Interrupts</v>
-<v>Motor Unit\Motor_Board_Rev3\Motor_Board_Rev3.cydwr\System</v>
-<v>Motor Unit\Motor_Board_Rev3\Motor_Board_Rev3.cydwr\Directives</v>
-<v>Motor Unit\Motor_Board_Rev3\Motor_Board_Rev3.cydwr\Flash Security</v>
-<v>Motor Unit\Motor_Board_Rev3\CAN Library</v>
-<v>Motor Unit\Motor_Board_Rev3\CAN Library\CANCommon.c</v>
-<v>Motor Unit\Motor_Board_Rev3\CAN Library\CANCommon.h</v>
-<v>Motor Unit\Motor_Board_Rev3\CAN Library\CANLibrary.h</v>
-<v>Motor Unit\Motor_Board_Rev3\CAN Library\CANMotorUnit.c</v>
-<v>Motor Unit\Motor_Board_Rev3\CAN Library\CANMotorUnit.h</v>
-<v>Motor Unit\Motor_Board_Rev3\CAN Library\CANPacket.c</v>
-<v>Motor Unit\Motor_Board_Rev3\CAN Library\CANPacket.h</v>
-<v>Motor Unit\Motor_Board_Rev3\CAN Library\CANSerialNumbers.h</v>
-<v>Motor Unit\Motor_Board_Rev3\CAN Library\Port.h</v>
 <v>Motor Unit\Motor_Board_Rev3\CAN Library\PortPSOC_CY8C4248AZI_L485.c</v>
 <v>Motor Unit\Motor_Board_Rev3\Header Files</v>
 <v>Motor Unit\Motor_Board_Rev3\Header Files\cyapicallbacks.h</v>
@@ -142,10 +121,32 @@
 <v>Motor Unit\Motor_Board_Rev4\Motor_Board_Rev4.cydwr\Directives</v>
 <v>Motor Unit\Motor_Board_Rev4\Motor_Board_Rev4.cydwr\Flash Security</v>
 <v>Motor Unit\Motor_Board_Rev4\CAN Library</v>
+<v>Motor Unit\Motor_Board_Rev4\CAN Library\CANCommon.c</v>
+<v>Motor Unit\Motor_Board_Rev4\CAN Library\CANCommon.h</v>
+<v>Motor Unit\Motor_Board_Rev4\CAN Library\CANLibrary.h</v>
+<v>Motor Unit\Motor_Board_Rev4\CAN Library\CANMotorUnit.c</v>
+<v>Motor Unit\Motor_Board_Rev4\CAN Library\CANMotorUnit.h</v>
+<v>Motor Unit\Motor_Board_Rev4\CAN Library\CANPacket.c</v>
+<v>Motor Unit\Motor_Board_Rev4\CAN Library\CANPacket.h</v>
+<v>Motor Unit\Motor_Board_Rev4\CAN Library\CANSerialNumbers.h</v>
+<v>Motor Unit\Motor_Board_Rev4\CAN Library\Port.h</v>
+<v>Motor Unit\Motor_Board_Rev4\CAN Library\PortPSOC_CY8C4248AZI_L485.c</v>
 <v>Motor Unit\Motor_Board_Rev4\Header Files</v>
 <v>Motor Unit\Motor_Board_Rev4\Header Files\cyapicallbacks.h</v>
 <v>Motor Unit\Motor_Board_Rev4\Header Files\main.h</v>
 <v>Motor Unit\Motor_Board_Rev4\Header Files\Motor_Unit_CAN.h</v>
+<v>Motor Unit\Motor_Board_Rev4\Header Files\Motor_Unit_Debug.h</v>
+<v>Motor Unit\Motor_Board_Rev4\Header Files\Motor_Unit_FSM.h</v>
+<v>Motor Unit\Motor_Board_Rev4\Header Files\MotorDrive.h</v>
+<v>Motor Unit\Motor_Board_Rev4\Header Files\PositionPID.h</v>
+<v>Motor Unit\Motor_Board_Rev4\Source Files</v>
+<v>Motor Unit\Motor_Board_Rev4\Source Files\main.c</v>
+<v>Motor Unit\Motor_Board_Rev4\Source Files\Motor_Unit_CAN.c</v>
+<v>Motor Unit\Motor_Board_Rev4\Source Files\Motor_Unit_FSM.c</v>
+<v>Motor Unit\Motor_Board_Rev4\Source Files\MotorDrive.c</v>
+<v>Motor Unit\Motor_Board_Rev4\Source Files\PositionPID.c</v>
+<v>Motor Unit\Motor_Board_Rev4\Generated_Source</v>
+<v>Motor Unit\Motor_Board_Rev4\Generated_Source\PSoC4</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">

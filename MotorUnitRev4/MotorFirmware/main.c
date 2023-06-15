@@ -188,8 +188,8 @@ void DebugPrint(char input) {
             sprintf(txData, "Mode: %x State:%x \r\n", GetMode(), GetState());
             break;
         case 'd':
-            sprintf(txData, "P: %i I: %i D: %i Conv: %f Ready: %i \r\n", 
-            GetkPosition(), GetkIntegral(), GetkDerivative(), GetConversion(), PIDconstsSet());
+            sprintf(txData, "P: %i I: %i D: %i Conv: %i Ready: %i \r\n", 
+            GetkPosition(), GetkIntegral(), GetkDerivative(), (int) GetConversion(), PIDconstsSet());
             break;
         case 'p':
             sprintf(txData, "Position (mDeg): %i \r\n", GetPositionmDeg());

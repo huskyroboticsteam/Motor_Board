@@ -70,7 +70,7 @@ int32_t GetPotVal() {
 
 double UpdateConversion() {
     if (mDegMin == mDegMax) return 0;
-    mDegPerTick = (double) (tickMax-tickMin)/(mDegMax-mDegMin);
+    mDegPerTick = (double) (mDegMax-mDegMin)/(tickMax-tickMin);
     return mDegPerTick;
 }
 
@@ -108,11 +108,12 @@ int32_t GetPositionmDeg() {
     if (mDegPerTick == 0.0)
         return(0);
     
-    if (usingPot) 
+    if (usingPot) {
         return (GetPotVal()-tickMin) * mDegPerTick + mDegMin;
-
-    return QuadDec_GetCounter() * mDegPerTick * flipEncoder;
-    // return 0 * mDegPerTick;
+    } else {
+        return QuadDec_GetCounter() * mDegPerTick * flipEncoder;
+        // return 0 * mDegPerTick;
+    }
 }
 void SetPosition(int32_t mDegs) {
         //TODO: Make Potentiometer Compatible
