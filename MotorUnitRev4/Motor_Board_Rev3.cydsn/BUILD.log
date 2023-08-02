@@ -1,4 +1,4 @@
---------------- Build Started: 06/15/2023 13:41:09 Project: Motor_Board_Rev3, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
+--------------- Build Started: 08/01/2023 19:59:43 Project: Motor_Board_Rev3, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
 The code generation step is up to date.
 arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/main.lst -g -D DEBUG -D CY_CORE_ID=0 -D CHIP_TYPE=CHIP_TYPE_PSOC_CY8C4248AZI_L485 -Wall -ffunction-sections -ffat-lto-objects -Og -c ..\MotorFirmware\main.c -o .\CortexM0\ARM_GCC_541\Debug\main.o
 In file included from ..\MotorFirmware\../CANLib/CANLibrary.h:12:0,
@@ -64,7 +64,6 @@ In file included from ..\MotorFirmware\../CANLib/CANPacket.h:13:0,
 ..\MotorFirmware\main.c:191:29: warning: format '%i' expects argument of type 'int', but argument 4 has type 'int32_t {aka long int}' [-Wformat=]
 ..\MotorFirmware\main.c:191:29: warning: format '%i' expects argument of type 'int', but argument 5 has type 'int32_t {aka long int}' [-Wformat=]
 ..\MotorFirmware\main.c:191:29: warning: format '%i' expects argument of type 'int', but argument 3 has type 'int32_t {aka long int}' [-Wformat=]
-arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/Motor_Unit_CAN.lst -g -D DEBUG -D CY_CORE_ID=0 -D CHIP_TYPE=CHIP_TYPE_PSOC_CY8C4248AZI_L485 -Wall -ffunction-sections -ffat-lto-objects -Og -c ..\MotorFirmware\Motor_Unit_CAN.c -o .\CortexM0\ARM_GCC_541\Debug\Motor_Unit_CAN.o
 ..\MotorFirmware\main.c:191:29: warning: format '%i' expects argument of type 'int', but argument 4 has type 'int32_t {aka long int}' [-Wformat=]
 ..\MotorFirmware\main.c:191:29: warning: format '%i' expects argument of type 'int', but argument 5 has type 'int32_t {aka long int}' [-Wformat=]
 ..\MotorFirmware\main.c:195:29: warning: format '%i' expects argument of type 'int', but argument 3 has type 'int32_t {aka long int}' [-Wformat=]
@@ -83,6 +82,7 @@ arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-
 ..\MotorFirmware\main.c:198:29: warning: format '%d' expects argument of type 'int', but argument 5 has type 'int32_t {aka long int}' [-Wformat=]
 ..\MotorFirmware\main.c:198:29: warning: format '%d' expects argument of type 'int', but argument 6 has type 'int32_t {aka long int}' [-Wformat=]
 ..\MotorFirmware\main.c:198:29: warning: format '%d' expects argument of type 'int', but argument 7 has type 'int32_t {aka long int}' [-Wformat=]
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/Motor_Unit_CAN.lst -g -D DEBUG -D CY_CORE_ID=0 -D CHIP_TYPE=CHIP_TYPE_PSOC_CY8C4248AZI_L485 -Wall -ffunction-sections -ffat-lto-objects -Og -c ..\MotorFirmware\Motor_Unit_CAN.c -o .\CortexM0\ARM_GCC_541\Debug\Motor_Unit_CAN.o
 In file included from ..\MotorFirmware\../CANLib/CANLibrary.h:12:0,
                  from ..\MotorFirmware\main.h:15,
                  from ..\MotorFirmware\Motor_Unit_CAN.c:14:
@@ -149,7 +149,6 @@ arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-
 In file included from ..\MotorFirmware\../CANLib/CANLibrary.h:12:0,
                  from ..\MotorFirmware\main.h:15,
                  from ..\MotorFirmware\MotorDrive.c:15:
-arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/PositionPID.lst -g -D DEBUG -D CY_CORE_ID=0 -D CHIP_TYPE=CHIP_TYPE_PSOC_CY8C4248AZI_L485 -Wall -ffunction-sections -ffat-lto-objects -Og -c ..\MotorFirmware\PositionPID.c -o .\CortexM0\ARM_GCC_541\Debug\PositionPID.o
 ..\MotorFirmware\../CANLib/CANPacket.h:59:0: warning: "DEVICE_GROUP_BROADCAST" redefined
  #define DEVICE_GROUP_BROADCAST          (uint8_t) 0x00
  ^
@@ -199,6 +198,7 @@ In file included from ..\MotorFirmware\../CANLib/CANPacket.h:13:0,
 ..\MotorFirmware\../CANLib/CANSerialNumbers.h:67:0: note: this is the location of the previous definition
  #define DEVICE_GROUP_POWER      0x3
  ^
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_541\Debug/PositionPID.lst -g -D DEBUG -D CY_CORE_ID=0 -D CHIP_TYPE=CHIP_TYPE_PSOC_CY8C4248AZI_L485 -Wall -ffunction-sections -ffat-lto-objects -Og -c ..\MotorFirmware\PositionPID.c -o .\CortexM0\ARM_GCC_541\Debug\PositionPID.o
 In file included from ..\MotorFirmware\../CANLib/CANLibrary.h:12:0,
                  from ..\MotorFirmware\main.h:15,
                  from ..\MotorFirmware\PositionPID.c:17:
@@ -315,4 +315,4 @@ Checksum calculated and stored in ELF section .cymeta
 cyelftool.exe -S "C:\Users\casey\Desktop\Robotics Stuff\General_Purpose_Motor_Board_PY2023\MotorUnitRev4\Motor_Board_Rev3.cydsn\CortexM0\ARM_GCC_541\Debug\Motor_Board_Rev3.elf"
 Flash used: 30448 of 262144 bytes (11.6%).
 SRAM used: 3168 of 32768 bytes (9.7%). Stack: 2048 bytes. Heap: 128 bytes.
---------------- Build Succeeded: 06/15/2023 13:41:13 ---------------
+--------------- Build Succeeded: 08/01/2023 19:59:47 ---------------

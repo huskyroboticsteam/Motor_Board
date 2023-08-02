@@ -12,7 +12,7 @@
 #ifndef CYAPICALLBACKS_H
     #define CYAPICALLBACKS_H
     //Specifies Revision
-    #define MOTOR_REV3
+    #define MOTOR_REV4
     #define CHIP_TYPE CHIP_TYPE_PSOC_CY8C4248AZI_L485
 #endif /* CYAPICALLBACKS_H */   
 /* [] */

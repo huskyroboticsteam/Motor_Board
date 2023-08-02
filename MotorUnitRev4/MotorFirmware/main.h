@@ -37,6 +37,11 @@
         #define CAN_LED
         #define RGB_LED_ARRAY
         #endif
+        
+        #ifdef MOTOR_REV4
+        #define ERROR_LED
+        #define CAN_LED
+        #endif
 
 
         #define TX_DATA_SIZE            (100u)
