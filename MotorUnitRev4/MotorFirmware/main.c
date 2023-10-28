@@ -41,13 +41,13 @@ uint8_t bound_set2;
 int32_t enc_lim_1;
 int32_t enc_lim_2;
 
-uint8 address = 0;
-
 //Status and Data Structs
 volatile uint8 drive = 0;
 uint8_t CAN_check_delay = 0;
 CANPacket can_recieve;
 CANPacket can_send;
+
+uint8 address = 0;
 
 CY_ISR(Period_Reset_Handler) {
     int timer = Timer_PWM_ReadStatusRegister();
@@ -141,10 +141,10 @@ int main(void)
         
         if (UART_SpiUartGetRxBufferSize()) {
             DebugPrint(UART_UartGetByte());
-        }        
+        }
     }
 }
- 
+
 void Initialize(void) {
     CyGlobalIntEnable; /* Enable global interrupts. LED arrays need this first */
     
