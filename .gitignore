@@ -6,8 +6,8 @@
 Debug/
 Release/
 Export/
-*/codegentemp
-*/Generated_Source
+**/codegentemp
+**/Generated_Source
 *_datasheet.pdf
 *_timing.html
 *.cycdx
