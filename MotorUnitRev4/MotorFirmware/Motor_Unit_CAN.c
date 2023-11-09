@@ -41,11 +41,6 @@ void NextStateFromCAN(CANPacket *receivedPacket, CANPacket *packetToSend) {
     uint8_t sender_DG = GetSenderDeviceGroupCode(receivedPacket);
     uint8_t sender_SN = GetSenderDeviceSerialNumber(receivedPacket);
     
-    // if (motor_serial != address) {
-    //     sprintf(txData, "CAN Address mismatch: %i != %i\r\n", motor_serial, address);
-    //     UART_UartPutString(txData);
-    // }
-    
     switch(packageID){
         case(ID_MOTOR_UNIT_MODE_SEL):
             if(GetModeFromPacket(receivedPacket) == MOTOR_UNIT_MODE_PWM) {
@@ -187,7 +182,6 @@ void NextStateFromCAN(CANPacket *receivedPacket, CANPacket *packetToSend) {
         case(ID_LED_COLOR):
             break;
             */
-            
             
         default://for 0xFF/no packets or Non recognized Packets
             

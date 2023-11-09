@@ -92,7 +92,7 @@ CY_ISR(Pin_Limit_Handler){
     AssembleLimitSwitchAlertPacket(&can_send, DEVICE_GROUP_JETSON, 
         DEVICE_SERIAL_JETSON, Status_Reg_Switches_Read() & 0b11);
     SendCANPacket(&can_send);
-    #endif         
+    #endif
 
     if (bound_set1 && Pin_Limit_1_Read()) {
         setEncoderAtLimit(enc_lim_1);

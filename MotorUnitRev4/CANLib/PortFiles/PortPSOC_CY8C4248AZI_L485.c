@@ -46,21 +46,21 @@ void InitCAN(int deviceGroupInput, int deviceAddressInput)
     deviceAddress = deviceAddressInput & (0x3f);//6bits of ID
     
     //sets up inidvidual recieve mailbox (3rd priority mailbox)
-    rxMailbox.rxmailbox = 0;
+    rxMailbox.rxmailbox = CAN_RX_MAILBOX_0;
     rxMailbox.rxacr = ((deviceGroup << 6)|(deviceAddress)) << 21;  // first 11 bits are the CAN ID that is not extended
     rxMailbox.rxamr = 0x801FFFFF; // what bits to ignore
     rxMailbox.rxcmd = CAN_RX_CMD_REG(CAN_RX_MAILBOX_0);//need to know what this is
     CAN_RxBufConfig(&rxMailbox);
     
     //setup broadcast recieve mailbox (1st priority mailbox)
-    rxMailbox.rxmailbox = 1;
+    rxMailbox.rxmailbox = CAN_RX_MAILBOX_1;
     rxMailbox.rxacr = ((0x0 << 6)|(0x0)) << 21; //0x20F<<21; // first 11 bits are the CAN ID that is not extended
     rxMailbox.rxamr = 0x801FFFFF; // what bits to ignore
     rxMailbox.rxcmd = CAN_RX_CMD_REG(CAN_RX_MAILBOX_1);//need to know what this is
     CAN_RxBufConfig(&rxMailbox);
     
     //setup group broadcast recieve mailbox (2nd priority mailbox)
-    rxMailbox.rxmailbox = 2;
+    rxMailbox.rxmailbox = CAN_RX_MAILBOX_2;
     rxMailbox.rxacr = ((deviceGroup << 6)|(0x3F)) << 21; //0x20F<<21; // first 11 bits are the CAN ID that is not extended
     rxMailbox.rxamr = 0x801FFFFF; // what bits to ignore
     rxMailbox.rxcmd = CAN_RX_CMD_REG(CAN_RX_MAILBOX_2);//need to know what this is
