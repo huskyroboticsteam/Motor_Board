@@ -215,7 +215,7 @@ void AssembleTelemetryPullPacket(CANPacket *packetToAssemble,
 }
 
 void AssembleTelemetryReportPacket(CANPacket *packetToAssemble, 
-    uint8_t targetGroup, 
+    uint8_t targetGroup,
     uint8_t targetSerial,
     uint8_t telemetryTypeCode,
     int32_t data)

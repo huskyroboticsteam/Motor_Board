@@ -169,6 +169,11 @@ void NextStateFromCAN(CANPacket *receivedPacket, CANPacket *packetToSend) {
                     AssembleTelemetryReportPacket(packetToSend, sender_DG, sender_SN, 
                                                   PACKET_TELEMETRY_ADC_RAW, GetPotVal());
                     break;
+                case(PACKET_TELEMETRY_LIM_SW_STATE):
+                    AssembleTelemetryReportPacket(packetToSend, sender_DG, sender_SN, 
+                                                  PACKET_TELEMETRY_LIM_SW_STATE, 0);
+                    packetToSend->data[4] = Status_Reg_Switches_Read() & 0b11;
+                    break;
                 default:
                     AssembleChipTypeReportPacket(packetToSend, sender_DG, sender_SN);
                     break;
