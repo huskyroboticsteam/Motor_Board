@@ -171,8 +171,7 @@ void NextStateFromCAN(CANPacket *receivedPacket, CANPacket *packetToSend) {
                     break;
                 case(PACKET_TELEMETRY_LIM_SW_STATE):
                     AssembleTelemetryReportPacket(packetToSend, sender_DG, sender_SN, 
-                                                  PACKET_TELEMETRY_LIM_SW_STATE, 0);
-                    packetToSend->data[4] = Status_Reg_Switches_Read() & 0b11;
+                                                  PACKET_TELEMETRY_LIM_SW_STATE, Status_Reg_Switches_Read() & 0b11);
                     break;
                 default:
                     AssembleChipTypeReportPacket(packetToSend, sender_DG, sender_SN);

@@ -59,13 +59,3 @@
 #define DEVICE_SERIAL_DRILL_ARM_MOTOR           (uint8_t) 0x02
 #define DEVICE_SERIAL_DRILL_MOTOR               (uint8_t) 0x03
 
-//Group numbers
-
-#define DEVICE_GROUP_BROADCAST  0x0
-#define DEVICE_GROUP_RESERVED   0x1
-#define DEVICE_GROUP_MASTER     0x2
-#define DEVICE_GROUP_POWER      0x3
-#define DEVICE_GROUP_MOTORS     0x4
-#define DEVICE_GROUP_TELEM      0x5
-#define DEVICE_GROUP_GPIO       0x6
-
