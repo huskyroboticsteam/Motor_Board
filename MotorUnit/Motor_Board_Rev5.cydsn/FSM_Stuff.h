@@ -9,18 +9,18 @@
  *
  * ========================================
 */
-#include "project.h"
 
-int main(void)
-{
-    CyGlobalIntEnable; /* Enable global interrupts. */
+#pragma once
+#include <stdint.h>
 
-    /* Place your initialization/startup code here (e.g. MyInst_Start()) */
+//Operation modes
+#define MODE_UNINIT     0x0
+#define MODE_PWM_CTRL   0x1
+#define MODE_PID_CTRL   0x2
 
-    for(;;)
-    {
-        /* Place your application code here. */
-    }
-}
+#define ERROR_MODE_CHANGE 0x20
+
+int SetMode(int motor, int mode);
+int GetMode(int motor);
 
 /* [] END OF FILE */
