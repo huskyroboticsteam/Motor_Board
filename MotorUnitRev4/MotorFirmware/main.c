@@ -146,7 +146,8 @@ void Initialize(void) {
     
     Status_Reg_Switches_InterruptEnable();
     
-    address = Can_addr_Read();
+    // address = Can_addr_Read();
+     address = 7;
     
     #ifdef ENABLE_DEBUG_UART
     UART_Start();
