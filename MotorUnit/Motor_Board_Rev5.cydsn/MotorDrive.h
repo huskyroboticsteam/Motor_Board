@@ -32,21 +32,21 @@ typedef struct conversion {
     double ratio;
 } Conversion;
 
-int StartPWM(int motor);
-void StopPWM(int motor);
-int SetPWM(int motor, int16 pwm);
-Conversion GetConversion(int motor);
-uint8 GetConversionReady(int motor);
-void SetConvRatio(int motor, float ratio);
-int SetConvMin(int motor, int32 tickMin, int32 mDegMin);
-void SetConvMax(int motor, int32 tickMax, int32 mDegMax);
-void SetEncOffset(int motor, int32 tick_offset);
-void SetEncDir(int motor, uint8 dir);
+int StartPWM();
+void StopPWM();
+int SetPWM(int16 pwm);
+Conversion GetConversion();
+uint8 GetConversionReady();
+void SetConvRatio(float ratio);
+int SetConvMin(int32 tickMin, int32 mDegMin);
+void SetConvMax(int32 tickMax, int32 mDegMax);
+void SetEncOffset(int32 tick_offset);
+void SetEncDir(uint8 dir);
 int32 GetPotValue();
 int32 GetEncValue();
-int32 GetPosition(int motor);
+int32 GetPosition();
 uint8 GetLimitStatus();
-int32 GetCurrentPWM(int motor);
+int32 GetCurrentPWM();
 void SetEncBound(uint8 lim_num, int32 value);
 
 CY_ISR(Limit_Handler);

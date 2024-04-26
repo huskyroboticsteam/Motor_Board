@@ -78,7 +78,7 @@ int SetPWM(int16 pwm) {
         
         if (abs(pwm) < min_pwm) pwm = 0;
         
-        PWM2_value = pwm;
+        PWM_value = pwm;
         PWM_Motor2_WriteCompare(abs(pwm));
     } else err = ERROR_PWM_NOT_ENABLED;
     return err;
