@@ -24,20 +24,19 @@ uint8 PID_enable;
 int StartPID() {
     int err = 0;
     
-    if (PID.kP_set && PID.kI_set && PID.kD_set && GetConversionReady()) {
+    if (PID.kP_set && PID.kI_set && PID.kD_set && GetConversion().ratio_set) {
         PID_state.integral = 0;
         PID_state.last_error = 0;
         PID_enable = 1;
     } else err = 1;
     
+    return err;
 }
 
-void StopPID(r) {
-   
+void StopPID() {
     PID_enable = 0;
     PID_state.target_set = 0;
     SetPWM(0);
-    
 }
 
 void SetkPosition(int32 kP) {
@@ -62,7 +61,7 @@ PID_Config GetPIDConfig() {
     return PID;
 }
 PID_State GetPIDState() {
-    return PID_State;
+    return PID_state;
 }
 
 
@@ -75,7 +74,7 @@ int PID_Update() {
     int error;
     volatile PID_State* state;
     PID_Config* pid; 
-    error = PID_state.target - GetPosition(MOTOR1);
+    error = PID_state.target - GetPosition();
     
     state = &PID_state;
     pid = &PID;
@@ -99,7 +98,7 @@ int PID_Update() {
         new_pwm = -pid->maxPWM;
     }
     
-    return SetPWM(motor, new_pwm);
+    return SetPWM(new_pwm);
 }
 
 CY_ISR(PID_Handler) {

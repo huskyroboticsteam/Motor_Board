@@ -15,7 +15,7 @@
 #include "project.h"
 #include "PositionPID.h"
 
-int mode
+int mode;
 
 int SetMode(int new_mode) {
     int err = 0;

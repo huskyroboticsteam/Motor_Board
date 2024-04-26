@@ -38,6 +38,7 @@ int SetConvMin(int32 tickMin, int32 mDegMin);
 void SetConvMax(int32 tickMax, int32 mDegMax);
 void SetEncOffset(int32 tick_offset);
 void SetEncDir(uint8 dir);
+void SetUsingPot(uint8_t pot);
 int32 GetPotValue();
 int32 GetEncValue();
 int32 GetPosition();

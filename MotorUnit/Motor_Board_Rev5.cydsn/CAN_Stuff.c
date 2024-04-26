@@ -36,7 +36,7 @@ int ProcessCAN(CANPacket* receivedPacket, CANPacket* packetToSend) {
     uint16 packageID = GetPacketID(receivedPacket);
     
     if (packageID == ID_ESTOP) {
-        SetMode(MOTOR_BOTH, MODE_UNINIT);
+        SetMode(MODE_UNINIT);
         return ERROR_ESTOP;
     }
     
@@ -90,25 +90,25 @@ int ProcessCAN(CANPacket* receivedPacket, CANPacket* packetToSend) {
         case(ID_MOTOR_UNIT_ENC_PPJR_SET):
             data = GetEncoderPPJRFromPacket(receivedPacket);
             SetConvRatio(360.0*1000/data);
-            setUsingPot(0);
+            SetUsingPot(0); // maybe only set in ENC_INIT?
             break;
             
         case (ID_MOTOR_UNIT_POT_INIT_LO):
-            SetConvMin( 
+            SetConvMin(
                 GetPotADCFromPacket(receivedPacket), 
                 GetPotmDegFromPacket(receivedPacket));
-            setUsingPot(1);
+            SetUsingPot(1); // maybe only set in ENC_INIT?
             break;
             
         case (ID_MOTOR_UNIT_POT_INIT_HI):
             SetConvMax( 
                 GetPotADCFromPacket(receivedPacket), 
                 GetPotmDegFromPacket(receivedPacket));
-            setUsingPot(1);
+            SetUsingPot(1); // maybe only set in ENC_INIT?
             break;
         
         case(ID_MOTOR_UNIT_ENC_INIT):
-            setUsingPot(0);
+            SetUsingPot(GetEncoderTypeFromPacket(receivedPacket));
             if(GetEncoderZeroFromPacket(receivedPacket)) {
                 SetEncOffset(0);
             }

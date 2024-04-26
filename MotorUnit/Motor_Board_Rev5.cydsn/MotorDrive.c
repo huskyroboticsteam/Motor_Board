@@ -155,7 +155,7 @@ void UpdatePosition() {
     }
 }
 
-void setUsingPot(uint8_t pot){ using_pot = pot; }
+void SetUsingPot(uint8_t pot) { using_pot = pot; }
 
 void SetEncBound(uint8 lim_num, int32 value) {
     if (lim_num == 0) {

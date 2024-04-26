@@ -53,7 +53,7 @@ int main() {
         }
         
         LED_DBG1_Write(!LED_DBG1_Read()); // visualize main loop rate
-        LED_DBG2_Write(GetMode(MOTOR1) == MODE_UNINIT); // turn on when initialized
+        LED_DBG2_Write(GetMode() == MODE_UNINIT); // turn on when initialized
         CyDelay(1);
     }
 }
@@ -61,16 +61,15 @@ int main() {
 void Initialize(void) {
     CyGlobalIntEnable;
     
-    StartCAN(ReadDIP(), ReadDIP()+16);
+    StartCAN(ReadDIP());
     DBG_UART_Start();
     Timer_Periodic_Start();
     Timer_PID_Start();
-    PWM_Motor1_Start();
-    PWM_Motor2_Start();
-    // QuadDec_Enc_Start();
+    PWM_Motor_Start();
+    QuadDec_Enc_Start();
     ADC_Start();
     
-    sprintf(txData, "Address: %x & %x\r\n", GetAddress(MOTOR1), GetAddress(MOTOR2));
+    sprintf(txData, "Address: %x\r\n", GetAddress());
     Print(txData);
     
     StatusReg_Limit_InterruptEnable();
@@ -87,37 +86,24 @@ int ReadDIP() {
 void DebugPrint(char input) {
     switch(input) {
         case 'm': // Mode
-            sprintf(txData, "Address: %x & %x", GetAddress(MOTOR1), GetAddress(MOTOR2));
+            sprintf(txData, "Address: %x", GetAddress());
             Print(txData);
-            Print(" Mode1: ");
-            if (GetMode(MOTOR1) == MODE_UNINIT) Print("UNINIT");
-            else if (GetMode(MOTOR1) == MODE_PWM_CTRL) Print("PWM");
-            else if (GetMode(MOTOR1) == MODE_PID_CTRL) Print("PID");
-            Print(" Mode2: ");
-            if (GetMode(MOTOR2) == MODE_UNINIT) Print("UNINIT");
-            else if (GetMode(MOTOR2) == MODE_PWM_CTRL) Print("PWM");
-            else if (GetMode(MOTOR2) == MODE_PID_CTRL) Print("PID");
+            Print(" Mode: ");
+            if (GetMode() == MODE_UNINIT) Print("UNINIT");
+            else if (GetMode() == MODE_PWM_CTRL) Print("PWM");
+            else if (GetMode() == MODE_PID_CTRL) Print("PID");
             break;
         case 'a':
-            SetMode(MOTOR1, MODE_PWM_CTRL);
-            SetPWM(MOTOR1, 100);
+            SetMode(MODE_PWM_CTRL);
+            SetPWM(100);
             break;
         case 'd':
-            SetMode(MOTOR1, MODE_PWM_CTRL);
-            SetPWM(MOTOR1, -100);
-            break;
-        case 'w':
-            SetMode(MOTOR2, MODE_PWM_CTRL);
-            SetPWM(MOTOR2, 100);
-            break;
-        case 's':
-            SetMode(MOTOR2, MODE_PWM_CTRL);
-            SetPWM(MOTOR2, -100);
+            SetMode(MODE_PWM_CTRL);
+            SetPWM(-100);
             break;
         case 'p': // Position
-            sprintf(txData, "Pos1:%li Pos2:%li PWM1:%li PWM2:%li", 
-                GetPosition(MOTOR1), GetPosition(MOTOR2), 
-                GetCurrentPWM(MOTOR1), GetCurrentPWM(MOTOR2));
+            sprintf(txData, "Pos:%li PWM:%li", 
+                GetPosition(), GetCurrentPWM());
             Print(txData);
             break;
         case 'o': // Raw sensor
@@ -126,9 +112,8 @@ void DebugPrint(char input) {
             PrintIntBin(GetLimitStatus());
             break;
         case 'i': // PID Config
-            sprintf(txData, "Motor1 Target:%li P:%li I:%li D:%li  Motor2 Target:%li P:%li I:%li D:%li",
-                GetPIDState(MOTOR1).target, GetPIDConfig(MOTOR1).kP, GetPIDConfig(MOTOR1).kI, GetPIDConfig(MOTOR1).kD,
-                GetPIDState(MOTOR2).target, GetPIDConfig(MOTOR2).kP, GetPIDConfig(MOTOR2).kI, GetPIDConfig(MOTOR2).kD);
+            sprintf(txData, "Motor Target:%li P:%li I:%li D:%li",
+                GetPIDState().target, GetPIDConfig().kP, GetPIDConfig().kI, GetPIDConfig().kD);
             Print(txData);
             break;
         case 'k': 
@@ -142,12 +127,8 @@ void DebugPrint(char input) {
             break;
         case 'c': // Conversion
             sprintf(txData, "Motor1 TickMin:%li TickMax:%li mDegMin:%li mDegMax:%li",
-                GetConversion(MOTOR1).tickMin, GetConversion(MOTOR1).tickMax,
-                GetConversion(MOTOR1).mDegMin, GetConversion(MOTOR1).mDegMax);
-            Print(txData);
-            sprintf(txData, "Motor2 TickMin:%li TickMax:%li mDegMin:%li mDegMax:%li",
-                GetConversion(MOTOR2).tickMin, GetConversion(MOTOR2).tickMax,
-                GetConversion(MOTOR2).mDegMin, GetConversion(MOTOR2).mDegMax);
+                GetConversion().tickMin, GetConversion().tickMax,
+                GetConversion().mDegMin, GetConversion().mDegMax);
             Print(txData);
             break;
         default:
