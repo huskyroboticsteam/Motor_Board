@@ -19,9 +19,7 @@
 #include "CAN_Stuff.h"
 
 int16 min_pwm = 20;
-
 uint8  PWM_enable = 0;
-
 int32 PWM_value = 0;
 
 volatile uint8  PWM_invalidate = 0;
@@ -30,12 +28,12 @@ volatile int32 position = 0;
 volatile int32 enc_value = 0;
 volatile int32 pot_value = 0;
 
-Conversion conv1 = {};
-Conversion conv2 = {};
+Conversion conv = {};
 
 uint8 enc_dir = FORWARD;
 
 volatile uint8 limit_status = 0;
+uint8 using_pot = 0;
 
 uint8 bound_set1;
 uint8 bound_set2;
@@ -47,9 +45,9 @@ int StartPWM() {
     return 0;
 }
 
-void StopPWM(int motor) {
+void StopPWM() {
     PWM_enable = 0;
-    //Set PWM Motor Compare (i.e (PWM_NAME_WriteCompare(0)))
+    PWM_Motor_WriteCompare(0);
 }
 
 // Sends PWM and Direction to the motor driver
@@ -59,17 +57,14 @@ int SetPWM(int16 pwm) {
     if (PWM_enable) {
         PWM_invalidate = 0;
         
-        //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        //IMPLEMENT DIR_WRITE() FOR PIN MOTOR
-        //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         if (pwm < 0) {
-            Pin_Motor2_Dir_Write(BACKWARD);
+            Pin_Motor_Dir_Write(BACKWARD);
             // if (pot_value <= 0) {
             //     err = ERROR_LIMIT;
             //     pwm = 0;
             // }
         } else if (pwm > 0) {
-            Pin_Motor2_Dir_Write(FORWARD);
+            Pin_Motor_Dir_Write(FORWARD);
             // if (pot_value >= 4095) {
             //     err = ERROR_LIMIT;
             //     pwm = 0;
@@ -78,91 +73,48 @@ int SetPWM(int16 pwm) {
         
         if (abs(pwm) < min_pwm) pwm = 0;
         
-        PWM2_value = pwm;
-        PWM_Motor2_WriteCompare(abs(pwm));
+        PWM_value = pwm;
+        PWM_Motor_WriteCompare(abs(pwm));
     } else err = ERROR_PWM_NOT_ENABLED;
+    
     return err;
 }
+
+int UpdateConversion() {
+    if (conv.min_set && conv.max_set && conv.mDegMax != conv.mDegMin) {
+        conv.ratio = (double) (conv.tickMax-conv.tickMin)/(conv.mDegMax-conv.mDegMin);
+        conv.ratio_set = 1;
+    } else {
+        return 1;
+    }
     
-//not fixed
-int UpdateConversion(int motor) {
-    if (motor & MOTOR1) {
-        if (conv1.min_set && conv1.max_set && conv1.mDegMax != conv1.mDegMin) {
-            conv1.ratio = (double) (conv1.tickMax-conv1.tickMin)/(conv1.mDegMax-conv1.mDegMin);
-            conv1.ratio_set = 1;
-        } else {
-            return 1;
-        }
-    }
-    if (motor & MOTOR2) {
-        if (conv2.min_set && conv2.max_set && conv2.mDegMax != conv2.mDegMin) {
-            conv2.ratio = (double) (conv2.tickMax-conv2.tickMin)/(conv2.mDegMax-conv2.mDegMin);
-            conv2.ratio_set = 1;
-        } else {
-            return 1;
-        }
-    }
     return 0;
 }
 
-//not fixed
-Conversion GetConversion(int motor) {
-    if (motor == MOTOR1) return conv1;
-    if (motor == MOTOR2) return conv2;
-    return (Conversion) {};
+Conversion GetConversion() { return conv; }
+
+void SetConvRatio(float ratio) {
+    conv.ratio = ratio;
+    conv.ratio_set = 1;
 }
 
-//not fixed
-uint8 GetConversionReady(int motor) {
-    if (motor == MOTOR1) return conv1.ratio_set;
-    if (motor == MOTOR2) return conv2.ratio_set;
-    return 0;
+int SetConvMin(int32 tickMin, int32 mDegMin) {
+    conv.tickMin = tickMin;
+    conv.mDegMin = mDegMin;
+    conv.min_set = 1;
+    
+    return UpdateConversion();
 }
 
-//not fixed
-void SetConvRatio(int motor, float ratio) {
-    if (motor & MOTOR1) {
-        conv1.ratio = ratio;
-        conv1.ratio_set = 1;
-    }
-    if (motor & MOTOR2) {
-        conv1.ratio = ratio;
-        conv1.ratio_set = 1;
-    }
-}
-
-//not fixed
-int SetConvMin(int motor, int32 tickMin, int32 mDegMin) {
-    if (motor & MOTOR1) {
-        conv1.tickMin = tickMin;
-        conv1.mDegMin = mDegMin;
-        conv1.min_set = 1;
-    }
-    if (motor & MOTOR2) {
-        conv2.tickMin = tickMin;
-        conv2.mDegMin = mDegMin;
-        conv2.min_set = 1;
-    }
-    return UpdateConversion(motor);
-}
-
-//not fixed
-void SetConvMax(int motor, int32 tickMax, int32 mDegMax) {
-    if (motor & MOTOR1) {
-        conv1.tickMax = tickMax;
-        conv1.mDegMax = mDegMax;
-        conv1.max_set = 1;
-    }
-    if (motor & MOTOR2) {
-        conv2.tickMax = tickMax;
-        conv2.mDegMax = mDegMax;
-        conv2.max_set = 1;
-    }
-    UpdateConversion(motor);
+void SetConvMax(int32 tickMax, int32 mDegMax) {
+    conv.tickMax = tickMax;
+    conv.mDegMax = mDegMax;
+    conv.max_set = 1;
+    UpdateConversion();
 }
 
 void SetEncOffset(int32 tick_offset) {
-    // QuadDec_Enc_WriteCounter(tick_offset);
+    QuadDec_Enc_WriteCounter(tick_offset);
 }
 
 void SetEncDir(uint8 dir) {
@@ -170,7 +122,7 @@ void SetEncDir(uint8 dir) {
 }
 
 int UpdateEncValue() {
-    uint32 val = 0; // QuadDec_Enc_ReadCounter();
+    uint32 val = QuadDec_Enc_ReadCounter();
     enc_value = enc_dir ? val : -val;
     return 0;
 }
@@ -187,30 +139,24 @@ int UpdatePotValue() {
     return 0;
 }
 
-
-uint8 GetLimitStatus() { return limit_status; }
 int32 GetPotValue() { return pot_value; }
 int32 GetEncValue() { return enc_value; }
-int32 GetPosition() {
-    return position;
-}
-int32 GetCurrentPWM() {
-    return PWM_value;
-}
+int32 GetPosition() { return position; }
+int32 GetCurrentPWM() { return PWM_value; }
+uint8 GetLimitStatus() { return limit_status; }
 
-//not fixed
-void UpdatePosition(int motor) {
-    if (motor & MOTOR1) {
-        if (conv1.ratio_set)
-            position1 = (enc_value-conv1.tickMin) * conv1.ratio + conv1.mDegMin;
-    }
-    if (motor & MOTOR2) {
-        if (conv2.ratio_set)
-            position2 = (pot_value-conv2.tickMin) * conv2.ratio + conv2.mDegMin;
+void UpdatePosition() {
+    if (conv.ratio_set) {
+        if (using_pot) {  
+            position = (enc_value-conv.tickMin) * conv.ratio + conv.mDegMin;
+        } else {
+            position = (pot_value-conv.tickMin) * conv.ratio + conv.mDegMin;
+        }
     }
 }
 
-//not fixed
+void setUsingPot(uint8_t pot){ using_pot = pot; }
+
 void SetEncBound(uint8 lim_num, int32 value) {
     if (lim_num == 0) {
         bound_set1 = 1;
@@ -221,33 +167,28 @@ void SetEncBound(uint8 lim_num, int32 value) {
     }
 }    
 
-//not fixed
 CY_ISR(Limit_Handler) {
     limit_status = StatusReg_Limit_Read();
     
     if (limit_status & 0b01) {
-        SetPWM(MOTOR1, 0);
+        SetPWM(0);
         SendLimitAlert(limit_status);
-        if (bound_set1) SetEncOffset(MOTOR1, enc_lim_1);
+        if (bound_set1) SetEncOffset(enc_lim_1);
     }
     if (limit_status & 0b10) {
-        SetPWM(MOTOR1, 0);
+        SetPWM(0);
         SendLimitAlert(limit_status);
-        if (bound_set2) SetEncOffset(MOTOR1, enc_lim_2);
+        if (bound_set2) SetEncOffset(enc_lim_2);
     }
 }
 
-//not fixed
 CY_ISR(Drive_Handler) {
-    if (PWM1_invalidate == 20) SetPWM(MOTOR1, 0);
-    else PWM1_invalidate++;
+    if (PWM_invalidate == 20) SetPWM(0);
+    else PWM_invalidate++;
     
-    if (PWM2_invalidate == 20) SetPWM(MOTOR2, 0);
-    else PWM2_invalidate++;
-    
-    UpdatePotValue();
-    UpdateEncValue();
-    UpdatePosition(MOTOR_BOTH);
+    if (using_pot) UpdatePotValue();
+    else UpdateEncValue();
+    UpdatePosition();
 }
 
 /* [] END OF FILE */
