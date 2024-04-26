@@ -16,117 +16,69 @@
 #include "MotorDrive.h"
 #include "FSM_Stuff.h"
 
-PID_Config PID1 = {.maxIntegral=500, .maxPWM=1023};
-PID_Config PID2 = {.maxIntegral=500, .maxPWM=1023};
-volatile PID_State PID1_state = {};
-volatile PID_State PID2_state = {};
+PID_Config PID = {.maxIntegral=500, .maxPWM=1023};
+volatile PID_State PID_state = {};
 
-uint8 PID1_enable, PID2_enable;
+uint8 PID_enable;
 
-int StartPID(int motor) {
+int StartPID() {
     int err = 0;
-    if (motor & MOTOR1) {
-        if (PID1.kP_set && PID1.kI_set && PID1.kD_set && GetConversionReady(MOTOR1)) {
-            PID1_state.integral = 0;
-            PID1_state.last_error = 0;
-            PID1_enable = 1;
-        } else err = 1;
-    }
-    if (motor & MOTOR2) {
-        if (PID2.kP_set && PID2.kI_set && PID2.kD_set && GetConversionReady(MOTOR2)) {
-            PID2_state.integral = 0;
-            PID2_state.last_error = 0;
-            PID2_enable = 1;
-        } else err = 1;
-    }
-    return err;
+    
+    if (PID.kP_set && PID.kI_set && PID.kD_set && GetConversionReady()) {
+        PID_state.integral = 0;
+        PID_state.last_error = 0;
+        PID_enable = 1;
+    } else err = 1;
+    
 }
 
-void StopPID(int motor) {
-    if (motor & MOTOR1) {
-        PID1_enable = 0;
-        PID1_state.target_set = 0;
-        SetPWM(MOTOR1, 0);
-    } if (motor & MOTOR2) {
-        PID2_enable = 0;
-        PID2_state.target_set = 0;
-        SetPWM(MOTOR2, 0);
-    }
+void StopPID(r) {
+   
+    PID_enable = 0;
+    PID_state.target_set = 0;
+    SetPWM(0);
+    
 }
 
-void SetkPosition(int motor, int32 kP) {
-    if (motor & MOTOR1) {
-        PID1.kP = kP;
-        PID1.kP_set = 1;
-    }
-    if (motor & MOTOR2) { 
-        PID2.kP = kP;
-        PID2.kP_set = 1;
-    }
+void SetkPosition(int32 kP) {
+    PID.kP = kP;
+    PID.kP_set = 1;
 }
-void SetkIntegral(int motor, int32 kI) {
-    if (motor & MOTOR1) {
-        PID1.kI = kI;
-        PID1.kI_set = 1;
-    }
-    if (motor & MOTOR2) { 
-        PID2.kI = kI;
-        PID2.kI_set = 1;
-    }
+void SetkIntegral(int32 kI) {
+    PID.kI = kI;
+    PID.kI_set = 1;
+    
 }
-void SetkDerivative(int motor, int32 kD) {
-    if (motor & MOTOR1) {
-        PID1.kD = kD;
-        PID1.kD_set = 1;
-    }
-    if (motor & MOTOR2) { 
-        PID2.kD = kD;
-        PID2.kD_set = 1;
-    }
+void SetkDerivative(int32 kD) {
+    PID.kD = kD;
+    PID.kD_set = 1;
 }
 
-void SetPIDMaxPWM(int motor, uint16 maxPWM) {
-    if (motor & MOTOR1) PID1.maxPWM = maxPWM;
-    if (motor & MOTOR2) PID2.maxPWM = maxPWM;
+void SetPIDMaxPWM( uint16 maxPWM) {
+    PID.maxPWM = maxPWM;
 }
 
-PID_Config GetPIDConfig(int motor) {
-    if (motor == MOTOR1) return PID1;
-    if (motor == MOTOR2) return PID2;
-    return (PID_Config) {};
+PID_Config GetPIDConfig() {
+    return PID;
 }
-PID_State GetPIDState(int motor) {
-    if (motor == MOTOR1) return PID1_state;
-    if (motor == MOTOR2) return PID2_state;
-    return (PID_State) {};
+PID_State GetPIDState() {
+    return PID_State;
 }
 
 
-void SetPIDTarget(int motor, int32 mDegs) {
-    if (motor & MOTOR1) {
-        PID1_state.target = mDegs;
-        PID1_state.target_set = 1;
-    } if (motor & MOTOR2) {
-        PID2_state.target = mDegs;
-        PID2_state.target_set = 1;
-    }
+void SetPIDTarget(int32 mDegs) {
+    PID_state.target = mDegs;
+    PID_state.target_set = 1;
 }
 
-int PID_Update(int motor) {
+int PID_Update() {
     int error;
     volatile PID_State* state;
-    PID_Config* pid;
-    if (motor == MOTOR1) {        
-        error = PID1_state.target - GetPosition(MOTOR1);
-        
-        state = &PID1_state;
-        pid = &PID1;
-    } else if (motor == MOTOR2) {        
-        error = PID1_state.target - GetPosition(MOTOR2);
-
-        state = &PID2_state;
-        pid = &PID2;
-    } else return 1;
+    PID_Config* pid; 
+    error = PID_state.target - GetPosition(MOTOR1);
+    
+    state = &PID_state;
+    pid = &PID;
     
     int integral = state->integral;
     integral += error;
@@ -151,8 +103,7 @@ int PID_Update(int motor) {
 }
 
 CY_ISR(PID_Handler) {
-    if (PID1_enable && PID1_state.target_set) PID_Update(MOTOR1);
-    if (PID2_enable && PID2_state.target_set) PID_Update(MOTOR2);
+    if (PID_enable && PID_state.target_set) PID_Update();
 }
 
 /* [] END OF FILE */

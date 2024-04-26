@@ -20,7 +20,7 @@
 
 #define ERROR_MODE_CHANGE 0x20
 
-int SetMode(int motor, int mode);
-int GetMode(int motor);
+int SetMode(int mode);
+int GetMode();
 
 /* [] END OF FILE */

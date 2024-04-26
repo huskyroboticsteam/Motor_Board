@@ -18,23 +18,17 @@
 #include "MotorDrive.h"
 #include "../CANLib/CANLibrary.h"
 
-uint8 address1, address2;
+uint8 address;
 
-void StartCAN(uint8 addy1, uint8 addy2) {
-    if (addy1 == 0) {
-        address1 = DEVICE_SERIAL_TELEM_LOCALIZATION;
-    } else address1 = addy1;
-    if (addy2 == 0) {
-        address2 = DEVICE_SERIAL_TELEM_LOCALIZATION;
-    } else address2 = addy2;
-    
-    InitCAN(0x04, (int) address1, (int) address2);
+void StartCAN(uint8 addy) {
+    if (addy == 0) {
+        address = DEVICE_SERIAL_TELEM_LOCALIZATION;
+    } else address = addy;
+    InitCAN(0x04, (int) address);
 }
 
-uint8 GetAddress(int motor) {
-    if (motor == MOTOR1) return address1;
-    if (motor == MOTOR2) return address2;
-    return 0;
+uint8 GetAddress() {
+    return address;
 }
 
 //Reads from CAN FIFO and changes the state and mode accordingly
@@ -52,79 +46,77 @@ int ProcessCAN(CANPacket* receivedPacket, CANPacket* packetToSend) {
     
     int32 data = 0;
     int err = 0;
-    int motor = 0;
-    
-    if (motor_address == address1) motor = MOTOR1;
-    else if (motor_address == address2) motor = MOTOR2;
-    else motor = MOTOR_BOTH; // assume broadcast
     
     switch(packageID) {
         case(ID_MOTOR_UNIT_MODE_SEL):
             data = GetModeFromPacket(receivedPacket);
             if (data == MOTOR_UNIT_MODE_PWM) {
-                err = SetMode(motor, MODE_PWM_CTRL);
+                err = SetMode(MODE_PWM_CTRL);
             } else if (data == MOTOR_UNIT_MODE_PID) {
-                err = SetMode(motor, MODE_PID_CTRL);
+                err = SetMode( MODE_PID_CTRL);
             } else err = ERROR_INVALID_PACKET;
             break;
            
         case(ID_MOTOR_UNIT_PWM_DIR_SET):
-            if (GetMode(motor) != MODE_PWM_CTRL) {
+            if (GetMode() != MODE_PWM_CTRL) {
                 err = ERROR_WRONG_MODE;
             } else {
                 data = GetPWMFromPacket(receivedPacket);
-                err = SetPWM(motor, data/32);
+                err = SetPWM(data/32);
             }
             break;
             
         case(ID_MOTOR_UNIT_PID_P_SET):
             data = GetPFromPacket(receivedPacket);
-            SetkPosition(motor, data);
+            SetkPosition(data);
             break;
         
         case(ID_MOTOR_UNIT_PID_I_SET):
             data = GetIFromPacket(receivedPacket);
-            SetkIntegral(motor, data);
+            SetkIntegral(data);
             break;
             
         case(ID_MOTOR_UNIT_PID_D_SET):
             data = GetDFromPacket(receivedPacket);
-            SetkDerivative(motor, data);
+            SetkDerivative(data);
             break;
             
         case(ID_MOTOR_UNIT_PID_POS_TGT_SET):
             data = GetPIDTargetFromPacket(receivedPacket);
-            SetPIDTarget(motor, data);
-            if (GetMode(motor) != MODE_PID_CTRL) err = ERROR_WRONG_MODE;
+            SetPIDTarget(data);
+            if (GetMode() != MODE_PID_CTRL) err = ERROR_WRONG_MODE;
             break;
             
         case(ID_MOTOR_UNIT_ENC_PPJR_SET):
             data = GetEncoderPPJRFromPacket(receivedPacket);
-            SetConvRatio(motor, 360.0*1000/data);
+            SetConvRatio(360.0*1000/data);
+            setUsingPot(0);
             break;
             
         case (ID_MOTOR_UNIT_POT_INIT_LO):
-            SetConvMin(motor, 
+            SetConvMin( 
                 GetPotADCFromPacket(receivedPacket), 
                 GetPotmDegFromPacket(receivedPacket));
+            setUsingPot(1);
             break;
             
         case (ID_MOTOR_UNIT_POT_INIT_HI):
-            SetConvMax(motor, 
+            SetConvMax( 
                 GetPotADCFromPacket(receivedPacket), 
                 GetPotmDegFromPacket(receivedPacket));
+            setUsingPot(1);
             break;
         
         case(ID_MOTOR_UNIT_ENC_INIT):
-            // didn't bother checking the use_pot bit
+            setUsingPot(0);
             if(GetEncoderZeroFromPacket(receivedPacket)) {
-                SetEncOffset(motor, 0);
+                SetEncOffset(0);
             }
-            SetEncDir(motor, GetEncoderDirectionFromPacket(receivedPacket));
+            SetEncDir(GetEncoderDirectionFromPacket(receivedPacket));
             break;
             
         case(ID_MOTOR_UNIT_MAX_PID_PWM):
-            SetPIDMaxPWM(motor, GetMaxPIDPWMFromPacket(receivedPacket));
+            SetPIDMaxPWM(GetMaxPIDPWMFromPacket(receivedPacket));
             break;
             
         case(ID_MOTOR_UNIT_SET_ENCODER_BOUND):
@@ -135,7 +127,7 @@ int ProcessCAN(CANPacket* receivedPacket, CANPacket* packetToSend) {
             switch(DecodeTelemetryType(receivedPacket))
             {
                 case(PACKET_TELEMETRY_ANG_POSITION):
-                    data = GetPosition(motor);
+                    data = GetPosition();
                     break;
                 case(PACKET_TELEMETRY_ADC_RAW):
                     data = GetPotValue();

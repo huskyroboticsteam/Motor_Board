@@ -15,33 +15,30 @@
 #include "project.h"
 #include "PositionPID.h"
 
-int mode1, mode2;
+int mode
 
-int SetMode(int motor, int new_mode) {
+int SetMode(int new_mode) {
     int err = 0;
     
     if (new_mode == MODE_UNINIT) {
-        StopPID(motor);
-        StopPWM(motor);
+        StopPID();
+        StopPWM();
     } else if (new_mode == MODE_PWM_CTRL) {
-        StopPID(motor);
-        err = StartPWM(motor);
+        StopPID();
+        err = StartPWM();
     } else if (new_mode == MODE_PID_CTRL) {
-        err = StartPID(motor);
+        err = StartPID();
         if (!err)
-            err = StartPWM(motor);
+            err = StartPWM();
     }
     
     if (err) return ERROR_MODE_CHANGE;
-    if (motor & MOTOR1) mode1 = new_mode;
-    if (motor & MOTOR2) mode2 = new_mode;
+    mode = new_mode;
     return 0;
 }
 
 int GetMode(int motor) {
-    if (motor == MOTOR1) return mode1;
-    if (motor == MOTOR2) return mode2;
-    return -1;
+    return mode;
 }
 
 /* [] END OF FILE */
