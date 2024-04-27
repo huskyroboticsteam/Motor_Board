@@ -32,9 +32,10 @@ Conversion conv = {};
 
 uint8 enc_dir = FORWARD;
 
-volatile uint8 limit_status = 0;
 uint8 using_pot = 0;
 
+uint8 limit1 = 0;
+uint8 limit2 = 0;
 uint8 bound_set1;
 uint8 bound_set2;
 int32 enc_lim_1;
@@ -143,7 +144,7 @@ int32 GetPotValue() { return pot_value; }
 int32 GetEncValue() { return enc_value; }
 int32 GetPosition() { return position; }
 int32 GetCurrentPWM() { return PWM_value; }
-uint8 GetLimitStatus() { return limit_status; }
+uint8 GetLimitStatus() { return limit1 | (limit2 << 1); }
 
 void UpdatePosition() {
     if (conv.ratio_set) {
@@ -167,22 +168,25 @@ void SetEncBound(uint8 lim_num, int32 value) {
     }
 }    
 
-CY_ISR(Limit_Handler) {
-    limit_status = StatusReg_Limit_Read();
-    
-    if (limit_status & 0b01) {
-        SetPWM(0);
-        SendLimitAlert(limit_status);
-        if (bound_set1) SetEncOffset(enc_lim_1);
-    }
-    if (limit_status & 0b10) {
-        SetPWM(0);
-        SendLimitAlert(limit_status);
-        if (bound_set2) SetEncOffset(enc_lim_2);
-    }
-}
-
 CY_ISR(Drive_Handler) {
+    if (Pin_Limit1_Read() == 0) {
+        if (limit1 == 0) {
+            SetPWM(0);
+            SendLimitAlert(1);
+            if (bound_set1) SetEncOffset(enc_lim_1);
+        }
+        limit1 = 1;
+    } else limit1 = 0;
+    
+    if (Pin_Limit2_Read() == 0) {
+        if (limit2 == 0) {
+            SetPWM(0);
+            SendLimitAlert(2);
+            if (bound_set2) SetEncOffset(enc_lim_2);
+        }
+        limit2 = 1;
+    } else limit2 = 0;
+    
     if (PWM_invalidate == 20) SetPWM(0);
     else PWM_invalidate++;
     
