@@ -10,7 +10,6 @@
  * ========================================
 */
 
-/* [] END OF FILE */
 #include "main.h"
 #include "Motor_Unit_CAN.h"
 #include "Motor_Unit_FSM.h"
@@ -204,3 +203,5 @@ void NextStateFromCAN(CANPacket *receivedPacket, CANPacket *packetToSend) {
             break;
     }
 }
+
+/* [] END OF FILE */

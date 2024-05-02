@@ -60,16 +60,16 @@ int SetPWM(int16 pwm) {
         
         if (pwm < 0) {
             Pin_Motor_Dir_Write(BACKWARD);
-            // if (pot_value <= 0) {
-            //     err = ERROR_LIMIT;
-            //     pwm = 0;
-            // }
+            if (limit1) {
+                err = ERROR_LIMIT;
+                pwm = 0;
+            }
         } else if (pwm > 0) {
             Pin_Motor_Dir_Write(FORWARD);
-            // if (pot_value >= 4095) {
-            //     err = ERROR_LIMIT;
-            //     pwm = 0;
-            // }
+            if (limit2) {
+                err = ERROR_LIMIT;
+                pwm = 0;
+            }
         }
         
         if (abs(pwm) < min_pwm) pwm = 0;
@@ -115,7 +115,7 @@ void SetConvMax(int32 tickMax, int32 mDegMax) {
 }
 
 void SetEncOffset(int32 tick_offset) {
-    QuadDec_Enc_WriteCounter(tick_offset);
+    QuadDec_Enc_SetCounter(tick_offset);
 }
 
 void SetEncDir(uint8 dir) {
@@ -123,7 +123,7 @@ void SetEncDir(uint8 dir) {
 }
 
 int UpdateEncValue() {
-    uint32 val = QuadDec_Enc_ReadCounter();
+    uint32 val = QuadDec_Enc_GetCounter();
     enc_value = enc_dir ? val : -val;
     return 0;
 }

@@ -67,6 +67,7 @@ void Initialize(void) {
     Timer_PID_Start();
     PWM_Motor_Start();
     QuadDec_Enc_Start();
+    // SetEncOffset(0);
     ADC_Start();
     
     sprintf(txData, "Address: %x\r\n", GetAddress());
