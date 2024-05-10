@@ -10,12 +10,14 @@
  * ========================================
 */
 
+// BLDC
+
 #include <project.h>
 #include <stdio.h>
 #include <stdint.h>
 #include <stdlib.h>
-#include "MotorDrive.h"
-#include "CAN_Stuff.h"
+#include "../MotorFirmwareV2/MotorDrive.h"
+#include "../MotorFirmwareV2/CAN_Stuff.h"
 
 int16 min_pwm = 20;
 uint8  PWM_enable = 0;
@@ -53,19 +55,18 @@ void StopPWM() {
 // Sends PWM and Direction to the motor driver
 // Also checks limits and sets PWM variables
 // Accepts values -1024 - 1024
+// BLDC Edition!!!
 int SetPWM(int16 pwm) {
     int err = 0;
     if (PWM_enable) {
         PWM_invalidate = 0;
         
         if (pwm < 0) {
-            Pin_Motor_Dir_Write(BACKWARD);
             if (limit1) {
                 err = ERROR_LIMIT;
                 pwm = 0;
             }
         } else if (pwm > 0) {
-            Pin_Motor_Dir_Write(FORWARD);
             if (limit2) {
                 err = ERROR_LIMIT;
                 pwm = 0;
@@ -75,7 +76,7 @@ int SetPWM(int16 pwm) {
         if (abs(pwm) < min_pwm) pwm = 0;
         
         PWM_value = pwm;
-        PWM_Motor_WriteCompare(abs(pwm));
+        PWM_Motor_WriteCompare(pwm/0.1024+30000);
     } else err = ERROR_PWM_NOT_ENABLED;
     
     return err;

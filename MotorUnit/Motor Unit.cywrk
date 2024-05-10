@@ -3,7 +3,7 @@
 <!--This file is machine generated and read. It is not intended to be edited by hand.-->
 <!--Due to this, there is no schema for this file.-->
 <CyGuid_2867d519-54d2-4c01-9830-c51cb08bc3dd type_name="CyDesigner.Common.ProjMgmt.Model.CyPrjMgmtWorkspaceSerialize" version="5" xml_contents_version="3" name="Motor Unit" persistent="Motor Unit.cywrk" platform="NOT_USED">
-<current_project name=".\Motor_Board_Rev5.cydsn\Motor_Board_Rev5.cyprj" />
+<current_project name=".\Motor_Board_Rev4V2_BLDC.cydsn\Motor_Board_Rev4V2_BLDC.cyprj" />
 <wrkspc_folders />
 <files />
 <projects>
@@ -12,6 +12,7 @@
 <v>.\Motor_Board_Rev5.cydsn\Motor_Board_Rev5.cyprj</v>
 <v>.\Motor_Board_Rev3V2.cydsn\Motor_Board_Rev3V2.cyprj</v>
 <v>.\Motor_Board_Rev4V2.cydsn\Motor_Board_Rev4V2.cyprj</v>
+<v>.\Motor_Board_Rev4V2_BLDC.cydsn\Motor_Board_Rev4V2_BLDC.cyprj</v>
 </projects>
 <workspace_id v="d91cd723-e0b6-4b81-920f-0a1afb4a413e" />
 <WriteAppVersionLastSavedWith v="4.4.0.80" />
