@@ -52,8 +52,7 @@ int main() {
             DebugPrint(DBG_UART_UartGetByte());
         }
         
-        LED_DBG1_Write(!LED_DBG1_Read()); // visualize main loop rate
-        LED_DBG2_Write(GetMode() == MODE_UNINIT); // turn on when initialized
+        LED_DBG_Write(GetMode() == MODE_UNINIT); // turn on when initialized
         CyDelay(1);
     }
 }
