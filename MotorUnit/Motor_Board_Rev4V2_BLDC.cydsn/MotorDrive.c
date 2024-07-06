@@ -44,6 +44,7 @@ int32 enc_lim_2;
 
 int StartPWM() {
     PWM_enable = 1;
+    PWM_Motor_WriteCompare(30000);
     return 0;
 }
 
