@@ -20,9 +20,7 @@
 uint8 address;
 
 void StartCAN(uint8 addy) {
-    if (addy == 0) {
-        address = DEVICE_SERIAL_TELEM_LOCALIZATION;
-    } else address = addy;
+    address = addy;
     InitCAN(0x04, (int) address);
 }
 

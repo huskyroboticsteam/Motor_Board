@@ -42,7 +42,7 @@ int main() {
         if (!PollAndReceiveCANPacket(&can_recieve)) {
             LED_CAN_Write(ON);
             CAN_time_LED = 0;
-            PrintCanPacket(&can_recieve); // DEBUG
+            // PrintCanPacket(&can_recieve); // DEBUG
             err = ProcessCAN(&can_recieve, &can_send);
         }
         
@@ -91,14 +91,14 @@ void DebugPrint(char input) {
             else if (GetMode() == MODE_PWM_CTRL) Print("PWM");
             else if (GetMode() == MODE_PID_CTRL) Print("PID");
             break;
-        case 'a':
-            SetMode(MODE_PWM_CTRL);
-            SetPWM(200);
-            break;
-        case 'd':
-            SetMode(MODE_PWM_CTRL);
-            SetPWM(-200);
-            break;
+        // case 'a':
+        //     SetMode(MODE_PWM_CTRL);
+        //     SetPWM(200);
+        //     break;
+        // case 'd':
+        //     SetMode(MODE_PWM_CTRL);
+        //     SetPWM(-200);
+        //     break;
         case 'p': // Position
             sprintf(txData, "Pos:%li PWM:%li", 
                 GetPosition(), GetCurrentPWM());
