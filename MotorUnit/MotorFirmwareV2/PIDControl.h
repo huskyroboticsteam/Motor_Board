@@ -17,7 +17,7 @@
 
 typedef struct PID_config {
     uint8 kP_set, kI_set, kD_set;
-    int32 kP, kI, kD, maxPWM, maxIntegral;
+    uint32 kP, kI, kD, maxPWM, maxIntegral;
 } PID_Config;
 
 typedef struct PID_state {
@@ -29,7 +29,7 @@ typedef struct PID_state {
 
 int StartPID();
 void StopPID();
-void SetkPosition(int32 kP);
+void SetkProportional(int32 kP);
 void SetkIntegral(int32 kI);
 void SetkDerivative(int32 kD);
 void SetPIDMaxPWM(uint16 maxPWM);

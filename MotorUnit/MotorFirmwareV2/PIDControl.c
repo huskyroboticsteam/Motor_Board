@@ -10,24 +10,26 @@
  * ========================================
 */
 
-//PID varaibles
 #include <project.h>
-#include "PositionPID.h"
+#include "PIDControl.h"
 #include "MotorDrive.h"
 #include "FSM_Stuff.h"
 
-PID_Config PID = {.maxIntegral=500, .maxPWM=1023};
+PID_Config PID = {.maxIntegral=-1, .maxPWM=1023};
 volatile PID_State PID_state = {};
 
 uint8 PID_enable;
+uint8 ctrl_type;
 
-int StartPID() {
+// starts PID control for position (0) or velocity (1)
+int StartPID(int control_type) {
     int err = 0;
     
     if (PID.kP_set && PID.kI_set && PID.kD_set && GetConversion().ratio_set) {
         PID_state.integral = 0;
         PID_state.last_error = 0;
         PID_enable = 1;
+        ctrl_type = control_type;
     } else err = 1;
     
     return err;
@@ -39,7 +41,7 @@ void StopPID() {
     SetPWM(0);
 }
 
-void SetkPosition(int32 kP) {
+void SetkProportional(int32 kP) {
     PID.kP = kP;
     PID.kP_set = 1;
 }
@@ -53,7 +55,7 @@ void SetkDerivative(int32 kD) {
     PID.kD_set = 1;
 }
 
-void SetPIDMaxPWM( uint16 maxPWM) {
+void SetPIDMaxPWM(uint16 maxPWM) {
     PID.maxPWM = maxPWM;
 }
 
@@ -65,8 +67,8 @@ PID_State GetPIDState() {
 }
 
 
-void SetPIDTarget(int32 mDegs) {
-    PID_state.target = mDegs;
+void SetPIDTarget(int32 target) {
+    PID_state.target = target;
     PID_state.target_set = 1;
 }
 
@@ -74,28 +76,30 @@ int PID_Update() {
     int error;
     volatile PID_State* state;
     PID_Config* pid; 
-    error = PID_state.target - GetPosition();
+
+    if (ctrl_type == 0) {
+        error = PID_state.target - GetPosition();
+    } else {
+        error = PID_state.target - GetVelocity();
+    }
     
-    state = &PID_state;
-    pid = &PID;
-    
-    int integral = state->integral;
+    int integral = PID_state.integral;
     integral += error;
     
     //integral clamp
-    if (integral >  pid->maxIntegral) integral =  pid->maxIntegral;
-    if (integral < -pid->maxIntegral) integral = -pid->maxIntegral;
+    if (integral >  PID.maxIntegral) integral =  PID.maxIntegral;
+    if (integral < -PID.maxIntegral) integral = -PID.maxIntegral;
     
-    int derivative = error - state->last_error;
-    int32 new_pwm = error*pid->kP/10 + integral*pid->kI/10 + derivative*pid->kD/10;
-    state->last_error = error;
-    state->integral = integral;
+    int derivative = error - PID_state.last_error;
+    int32 new_pwm = error*PID.kP/10 + integral*PID.kI/10 + derivative*PID.kD/10;
+    PID_state.last_error = error;
+    PID_state.integral = integral;
     
     //Max Power clamp
-    if(new_pwm > pid->maxPWM){
-        new_pwm = pid->maxPWM;
-    } else if(new_pwm < -pid->maxPWM) {
-        new_pwm = -pid->maxPWM;
+    if(new_pwm > PID.maxPWM){
+        new_pwm = PID.maxPWM;
+    } else if(new_pwm < -PID.maxPWM) {
+        new_pwm = -PID.maxPWM;
     }
     
     return SetPWM(new_pwm);

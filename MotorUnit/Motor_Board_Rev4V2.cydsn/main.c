@@ -18,7 +18,7 @@
 #include "../MotorFirmwareV2/CAN_Stuff.h"
 #include "../MotorFirmwareV2/FSM_Stuff.h"
 #include "../MotorFirmwareV2/MotorDrive.h"
-#include "../MotorFirmwareV2/PositionPID.h"
+#include "../MotorFirmwareV2/PIDControl.h"
 #include "../HindsightCAN/CANLibrary.h"
 
 // LED stuff

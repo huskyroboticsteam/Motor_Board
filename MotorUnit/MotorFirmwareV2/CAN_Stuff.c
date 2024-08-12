@@ -13,7 +13,7 @@
 #include <stdio.h>
 #include "CAN_Stuff.h"
 #include "FSM_Stuff.h"
-#include "PositionPID.h"
+#include "PIDControl.h"
 #include "MotorDrive.h"
 #include "../HindsightCAN/CANLibrary.h"
 
@@ -65,7 +65,7 @@ int ProcessCAN(CANPacket* receivedPacket, CANPacket* packetToSend) {
             
         case(ID_MOTOR_UNIT_PID_P_SET):
             data = GetPFromPacket(receivedPacket);
-            SetkPosition(data);
+            SetkProportional(data);
             break;
         
         case(ID_MOTOR_UNIT_PID_I_SET):

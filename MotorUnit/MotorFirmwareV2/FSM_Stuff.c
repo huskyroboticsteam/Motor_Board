@@ -13,7 +13,7 @@
 #include "FSM_Stuff.h"
 #include "MotorDrive.h"
 #include "project.h"
-#include "PositionPID.h"
+#include "PIDControl.h"
 
 int mode;
 
