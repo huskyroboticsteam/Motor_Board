@@ -83,7 +83,7 @@ int SetPWM(int16 pwm) {
 
 int UpdateConversion() {
     if (conv.min_set && conv.max_set && conv.mDegMax != conv.mDegMin) {
-        conv.ratio = (double) (conv.tickMax-conv.tickMin)/(conv.mDegMax-conv.mDegMin);
+        conv.ratio = (double) (conv.mDegMax-conv.mDegMin)/(conv.tickMax-conv.tickMin);
         conv.ratio_set = 1;
     } else {
         return 1;
@@ -148,10 +148,10 @@ uint8 GetLimitStatus() { return limit1 | (limit2 << 1); }
 
 void UpdatePosition() {
     if (conv.ratio_set) {
-        if (using_pot) {  
-            position = (enc_value-conv.tickMin) * conv.ratio + conv.mDegMin;
-        } else {
+        if (using_pot) {
             position = (pot_value-conv.tickMin) * conv.ratio + conv.mDegMin;
+        } else {
+            position = (enc_value-conv.tickMin) * conv.ratio + conv.mDegMin;
         }
     }
 }
