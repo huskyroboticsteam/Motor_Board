@@ -71,7 +71,7 @@ void SetPIDTarget(int32 mDegs) {
 }
 
 int PID_Update() {
-    int error;
+    int32 error;
     volatile PID_State* state;
     PID_Config* pid; 
     error = PID_state.target - GetPosition();
@@ -79,23 +79,23 @@ int PID_Update() {
     state = &PID_state;
     pid = &PID;
     
-    int integral = state->integral;
+    int integral = PID_state.integral;
     integral += error;
     
     //integral clamp
-    if (integral >  pid->maxIntegral) integral =  pid->maxIntegral;
-    if (integral < -pid->maxIntegral) integral = -pid->maxIntegral;
+    if (integral >  PID.maxIntegral) integral =  PID.maxIntegral;
+    if (integral < -PID.maxIntegral) integral = -PID.maxIntegral;
     
-    int derivative = error - state->last_error;
-    int32 new_pwm = error*pid->kP/10 + integral*pid->kI/10 + derivative*pid->kD/10;
-    state->last_error = error;
-    state->integral = integral;
+    int derivative = error - PID_state.last_error;
+    int32 new_pwm = error*PID.kP/1000 + integral*PID.kI/1000 + derivative*PID.kD/1000;
+    PID_state.last_error = error;
+    PID_state.integral = integral;
     
     //Max Power clamp
-    if(new_pwm > pid->maxPWM){
-        new_pwm = pid->maxPWM;
-    } else if(new_pwm < -pid->maxPWM) {
-        new_pwm = -pid->maxPWM;
+    if(new_pwm > PID.maxPWM){
+        new_pwm = PID.maxPWM;
+    } else if(new_pwm < -PID.maxPWM) {
+        new_pwm = -PID.maxPWM;
     }
     
     return SetPWM(new_pwm);

@@ -113,7 +113,7 @@ int ProcessCAN(CANPacket* receivedPacket, CANPacket* packetToSend) {
             break;
             
         case(ID_MOTOR_UNIT_MAX_PID_PWM):
-            SetPIDMaxPWM(GetMaxPIDPWMFromPacket(receivedPacket));
+            SetPIDMaxPWM(GetMaxPIDPWMFromPacket(receivedPacket)/32);
             break;
             
         case(ID_MOTOR_UNIT_SET_ENCODER_BOUND):
