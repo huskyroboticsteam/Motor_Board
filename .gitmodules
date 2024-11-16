@@ -1,3 +1,9 @@
 [submodule "GeneralPurposeMotorBoard/HindsightCAN"]
 	path = GeneralPurposeMotorBoard/HindsightCAN
 	url = https://github.com/huskyroboticsteam/HindsightCAN.git
+[submodule "HindsightCAN"]
+	path = HindsightCAN
+	url = git@github.com:huskyroboticsteam/HindsightCAN.git
+[submodule "MotorUnit/BLDC_STM_Rev1V1/HindsightCAN"]
+	path = MotorUnit/BLDC_STM_Rev1V1/HindsightCAN
+	url = git@github.com:huskyroboticsteam/HindsightCAN.git
