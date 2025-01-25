@@ -1,0 +1,33 @@
+/*
+ * BLDC_stuff.h
+ *
+ *  Created on: Jan 25, 2025
+ *      Author: eunbecha
+ */
+
+#ifndef INC_BLDC_STUFF_H_
+#define INC_BLDC_STUFF_H_
+
+int32_t GetMaxPIDPWM(){ return maxPWM; }
+int32_t GetkPosition(){ return kPosition; }
+int32_t GetkIntegral(){ return kIntegral; }
+int32_t GetkDerivative(){ return kDerivative; }
+double GetConversion(){ return mDegPerTick; }
+int32_t GetTickMax(){ return tickMax; }
+int32_t GetTickMin(){ return tickMin; }
+int32_t GetmDegMax(){ return mDegMax; }
+int32_t GetmDegMin(){ return mDegMin; }
+uint8_t GetUsingPot(){ return usingPot; }
+
+void SetMaxPIDPWM(uint16_t setValue){ maxPWM = setValue; }
+void SetkPosition(int32_t kP){ kPosition = kP; }
+void SetkIntegral(int32_t kI){ kIntegral = kI; }
+void SetkDerivative(int32_t kD){ kDerivative = kD; }
+void setTickMin(int32_t val){ tickMin = val; }
+void setTickMax(int32_t val){ tickMax = val; }
+void setmDegMin(int32_t val){ mDegMin = val; }
+void setmDegMax(int32_t val){ mDegMax = val; }
+void setUsingPot(uint8_t pot){ usingPot = pot; }
+void SetConversion(double conv){ mDegPerTick = conv; }
+
+#endif /* INC_BLDC_STUFF_H_ */

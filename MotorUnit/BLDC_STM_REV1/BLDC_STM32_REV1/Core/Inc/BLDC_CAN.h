@@ -9,7 +9,6 @@
 #define INC_BLDC_CAN_H_
 
 	#include "main.h"
-	#include "can.h"
 
 	// Define a constant for no new CAN packet
 	#define NO_NEW_CAN_PACKET 0xFFFF
