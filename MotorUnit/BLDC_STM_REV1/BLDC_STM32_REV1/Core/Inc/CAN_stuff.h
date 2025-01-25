@@ -8,49 +8,129 @@
 #ifndef INC_CAN_STUFF_H_
 #define INC_CAN_STUFF_H_
 #include <stdint.h>
+#include "CAN_Packet.h"
 
-uint16_t ReadCAN(CANPacket *receivedPacket);
-void SetPosition(int32_t mDegs) ;
-int32_t MiliDegreesToTicks(int32_t miliDegrees);
-int32_t Position_PID(int32 targetmDeg);
-int32_t GetEncoderValWithFlip();
-int32_t GetPotVal();
-int32_t GetPositionmDeg();
-uint8_t GetUsingPot();
+// Common Mode Packet IDs
+#define ID_ESTOP                        (uint8_t) 0xF0
+#define ID_HEARTBEAT                    (uint8_t) 0xF1
+#define ID_FAIL_REPORT                  (uint8_t) 0xF2
+#define ID_OVRD_PROTECTION              (uint8_t) 0xF3
+#define ID_TELEMETRY_TIMING             (uint8_t) 0xF4
+#define ID_TELEMETRY_PULL               (uint8_t) 0xF5
+#define ID_TELEMETRY_REPORT             (uint8_t) 0xF6
+#define ID_LED_COLOR                    (uint8_t) 0xF7
+#define ID_CHIP_TYPE_PULL               (uint8_t) 0xF8
+#define ID_CHIP_TYPE_REP                (uint8_t) 0xF9
 
-void SetkPosition(int32_t kP);
-void SetkIntegral(int32_t kI);
-void SetkDerivative(int32_t kD);
-void SetConversion(double conv);
-double UpdateConversion();
-void SetEncoderDir(uint8_t flip);
-void setEncoderAtLimit(int enc_limit);
+// DLC Common Mode Packets
+#define DLC_ESTOP                        (uint8_t) 0x04
+#define DLC_HEARTBEAT                    (uint8_t) 0x08
+#define DLC_FAIL_REPORT                  (uint8_t) 0x04
+#define DLC_OVRD_PROTECTION              (uint8_t) 0x01
+#define DLC_TELEMETRY_TIMING             (uint8_t) 0x08
+#define DLC_TELEMETRY_PULL               (uint8_t) 0x04
+#define DLC_TELEMETRY_REPORT             (uint8_t) 0x08
+#define DLC_LED_COLOR                    (uint8_t) 0x06
+#define DLC_CHIP_TYPE_PULL               (uint8_t) 0x04
+#define DLC_CHIP_TYPE_REP                (uint8_t) 0x04
 
-//used for mode change
-void ClearPIDProgress();
-void InitializePID();
+//Packet priorities
+#define PRIO_CHIP_TYPE_REP               PACKET_PRIORITY_NORMAL
 
-void DisablePID();
-void EnablePID();
-uint8_t PIDIsEnabled();
+// ESTOP ERROR CODES
+#define ESTOP_ERR_GENERAL               (uint8_t) 0x00
 
-void SetEncoderDirDefault();
-void SetEncoderDirReverse();
-void SetMaxPIDPWM(uint16_t setValue);
-void setUsingPot(uint8_t pot);
-void setTickMin(int32_t val);
-void setTickMax(int32_t val);
-void setmDegMin(int32_t val);
-void setmDegMax(int32_t val);
+// Telemetry Types
+#define PACKET_TELEMETRY_VOLTAGE        ((uint8_t) 0x00)
+#define PACKET_TELEMETRY_CURRENT        ((uint8_t) 0x01)
+#define PACKET_TELEMETRY_PWR_RAIL_STATE ((uint8_t) 0x02)
+#define PACKET_TELEMETRY_TEMPERATURE    ((uint8_t) 0x03)
+#define PACKET_TELEMETRY_ANG_POSITION   ((uint8_t) 0x04)
+#define PACKET_TELEMETRY_GPS_LAT        ((uint8_t) 0x05)
+#define PACKET_TELEMETRY_GPS_LON        ((uint8_t) 0x06)
+#define PACKET_TELEMETRY_MAG_DIR        ((uint8_t) 0x07)
+#define PACKET_TELEMETRY_ACCEL_X        ((uint8_t) 0x08)
+#define PACKET_TELEMETRY_ACCEL_Y        ((uint8_t) 0x09)
+#define PACKET_TELEMETRY_ACCEL_Z        ((uint8_t) 0x0A)
+#define PACKET_TELEMETRY_GYRO_X         ((uint8_t) 0x0B)
+#define PACKET_TELEMETRY_GYRO_Y         ((uint8_t) 0x0C)
+#define PACKET_TELEMETRY_GYRO_Z         ((uint8_t) 0x0D)
+#define PACKET_TELEMETRY_LIM_SW_STATE   ((uint8_t) 0x0E)
+#define PACKET_TELEMETRY_ADC_RAW        ((uint8_t) 0x0F)
+#define PACKET_TELEMETRY_GPIO_STATE     ((uint8_t) 0x10)
+#define PACKET_TELEMETRY_CHIP_TYPE      ((uint8_t) 0x11)
+#define PACKET_TELEMETRY_QUATERNION_W   ((uint8_t) 0x12)
+#define PACKET_TELEMETRY_QUATERNION_X   ((uint8_t) 0x13)
+#define PACKET_TELEMETRY_QUATERNION_Y   ((uint8_t) 0x14)
+#define PACKET_TELEMETRY_QUATERNION_Z   ((uint8_t) 0x15)
+#define PACKET_TELEMETRY_SENSOR1        ((uint8_t) 0x16)
+#define PACKET_TELEMETRY_SENSOR2        ((uint8_t) 0x17)
+#define PACKET_TELEMETRY_SENSOR3        ((uint8_t) 0x18)
+#define PACKET_TELEMETRY_SENSOR4        ((uint8_t) 0x19)
+#define PACKET_TELEMETRY_SENSOR5        ((uint8_t) 0x1A)
+#define PACKET_TELEMETRY_SENSOR6        ((uint8_t) 0x1B)
 
-int32_t GetMaxPIDPWM();
-int32_t GetkPosition();
-int32_t GetkIntegral();
-int32_t GetkDerivative();
-double GetConversion();
-int32_t GetTickMax();
-int32_t GetTickMin();
-int32_t GetmDegMax();
-int32_t GetmDegMin();
+// Motor Unit Packet IDs
+#define ID_MOTOR_UNIT_MODE_SEL          (uint8_t) 0x00
+#define ID_MOTOR_UNIT_PWM_DIR_SET       (uint8_t) 0x03
+#define ID_MOTOR_UNIT_PID_POS_TGT_SET   (uint8_t) 0x04
+#define ID_MOTOR_UNIT_PID_P_SET         (uint8_t) 0x05
+#define ID_MOTOR_UNIT_PID_I_SET         (uint8_t) 0x06
+#define ID_MOTOR_UNIT_PID_D_SET         (uint8_t) 0x07
+#define ID_MOTOR_UNIT_INIT              (uint8_t) 0x08
+#define ID_MOTOR_UNIT_LIM_ALERT         (uint8_t) 0x09
+#define ID_MOTOR_UNIT_ENC_PPJR_SET      (uint8_t) 0x0A
+#define ID_MOTOR_UNIT_MAX_JNT_REV_SET   (uint8_t) 0x0B
+#define ID_MOTOR_UNIT_ENC_INIT          (uint8_t) 0x0C
+#define ID_MOTOR_UNIT_MAX_PID_PWM       (uint8_t) 0x0D
+#define ID_MOTOR_UNIT_POT_INIT_LO       (uint8_t) 0x0F
+#define ID_MOTOR_UNIT_POT_INIT_HI       (uint8_t) 0x10
+#define ID_MOTOR_UNIT_PCA_SERVO         (uint8_t) 0x11
+#define ID_MOTOR_UNIT_SET_ENCODER_BOUND (uint8_t) 0x12
+
+// Packet DLCs
+#define DLC_MOTOR_UNIT_MODE_SEL             (uint8_t) 0x02
+#define DLC_MOTOR_UNIT_PWM_DIR_SET          (uint8_t) 0x03
+#define DLC_MOTOR_UNIT_PID_POS_TGT_SET      (uint8_t) 0x05
+#define DLC_MOTOR_UNIT_PID_P_SET            (uint8_t) 0x05
+#define DLC_MOTOR_UNIT_PID_I_SET            (uint8_t) 0x05
+#define DLC_MOTOR_UNIT_PID_D_SET            (uint8_t) 0x05
+#define DLC_MOTOR_UNIT_INIT                 (uint8_t) 0x02
+#define DLC_MOTOR_UNIT_LIM_ALERT            (uint8_t) 0x04
+#define DLC_MOTOR_UNIT_ENC_PPJR_SET         (uint8_t) 0x05
+#define DLC_MOTOR_UNIT_MAX_JNT_REV_SET      (uint8_t) 0x02
+#define DLC_MOTOR_UNIT_ENC_INIT             (uint8_t) 0x02
+#define DLC_MOTOR_UNIT_MAX_PID_PWM          (uint8_t) 0x03
+#define DLC_MOTOR_UNIT_POT_INIT             (uint8_t) 0x07
+#define DLC_MOTOR_UNIT_PCA_SERVO            (uint8_t) 0x06
+#define DLC_MOTOR_UNIT_ENCODER_BOUND        (uint8_t) 0x06
+
+//Packet priorities
+#define PRIO_MOTOR_UNIT_MODE_SEL            PACKET_PRIORITY_NORMAL
+#define PRIO_MOTOR_UNIT_PWM_DIR_SET         PACKET_PRIORITY_NORMAL
+#define PRIO_MOTOR_UNIT_PID_POS_TGT_SET     PACKET_PRIORITY_NORMAL
+#define PRIO_MOTOR_UNIT_PID_P_SET           PACKET_PRIORITY_NORMAL
+#define PRIO_MOTOR_UNIT_PID_I_SET           PACKET_PRIORITY_NORMAL
+#define PRIO_MOTOR_UNIT_PID_D_SET           PACKET_PRIORITY_NORMAL
+#define PRIO_MOTOR_UNIT_INIT                PACKET_PRIORITY_NORMAL
+#define PRIO_MOTOR_UNIT_LIM_ALERT           PACKET_PRIORITY_HIGH
+#define PRIO_MOTOR_UNIT_ENC_PPJR_SET        PACKET_PRIORITY_NORMAL
+#define PRIO_MOTOR_UNIT_MAX_JNT_REV_SET     PACKET_PRIORITY_NORMAL
+#define PRIO_MOTOR_UNIT_ENC_INIT            PACKET_PRIORITY_NORMAL
+#define PRIO_MOTOR_UNIT_MAX_PID_PWM         PACKET_PRIORITY_NORMAL
+#define PRIO_MOTOR_UNIT_POT_INIT            PACKET_PRIORITY_NORMAL
+#define PRIO_MOTOR_UNIT_PCA_SERVO           PACKET_PRIORITY_NORMAL
+#define PRIO_MOTOR_UNIT_SET_ENCODER_BOUND   PACKET_PRIORITY_NORMAL
+
+// Motor Unit Mode IDs
+#define MOTOR_UNIT_MODE_PWM             (uint8_t) 0x00
+#define MOTOR_UNIT_MODE_PID             (uint8_t) 0x01
+
+void AssembleTelemetryReportPacket(CANPacket *packetToAssemble,
+    uint8_t targetGroup,
+    uint8_t targetSerial,
+    uint8_t telemetryTypeCode,
+    int32_t data);
+
 
 #endif /* INC_CAN_STUFF_H_ */

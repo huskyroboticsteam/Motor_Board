@@ -8,6 +8,8 @@
 
 #include "main.h"
 #include "CAN_stuff.h"
+#include "BLDC_CAN.h"
+#include "BLDC_FSM.h"
 
 extern int16_t nextPWM;
 extern int32_t millidegreeTarget;
@@ -15,11 +17,14 @@ extern uint8_t bound_set1;
 extern uint8_t bound_set2;
 extern int32_t enc_lim_1;
 extern int32_t enc_lim_2;
+extern CAN_HandleTypeDef hcan;
+extern TIM_HandleTypeDef htim1;
+extern UART_HandleTypeDef huart2;
 
 void SendEncoderData(CAN_TxHeaderTypeDef *txHeader, uint8_t *txData, uint32_t *txMailbox) {
     AssembleTelemetryReportPacket(txData, DEVICE_GROUP_JETSON, DEVICE_SERIAL_JETSON,
         PACKET_TELEMETRY_ANG_POSITION, GetPositionmDeg());
-    HAL_CAN_AddTxMessage(&hcan1, txHeader, txData, txMailbox);
+    HAL_CAN_AddTxMessage(&hcan, txHeader, txData, txMailbox);
 }
 
 void NextStateFromCAN(CAN_RxHeaderTypeDef *rxHeader, uint8_t *rxData, CAN_TxHeaderTypeDef *txHeader, uint8_t *txData, uint32_t *txMailbox) {
@@ -31,7 +36,7 @@ void NextStateFromCAN(CAN_RxHeaderTypeDef *rxHeader, uint8_t *rxData, CAN_TxHead
     switch(packageID) {
         case ID_MOTOR_UNIT_MODE_SEL:
             if(GetModeFromPacket(rxData) == MOTOR_UNIT_MODE_PWM) {
-                __HAL_TIM_SET_COMPARE(&htim4, TIM_CHANNEL_1, 0);
+                __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, 0);
                 SetModeTo(MOTOR_UNIT_MODE_PWM);
                 SetStateTo(CHECK_CAN);
             }
@@ -48,7 +53,7 @@ void NextStateFromCAN(CAN_RxHeaderTypeDef *rxHeader, uint8_t *rxData, CAN_TxHead
             if(GetMode() == MOTOR_UNIT_MODE_PWM){
                 SetStateTo(SET_PWM);
                 nextPWM = GetPWMFromPacket(rxData);
-                __HAL_TIM_SET_COMPARE(&htim4, TIM_CHANNEL_1, nextPWM);
+                __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, nextPWM);
             } else {
                 SetStateTo(QUEUE_ERROR);
                 DisplayErrorCode(MOTOR_ERROR_WRONG_MODE);
@@ -87,12 +92,12 @@ void NextStateFromCAN(CAN_RxHeaderTypeDef *rxHeader, uint8_t *rxData, CAN_TxHead
         case ID_MOTOR_UNIT_ENC_INIT:
             setUsingPot(0);
             if(GetMode() == MOTOR_UNIT_MODE_PID){
-                __HAL_TIM_SET_COMPARE(&htim4, TIM_CHANNEL_1, 0);
+                __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, 0);
                 ClearPIDProgress();
                 DisablePID();
             }
             if(GetEncoderZeroFromPacket(rxData)) {
-                __HAL_TIM_SET_COUNTER(&htim2, 0);
+                __HAL_TIM_SET_COUNTER(&htim1, 0);
             }
             SetEncoderDir(GetEncoderDirectionFromPacket(rxData));
             SetStateTo(CHECK_CAN);
@@ -112,7 +117,7 @@ void NextStateFromCAN(CAN_RxHeaderTypeDef *rxHeader, uint8_t *rxData, CAN_TxHead
         case ID_ESTOP:
             char stop_msg[] = "\r\n\r\n\r\nSTOP\r\n\r\n\r\n";
             HAL_UART_Transmit(&huart2, (uint8_t*)stop_msg, sizeof(stop_msg), HAL_MAX_DELAY);
-            __HAL_TIM_SET_COMPARE(&htim4, TIM_CHANNEL_1, 0);
+            __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, 0);
             GotoUninitState();
             break;
 
@@ -128,7 +133,7 @@ void NextStateFromCAN(CAN_RxHeaderTypeDef *rxHeader, uint8_t *rxData, CAN_TxHead
                     AssembleChipTypeReportPacket(txData, sender_DG, sender_SN);
                     break;
             }
-            HAL_CAN_AddTxMessage(&hcan1, txHeader, txData, txMailbox);
+            HAL_CAN_AddTxMessage(&hcan, txHeader, txData, txMailbox);
             SetStateTo(CHECK_CAN);
             break;
 

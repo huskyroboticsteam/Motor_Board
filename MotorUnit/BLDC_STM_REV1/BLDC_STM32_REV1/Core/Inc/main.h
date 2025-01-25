@@ -59,6 +59,26 @@ void Error_Handler(void);
 /* Private defines -----------------------------------------------------------*/
 
 /* USER CODE BEGIN Private defines */
+#define MOTOR_ERROR_INVALID_PACKET  0x0
+#define MOTOR_ERROR_WRONG_MODE      0x1
+#define TX_DATA_SIZE            (100u)
+
+#define LED_ON  0
+        #define LED_OFF 1
+
+        #define MOTOR_REV1
+        // Only 1 Rev Should be selected
+        #ifdef MOTOR_REV1
+            #define ERROR_LED
+            #define CAN_LED
+            #define DEBUG_LED
+        #endif
+
+        #ifdef MOTOR_REV2
+            #define ERROR_LED
+            #define CAN_LED
+            #define DEBUG_LED
+        #endif
 
 /* USER CODE END Private defines */
 

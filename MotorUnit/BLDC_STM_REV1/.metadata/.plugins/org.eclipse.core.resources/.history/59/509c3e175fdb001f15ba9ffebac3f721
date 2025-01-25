@@ -1,0 +1,149 @@
+/*
+ * BLDC_CAN.c
+ *
+ *  Created on: Jan 21, 2025
+ *      Author: eunbecha
+ */
+
+
+#include "main.h"
+#include "CAN_stuff.h"
+
+extern int16_t nextPWM;
+extern int32_t millidegreeTarget;
+extern uint8_t bound_set1;
+extern uint8_t bound_set2;
+extern int32_t enc_lim_1;
+extern int32_t enc_lim_2;
+
+void SendEncoderData(CAN_TxHeaderTypeDef *txHeader, uint8_t *txData, uint32_t *txMailbox) {
+    AssembleTelemetryReportPacket(txData, DEVICE_GROUP_JETSON, DEVICE_SERIAL_JETSON,
+        PACKET_TELEMETRY_ANG_POSITION, GetPositionmDeg());
+    HAL_CAN_AddTxMessage(&hcan1, txHeader, txData, txMailbox);
+}
+
+void NextStateFromCAN(CAN_RxHeaderTypeDef *rxHeader, uint8_t *rxData, CAN_TxHeaderTypeDef *txHeader, uint8_t *txData, uint32_t *txMailbox) {
+    uint16_t packageID = rxHeader->StdId;
+    uint8_t motor_serial = GetDeviceSerialNumber(rxData);
+    uint8_t sender_DG = GetSenderDeviceGroupCode(rxData);
+    uint8_t sender_SN = GetSenderDeviceSerialNumber(rxData);
+
+    switch(packageID) {
+        case ID_MOTOR_UNIT_MODE_SEL:
+            if(GetModeFromPacket(rxData) == MOTOR_UNIT_MODE_PWM) {
+                __HAL_TIM_SET_COMPARE(&htim4, TIM_CHANNEL_1, 0);
+                SetModeTo(MOTOR_UNIT_MODE_PWM);
+                SetStateTo(CHECK_CAN);
+            }
+            else if (GetModeFromPacket(rxData) == MOTOR_UNIT_MODE_PID) {
+                InitializePID();
+                SetModeTo(MOTOR_UNIT_MODE_PID);
+                SetStateTo(CHECK_CAN);
+            } else {
+                GotoUninitState();
+            }
+            break;
+
+        case ID_MOTOR_UNIT_PWM_DIR_SET:
+            if(GetMode() == MOTOR_UNIT_MODE_PWM){
+                SetStateTo(SET_PWM);
+                nextPWM = GetPWMFromPacket(rxData);
+                __HAL_TIM_SET_COMPARE(&htim4, TIM_CHANNEL_1, nextPWM);
+            } else {
+                SetStateTo(QUEUE_ERROR);
+                DisplayErrorCode(MOTOR_ERROR_WRONG_MODE);
+            }
+            break;
+
+        case ID_MOTOR_UNIT_PID_P_SET:
+            SetkPosition(GetPFromPacket(rxData));
+            PositionConstIsSet();
+            SetStateTo(CHECK_CAN);
+            break;
+
+        case ID_MOTOR_UNIT_PID_I_SET:
+            SetkIntegral(GetIFromPacket(rxData));
+            IntegralConstIsSet();
+            SetStateTo(CHECK_CAN);
+            break;
+
+        case ID_MOTOR_UNIT_PID_D_SET:
+            SetkDerivative(GetDFromPacket(rxData));
+            DerivativeConstIsSet();
+            SetStateTo(CHECK_CAN);
+            break;
+
+        case ID_MOTOR_UNIT_PID_POS_TGT_SET:
+            if(GetMode() == MOTOR_UNIT_MODE_PID && PIDconstsSet()) {
+                EnablePID();
+                millidegreeTarget = GetPIDTargetFromPacket(rxData);
+                SetStateTo(CALC_PID);
+            } else {
+                SetStateTo(QUEUE_ERROR);
+                DisplayErrorCode(MOTOR_ERROR_WRONG_MODE);
+            }
+            break;
+
+        case ID_MOTOR_UNIT_ENC_INIT:
+            setUsingPot(0);
+            if(GetMode() == MOTOR_UNIT_MODE_PID){
+                __HAL_TIM_SET_COMPARE(&htim4, TIM_CHANNEL_1, 0);
+                ClearPIDProgress();
+                DisablePID();
+            }
+            if(GetEncoderZeroFromPacket(rxData)) {
+                __HAL_TIM_SET_COUNTER(&htim2, 0);
+            }
+            SetEncoderDir(GetEncoderDirectionFromPacket(rxData));
+            SetStateTo(CHECK_CAN);
+            break;
+
+        case ID_MOTOR_UNIT_SET_ENCODER_BOUND:
+            if (GetLimSwNumFromPacket(rxData)) {
+                bound_set2 = 1;
+                enc_lim_2 = GetEncoderValueFromPacket(rxData);
+            } else {
+                bound_set1 = 1;
+                enc_lim_1 = GetEncoderValueFromPacket(rxData);
+            }
+            SetStateTo(CHECK_CAN);
+            break;
+
+        case ID_ESTOP:
+            char stop_msg[] = "\r\n\r\n\r\nSTOP\r\n\r\n\r\n";
+            HAL_UART_Transmit(&huart2, (uint8_t*)stop_msg, sizeof(stop_msg), HAL_MAX_DELAY);
+            __HAL_TIM_SET_COMPARE(&htim4, TIM_CHANNEL_1, 0);
+            GotoUninitState();
+            break;
+
+        case ID_TELEMETRY_PULL:
+            switch (DecodeTelemetryType(rxData)) {
+                case PACKET_TELEMETRY_ANG_POSITION:
+                    AssembleTelemetryReportPacket(txData, sender_DG, sender_SN, PACKET_TELEMETRY_ANG_POSITION, GetPositionmDeg());
+                    break;
+                case PACKET_TELEMETRY_ADC_RAW:
+                    AssembleTelemetryReportPacket(txData, sender_DG, sender_SN, PACKET_TELEMETRY_ADC_RAW, GetPotVal());
+                    break;
+                default:
+                    AssembleChipTypeReportPacket(txData, sender_DG, sender_SN);
+                    break;
+            }
+            HAL_CAN_AddTxMessage(&hcan1, txHeader, txData, txMailbox);
+            SetStateTo(CHECK_CAN);
+            break;
+
+        default:
+            if(GetMode() == MOTOR_UNIT_MODE_PID){
+                SetStateTo(CALC_PID);
+            } else if(GetMode() == MOTOR_UNIT_MODE_PWM){
+                SetStateTo(CHECK_CAN);
+            } else {
+                SetStateTo(CHECK_CAN);
+            }
+
+            if(packageID != NO_NEW_CAN_PACKET) {
+                DisplayErrorCode(MOTOR_ERROR_INVALID_PACKET);
+            }
+            break;
+    }
+}
