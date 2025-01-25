@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="htim2"/>
+		<item key="selection" value="GetMaxPIDSpeed"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="GetMaxPIDSpeed"/>
+			<item value="CAN"/>
+			<item value="HAL_CAN_AddTxMessage"/>
+			<item value="CAN_TxHeaderTypeDef"/>
+			<item value="TxHeader"/>
+			<item value="TxHew=ader"/>
+			<item value="struct "/>
+			<item value="struct"/>
+			<item value="CAN1"/>
 			<item value="htim2"/>
 			<item value="period"/>
 			<item value="counter"/>
 			<item value="HAL_UART_Receive"/>
 			<item value="HAL_UART_Receive()"/>
 			<item value="GPIO_1_Pin"/>
-			<item value="__HAL_TIM_SET_COMPARE"/>
-			<item value="HAL_TIM_SET"/>
-			<item value="HAL_TIM_Set"/>
-			<item value="HAL_TIM"/>
-			<item value="HAL_Set"/>
-			<item value="HAL_TIM_PWM_Start"/>
-			<item value="HAL_TIM_PWM"/>
-			<item value="channel"/>
-			<item value="tim1"/>
 		</list>
 		<list key="replacehistory">
 		</list>
