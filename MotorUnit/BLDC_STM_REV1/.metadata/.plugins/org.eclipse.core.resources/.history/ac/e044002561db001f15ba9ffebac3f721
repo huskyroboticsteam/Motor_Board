@@ -32,7 +32,6 @@
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
 
-
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -50,46 +49,6 @@ TIM_HandleTypeDef htim1;
 UART_HandleTypeDef huart2;
 
 /* USER CODE BEGIN PV */
-// Side delay
-int16_t counter = 0;
-int16_t delay = 10;
-int16_t period = 3;
-
-//LED
-uint8_t Can_LED = 0;
-uint8_t Debug_LED = 0;
-uint8_t Error_LED = 0;
-
-int32_t millidegreeTarget = 0;
-
-//Uart variables
-char txData[TX_DATA_SIZE];
-
-//drive varaible
-int16_t nextPWM = 0;
-extern uint8_t invalidate;
-uint8_t ignoreLimSw = 0;
-uint8_t encoderTimeOut = 0;
-uint8_t hallSensorsTimeOut = 0;
-
-// Motor Unit Variables
-uint8_t bound_set1;
-uint8_t bound_set2;
-int32_t enc_lim_1;
-int32_t enc_lim_2;
-
-//Status and Data Structs
-volatile uint8_t drive = 0;
-uint8_t CAN_check_delay = 0;
-CANPacket can_recieve;
-CANPacket can_send;
-
-uint8_t address = 0;
-
-#define Print(message) UART_UartPutString(message)
-#define PrintChar(character) UART_UartPutChar(character)
-#define PrintInt(integer) UART_UartPutString(itoa(integer, txData, 10))
-#define PrintIntBin(integer) UART_UartPutString(itoa(integer, txData, 2))
 
 /* USER CODE END PV */
 
@@ -106,7 +65,6 @@ static void MX_CAN_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-
 
 /* USER CODE END 0 */
 

@@ -86,11 +86,6 @@ CANPacket can_send;
 
 uint8_t address = 0;
 
-#define Print(message) UART_UartPutString(message)
-#define PrintChar(character) UART_UartPutChar(character)
-#define PrintInt(integer) UART_UartPutString(itoa(integer, txData, 10))
-#define PrintIntBin(integer) UART_UartPutString(itoa(integer, txData, 2))
-
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -127,6 +122,42 @@ int main(void)
   HAL_Init();
 
   /* USER CODE BEGIN Init */
+  void Initialize(void) {
+      CyGlobalIntEnable; /* Enable global interrupts. LED arrays need this first */
+
+      Limit_Register_InterruptEnable();
+
+      address = Address_Register_Read();
+
+      #ifdef ENABLE_DEBUG_UART
+      UART_Start();
+      sprintf(txData, "Dip Addr: %x \r\n", address);
+      UART_UartPutString(txData);
+      #endif
+
+      #ifdef ERROR_LED
+      ERROR_LED_Write(~(address >> 3 & 1));
+      #endif
+      #ifdef DEBUG_LED1
+      Debug_1_Write(~(address >> 1) & 1);
+      #endif
+      #ifdef CAN_LED
+      CAN_LED_Write(~address & 1);
+      #endif
+
+      // Initialize protocols
+      InitCAN(0x4, (int)address);
+      TMC6100_Start();
+      DRV_EN_Write(255);
+      Current_Sensor_I2C_Start();
+      UART_Start();
+      Timer_Rotor_Delay_Start();
+      Timer_Period_Reset_Start();
+
+      isr_Hall_StartEx(updateRotorState);
+      isr_Limit_1_StartEx(Pin_Limit_Handler);
+      isr_Period_Reset_StartEx(Period_Reset_Handler);
+  }
 
   /* USER CODE END Init */
 

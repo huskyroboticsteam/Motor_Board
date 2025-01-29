@@ -66,8 +66,8 @@ int32_t millidegreeTarget = 0;
 char txData[TX_DATA_SIZE];
 
 //drive varaible
-int16_t nextPWM = 0;
-extern uint8_t invalidate;
+int16 nextPWM = 0;
+extern uint8 invalidate;
 uint8_t ignoreLimSw = 0;
 uint8_t encoderTimeOut = 0;
 uint8_t hallSensorsTimeOut = 0;
@@ -86,11 +86,6 @@ CANPacket can_send;
 
 uint8_t address = 0;
 
-#define Print(message) UART_UartPutString(message)
-#define PrintChar(character) UART_UartPutChar(character)
-#define PrintInt(integer) UART_UartPutString(itoa(integer, txData, 10))
-#define PrintIntBin(integer) UART_UartPutString(itoa(integer, txData, 2))
-
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -107,6 +102,56 @@ static void MX_CAN_Init(void);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 
+CY_ISR(Period_Reset_Handler) {
+    invalidate++;
+    Can_LED++;
+    CAN_check_delay ++;
+    Error_LED++;
+    Debug_LED++; // do I need this?
+
+    if(invalidate >= 20){
+        //set_speed(0, 1);
+    }
+    if(Error_LED >= 3) {
+        #ifdef ERROR_LED
+        ERROR_LED_Write(LED_OFF);
+        #endif
+        #ifdef DEBUG_LED1
+        Debug_1_Write(LED_OFF);
+        #endif
+    }
+    if(Can_LED >= 3){
+        #ifdef CAN_LED
+        CAN_LED_Write(LED_OFF);
+        #endif
+    }
+}
+
+CY_ISR(Pin_Limit_Handler){
+    #ifdef PRINT_LIMIT_SW_TRIGGER
+    sprintf(txData,"LimitSW triggerd Stat: %x \r\n", Status_Reg_Switches_Read() & 0b11);
+    UART_UartPutString(txData);
+    #endif
+
+    UART_UartPutString("LIMIT HIT\n\r");
+
+    set_speed(GetCurrentSpeed(), ignoreLimSw);
+
+    #ifdef CAN_TELEM_SEND
+    AssembleLimitSwitchAlertPacket(&can_send, DEVICE_GROUP_JETSON,
+        DEVICE_SERIAL_JETSON, Status_Reg_Switches_Read() & 0b11);
+    SendCANPacket(&can_send);
+    #endif
+
+    if (bound_set1 && Pin_Limit_1_Read()) {
+        // setEncoderAtLimit(enc_lim_1);
+        UART_UartPutString("Change limit 1\n\r");
+    }
+    if (bound_set2 && Pin_Limit_2_Read()){
+        // setEncoderAtLimit(enc_lim_2);
+        UART_UartPutString("Change limit 2\n\r");
+    }
+}
 
 /* USER CODE END 0 */
 

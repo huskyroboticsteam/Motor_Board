@@ -86,11 +86,6 @@ CANPacket can_send;
 
 uint8_t address = 0;
 
-#define Print(message) UART_UartPutString(message)
-#define PrintChar(character) UART_UartPutChar(character)
-#define PrintInt(integer) UART_UartPutString(itoa(integer, txData, 10))
-#define PrintIntBin(integer) UART_UartPutString(itoa(integer, txData, 2))
-
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/

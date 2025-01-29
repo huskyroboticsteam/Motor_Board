@@ -31,7 +31,6 @@ extern "C" {
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "CAN_stuff.h"
 
 /* USER CODE END Includes */
 
@@ -60,20 +59,6 @@ void Error_Handler(void);
 /* Private defines -----------------------------------------------------------*/
 
 /* USER CODE BEGIN Private defines */
-void Initialize(void);
-
-//debug tool for that prints packet to UART
-void PrintCanPacket(CANPacket receivedPacket);
-
-/*Returns the Packet ID or 0xFF if there is no Packet
-This pulls from the CAN lib's FIFO
-Also Triggers LED
-*/
-uint16_t ReadCAN(CANPacket *receivedPacket);
-
-void DebugPrint(char input);
-void DisplayErrorCode(uint8_t code);
-
 #define MOTOR_ERROR_INVALID_PACKET  0x0
 #define MOTOR_ERROR_WRONG_MODE      0x1
 #define TX_DATA_SIZE            (100u)

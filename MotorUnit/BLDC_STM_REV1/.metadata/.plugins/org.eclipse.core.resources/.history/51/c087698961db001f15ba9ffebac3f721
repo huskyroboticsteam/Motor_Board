@@ -31,7 +31,6 @@ extern "C" {
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "CAN_stuff.h"
 
 /* USER CODE END Includes */
 
@@ -73,7 +72,6 @@ uint16_t ReadCAN(CANPacket *receivedPacket);
 
 void DebugPrint(char input);
 void DisplayErrorCode(uint8_t code);
-
 #define MOTOR_ERROR_INVALID_PACKET  0x0
 #define MOTOR_ERROR_WRONG_MODE      0x1
 #define TX_DATA_SIZE            (100u)

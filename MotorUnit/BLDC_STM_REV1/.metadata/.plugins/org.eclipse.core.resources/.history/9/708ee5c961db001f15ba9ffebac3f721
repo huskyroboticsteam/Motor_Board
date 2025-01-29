@@ -66,8 +66,8 @@ int32_t millidegreeTarget = 0;
 char txData[TX_DATA_SIZE];
 
 //drive varaible
-int16_t nextPWM = 0;
-extern uint8_t invalidate;
+int16 nextPWM = 0;
+extern uint8 invalidate;
 uint8_t ignoreLimSw = 0;
 uint8_t encoderTimeOut = 0;
 uint8_t hallSensorsTimeOut = 0;
@@ -85,11 +85,6 @@ CANPacket can_recieve;
 CANPacket can_send;
 
 uint8_t address = 0;
-
-#define Print(message) UART_UartPutString(message)
-#define PrintChar(character) UART_UartPutChar(character)
-#define PrintInt(integer) UART_UartPutString(itoa(integer, txData, 10))
-#define PrintIntBin(integer) UART_UartPutString(itoa(integer, txData, 2))
 
 /* USER CODE END PV */
 
