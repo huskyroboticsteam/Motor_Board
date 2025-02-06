@@ -21,6 +21,8 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "BLDC_SPI.h"
+#include "BLDC_Drive.h"
 
 /* USER CODE END Includes */
 
@@ -86,11 +88,6 @@ CANPacket can_send;
 
 uint8_t address = 0;
 
-#define Print(message) UART_UartPutString(message)
-#define PrintChar(character) UART_UartPutChar(character)
-#define PrintInt(integer) UART_UartPutString(itoa(integer, txData, 10))
-#define PrintIntBin(integer) UART_UartPutString(itoa(integer, txData, 2))
-
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -106,8 +103,35 @@ static void MX_CAN_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+void Initialize(void) {
+    HAL_UART_Transmit(&huart2, (uint8_t*)"Initializing...\r\n", 17, 10);
+    HAL_CAN_Start(&hcan);
+    HAL_TIM_Base_Start_IT(&htim1);
+}
+
+uint16_t ReadCAN(CANPacket *receivedPacket) {
+    CAN_RxHeaderTypeDef rxHeader;
+    uint8_t rxData[8];
+    if (HAL_CAN_GetRxMessage(&hcan, CAN_RX_FIFO0, &rxHeader, rxData) == HAL_OK) {
+        memcpy(receivedPacket->data, rxData, rxHeader.DLC);
+        receivedPacket->dlc = rxHeader.DLC;
+        receivedPacket->id = rxHeader.StdId;
+        Can_LED = 0;
+        return receivedPacket->data[0];
+    }
+    return 0xFF;
+}
 
 
+void PrintCanPacket(CANPacket receivedPacket) {
+    for (int i = 0; i < receivedPacket.dlc; i++) {
+        sprintf(txData, "Byte%d %x   ", i + 1, receivedPacket.data[i]);
+        HAL_UART_Transmit(&huart2, (uint8_t *)txData, strlen(txData), 10);
+    }
+    sprintf(txData, "ID:%x %x %x\r\n", receivedPacket.id >> 10,
+        (receivedPacket.id >> 6) & 0xF, receivedPacket.id & 0x3F);
+    HAL_UART_Transmit(&huart2, (uint8_t *)txData, strlen(txData), 10);
+}
 /* USER CODE END 0 */
 
 /**
@@ -144,6 +168,7 @@ int main(void)
   MX_USART2_UART_Init();
   MX_CAN_Init();
   /* USER CODE BEGIN 2 */
+  HAL_UART_Transmit(&huart2, (uint8_t *)"Starting\r\n", 13, 10);
 
   /* USER CODE END 2 */
 
@@ -151,6 +176,11 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+	  uint32_t gstat = read_spi(0x01, 0x00000000);
+	  sprintf(txData, "GSTAT: %08lX\r\n", gstat);
+	  HAL_UART_Transmit(&huart2, (uint8_t *)txData, strlen(txData), 10);
+
+	  HAL_Delay(500);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
