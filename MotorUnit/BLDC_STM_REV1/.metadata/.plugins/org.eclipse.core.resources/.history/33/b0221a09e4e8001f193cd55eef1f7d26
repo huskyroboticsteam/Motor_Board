@@ -168,8 +168,7 @@ int main(void)
   MX_USART2_UART_Init();
   MX_CAN_Init();
   /* USER CODE BEGIN 2 */
-  HAL_UART_Transmit(&huart2, (uint8_t *)"Starting\r\n", 10, 10);
-  HAL_GPIO_WritePin(DRV_EN_GPIO_Port, DRV_EN_Pin, GPIO_PIN_SET);
+  HAL_UART_Transmit(&huart2, (uint8_t *)"Starting\r\n", 13, 10);
 
   /* USER CODE END 2 */
 
@@ -195,9 +194,8 @@ int main(void)
 	  uint8_t VH = (ioin >> 3) & 1;
 	  uint8_t WL = (ioin >> 4) & 1;
 	  uint8_t WH = (ioin >> 5) & 1;
-	  uint8_t DRV_EN = (ioin >> 6) & 1;
 
-	  sprintf(txData, "UL:%d UH:%d VL:%d VH:%d WL:%d WH:%d DRV_EN%d\r\n", UL, UH, VL, VH, WL, WH, DRV_EN);
+	  sprintf(txData, "UL:%d UH:%d VL:%d VH:%d WL:%d WH:%d\r\n", UL, UH, VL, VH, WL, WH);
 
 	  HAL_UART_Transmit(&huart2, (uint8_t *)txData, strlen(txData), 10);
 
@@ -429,14 +427,14 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOC_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(DRV_EN_GPIO_Port, DRV_EN_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOC, GPIO_PIN_9, GPIO_PIN_RESET);
 
-  /*Configure GPIO pin : DRV_EN_Pin */
-  GPIO_InitStruct.Pin = DRV_EN_Pin;
+  /*Configure GPIO pin : PC9 */
+  GPIO_InitStruct.Pin = GPIO_PIN_9;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(DRV_EN_GPIO_Port, &GPIO_InitStruct);
+  HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
 /* USER CODE BEGIN MX_GPIO_Init_2 */
 /* USER CODE END MX_GPIO_Init_2 */

@@ -58,6 +58,8 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
+#define DRV_EN_Pin GPIO_PIN_9
+#define DRV_EN_GPIO_Port GPIOC
 
 /* USER CODE BEGIN Private defines */
 void Initialize(void);

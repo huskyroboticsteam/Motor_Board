@@ -40,5 +40,7 @@ void write_spi(uint8_t address, uint32_t data) {
     txData[3] = (data >> 8) & 0xFF;
     txData[4] = (data) & 0xFF;
 
+    HAL_GPIO_WritePin(TMC6100_CS_PORT, TMC6100_CS_PIN, GPIO_PIN_RESET); // CS LOW
     HAL_SPI_Transmit(&hspi1, txData, 5, HAL_MAX_DELAY); // Send data
+    HAL_GPIO_WritePin(TMC6100_CS_PORT, TMC6100_CS_PIN, GPIO_PIN_SET);   // CS HIGH
 }

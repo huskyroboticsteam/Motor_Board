@@ -31,7 +31,7 @@ uint32_t read_spi(uint8_t address, uint32_t dataToSend) {
 }
 
 
-void write_spi(uint8_t address, uint32_t data) {
+void TMC6100_WriteSPI(uint8_t address, uint32_t data) {
     uint8_t txData[5];
 
     txData[0] = (0x80 | address); // Write command
@@ -40,5 +40,7 @@ void write_spi(uint8_t address, uint32_t data) {
     txData[3] = (data >> 8) & 0xFF;
     txData[4] = (data) & 0xFF;
 
+    HAL_GPIO_WritePin(TMC6100_CS_PORT, TMC6100_CS_PIN, GPIO_PIN_RESET); // CS LOW
     HAL_SPI_Transmit(&hspi1, txData, 5, HAL_MAX_DELAY); // Send data
+    HAL_GPIO_WritePin(TMC6100_CS_PORT, TMC6100_CS_PIN, GPIO_PIN_SET);   // CS HIGH
 }

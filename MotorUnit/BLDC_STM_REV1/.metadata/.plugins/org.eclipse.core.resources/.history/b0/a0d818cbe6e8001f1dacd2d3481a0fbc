@@ -168,8 +168,8 @@ int main(void)
   MX_USART2_UART_Init();
   MX_CAN_Init();
   /* USER CODE BEGIN 2 */
-  HAL_UART_Transmit(&huart2, (uint8_t *)"Starting\r\n", 10, 10);
-  HAL_GPIO_WritePin(DRV_EN_GPIO_Port, DRV_EN_Pin, GPIO_PIN_SET);
+  HAL_UART_Transmit(&huart2, (uint8_t *)"Starting\r\n", 13, 10);
+  HAL_GPIO_WritePin(GPIOC, DRV_EN_Pin, GPIO_PIN_SET);
 
   /* USER CODE END 2 */
 

@@ -12,7 +12,7 @@
 extern SPI_HandleTypeDef hspi1;
 
 uint32_t read_spi(uint8_t address, uint32_t dataToSend);
-void write_spi(uint8_t address, uint32_t dataToSend);
+uint32_t write_spi(uint8_t address, uint32_t dataToSend);
 
 
 
