@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="DRV_EN_Pin"/>
+		<item key="selection" value="SPI1"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="spi1"/>
+			<item value="PA4"/>
+			<item value="huart"/>
 			<item value="DRV_EN_Pin"/>
 			<item value="DRV_EN"/>
 			<item value="read_spi"/>
@@ -20,9 +23,6 @@
 			<item value="set_spe"/>
 			<item value="set_speed"/>
 			<item value="MAX_"/>
-			<item value="MAX"/>
-			<item value="HAL_MAX_DELAY"/>
-			<item value="Initialize"/>
 		</list>
 		<list key="replacehistory">
 		</list>

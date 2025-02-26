@@ -43,6 +43,8 @@
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
+ADC_HandleTypeDef hadc1;
+
 CAN_HandleTypeDef hcan;
 
 SPI_HandleTypeDef hspi1;
@@ -93,45 +95,114 @@ uint8_t address = 0;
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
-static void MX_SPI1_Init(void);
 static void MX_TIM1_Init(void);
 static void MX_USART2_UART_Init(void);
 static void MX_CAN_Init(void);
+static void MX_ADC1_Init(void);
+static void MX_SPI1_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-void Initialize(void) {
-    HAL_UART_Transmit(&huart2, (uint8_t*)"Initializing...\r\n", 17, 10);
-    HAL_CAN_Start(&hcan);
-    HAL_TIM_Base_Start_IT(&htim1);
-}
+//void Initialize(void) {
+//    HAL_UART_Transmit(&huart2, (uint8_t*)"Initializing...\r\n", 17, 10);
+//    HAL_CAN_Start(&hcan);
+//    HAL_TIM_Base_Start_IT(&htim1);
+//}
+//
+//uint16_t ReadCAN(CANPacket *receivedPacket) {
+//    CAN_RxHeaderTypeDef rxHeader;
+//    uint8_t rxData[8];
+//    if (HAL_CAN_GetRxMessage(&hcan, CAN_RX_FIFO0, &rxHeader, rxData) == HAL_OK) {
+//        memcpy(receivedPacket->data, rxData, rxHeader.DLC);
+//        receivedPacket->dlc = rxHeader.DLC;
+//        receivedPacket->id = rxHeader.StdId;
+//        Can_LED = 0;
+//        return receivedPacket->data[0];
+//    }
+//    return 0xFF;
+//}
+//
+//
+//void PrintCanPacket(CANPacket receivedPacket) {
+//    for (int i = 0; i < receivedPacket.dlc; i++) {
+//        sprintf(txData, "Byte%d %x   ", i + 1, receivedPacket.data[i]);
+//        HAL_UART_Transmit(&huart2, (uint8_t *)txData, strlen(txData), 10);
+//    }
+//    sprintf(txData, "ID:%x %x %x\r\n", receivedPacket.id >> 10,
+//        (receivedPacket.id >> 6) & 0xF, receivedPacket.id & 0x3F);
+//    HAL_UART_Transmit(&huart2, (uint8_t *)txData, strlen(txData), 10);
+//}
 
-uint16_t ReadCAN(CANPacket *receivedPacket) {
-    CAN_RxHeaderTypeDef rxHeader;
-    uint8_t rxData[8];
-    if (HAL_CAN_GetRxMessage(&hcan, CAN_RX_FIFO0, &rxHeader, rxData) == HAL_OK) {
-        memcpy(receivedPacket->data, rxData, rxHeader.DLC);
-        receivedPacket->dlc = rxHeader.DLC;
-        receivedPacket->id = rxHeader.StdId;
-        Can_LED = 0;
-        return receivedPacket->data[0];
-    }
-    return 0xFF;
-}
+//void select_spi_read (uint8_t reg, uint8_t *Buffer, size_t len)
+//  {
+//  	reg |= 0x80;
+//  	Reg |= 0x40;
+//  	HAL_GPIO_WritePin (GPIOA, SPI1_NSS_Pin, GPIO_PIN_RESET);
+//  	HAL_SPI_Transmit (&hspi1, &reg, 1, 100);
+//  	HAL_SPI_Receive (&hspi1, Buffer, len, 100);
+//  	HAL_GPIO_WritePin (GPIOA, SPI1_NSS_Pin, GPIO_PIN_SET);
+//  }
+//
+//void select_spi_write (uint8_t Reg, uint8_t data)
+//{
+//	  uint8_t writeBuf[2];
+//	  writeBuf[0] = Reg|0x80;
+//	  writeBuf[1] = data;
+//
+//	  HAL_GPIO_WritePin(GPIOA, SPI1_NSS_Pin, GPIO_PIN_RESET);
+//	  HAL_SPI_Transmit (&hspi1, writeBuf, 2, 100);
+//	  HAL_GPIO_WritePin (GPIOA, SPI1_NSS_Pin, GPIO_PIN_SET);
+//}
 
-
-void PrintCanPacket(CANPacket receivedPacket) {
-    for (int i = 0; i < receivedPacket.dlc; i++) {
-        sprintf(txData, "Byte%d %x   ", i + 1, receivedPacket.data[i]);
-        HAL_UART_Transmit(&huart2, (uint8_t *)txData, strlen(txData), 10);
-    }
-    sprintf(txData, "ID:%x %x %x\r\n", receivedPacket.id >> 10,
-        (receivedPacket.id >> 6) & 0xF, receivedPacket.id & 0x3F);
-    HAL_UART_Transmit(&huart2, (uint8_t *)txData, strlen(txData), 10);
-}
+// Function to send and receive SPI data (Blocking)
+//uint32_t SPI_ReadRegister(uint8_t register_address) {
+//    uint32_t tx_data = (0x80 | (register_address << 1));  // 0x80 for Read command
+//    uint32_t rx_data = 0;
+//
+//    // Transmit and receive the data via SPI
+//    HAL_SPI_TransmitReceive(&hspi1, (uint8_t*)&tx_data, (uint8_t*)&rx_data, 4, HAL_MAX_DELAY);
+//
+//    return rx_data; // Return the 32-bit response
+//}
+//
+//// Function to send a string over UART
+//void UART_Printf(const char* str) {
+//    HAL_UART_Transmit(&huart2, (uint8_t*)str, strlen(str), HAL_MAX_DELAY);
+//}
+//
+//// Function to read and extract DRV_STATUS data and print via UART
+//void Read_DRV_STATUS() {
+//    uint32_t drv_status = SPI_ReadRegister(0x04); // Address for DRV_STATUS register is 0x04
+//
+//    // Extract the individual states from the 32-bit response
+//    uint8_t UL = (drv_status >> 0) & 1;
+//    uint8_t UH = (drv_status >> 1) & 1;
+//    uint8_t VL = (drv_status >> 2) & 1;
+//    uint8_t VH = (drv_status >> 3) & 1;
+//    uint8_t WL = (drv_status >> 4) & 1;
+//    uint8_t WH = (drv_status >> 5) & 1;
+//    uint8_t DRV_EN = (drv_status >> 6) & 1;
+//
+//    // Additional status bits
+//    uint8_t OTPW = (drv_status >> 8) & 1;
+//    uint8_t OT136 = (drv_status >> 9) & 1;
+//    uint8_t OT143 = (drv_status >> 10) & 1;
+//    uint8_t OT150 = (drv_status >> 11) & 1;
+//    uint8_t VERSION = (drv_status >> 24) & 0xFF;
+//
+//    // Print the results to UART
+//    char uart_buffer[150];
+//    snprintf(uart_buffer, sizeof(uart_buffer),
+//             "UL: %d, UH: %d, VL: %d, VH: %d, WL: %d, WH: %d, DRV_EN: %d\r\n"
+//             "OTPW: %d, OT136°C: %d, OT143°C: %d, OT150°C: %d\r\n"
+//             "VERSION: 0x%02X\r\n",
+//             UL, UH, VL, VH, WL, WH, DRV_EN, OTPW, OT136, OT143, OT150, VERSION);
+//
+//    UART_Printf(uart_buffer);
+//}
 /* USER CODE END 0 */
 
 /**
@@ -163,13 +234,27 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
-  MX_SPI1_Init();
   MX_TIM1_Init();
   MX_USART2_UART_Init();
   MX_CAN_Init();
+  MX_ADC1_Init();
+  MX_SPI1_Init();
   /* USER CODE BEGIN 2 */
-  HAL_UART_Transmit(&huart2, (uint8_t *)"Starting\r\n", 10, 10);
+
+
+//  HAL_UART_Transmit(&huart2, (uint8_t *)"Starting\r\n", 10, 10);
+  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_SET);
   HAL_GPIO_WritePin(DRV_EN_GPIO_Port, DRV_EN_Pin, GPIO_PIN_SET);
+//
+//  char buffer[32];
+//  GPIO_PinState pin_state = HAL_GPIO_ReadPin(DRV_EN_GPIO_Port, DRV_EN_Pin);
+//  sprintf(buffer, "Enable: %d\r\n", pin_state);
+//  HAL_UART_Transmit(&huart2, (uint8_t *)buffer, sizeof(buffer), 10);
+//
+//
+//  uint8_t data_buffer[8];
+#define TEST_BYTE  0x0
+#define TIMEOUT    100
 
   /* USER CODE END 2 */
 
@@ -177,32 +262,123 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  uint32_t gstat = read_spi(0x01, 0x00000000);
-	  sprintf(txData, "GSTAT: %08lX\r\n", gstat);
-	  HAL_UART_Transmit(&huart2, (uint8_t *)txData, strlen(txData), 10);
+
+	  uint8_t txData = TEST_BYTE;
+	  uint8_t rxData = 0x00;
+
+	  // Set CS Low
+	  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_RESET);
+
+	  // Send and receive data
+	  if (HAL_SPI_TransmitReceive(&hspi1, &txData, &rxData, 1, TIMEOUT) == HAL_OK) {
+		  char buffer[50];
+		  snprintf(buffer, sizeof(buffer), "Sent: 0x%02X, Received: 0x%02X\r\n", txData, rxData);
+		  HAL_UART_Transmit(&huart2, (uint8_t *)buffer, strlen(buffer), 100);
+	  } else {
+		  HAL_UART_Transmit(&huart2, (uint8_t *)"SPI communication failed!\r\n", strlen("SPI communication failed!\r\n"), 100);
+	  }
+
+	  // Set CS High
+	  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_SET);
+//	  uint8_t spi_rx_buffer[6];
+//
+//	  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_RESET); //CS LOW
+//	  HAL_SPI_Recieve(&hspi1, spi_rx_buffer, sizeof(spi_rx_buffer));
+//	  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_SET); //CS HIGH
+//
+//	  HAL_Delay(1000000);
+
+//	  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);  // Turn ON LED (D13)
+//	  HAL_Delay(1000); // 1-second delay
+//	  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET); // Turn OFF LED
+//	  HAL_Delay(1000);
 
 
-	  write_spi(0x00, 0x40);
+//	#define TEST_BYTE  0xA5
+//	#define TIMEOUT    100
+//	  uint8_t txData = TEST_BYTE;
+//	  uint8_t rxData = 0x00;
+//
+//	  // Ensure CS is low before sending data (if manually controlled)
+//	  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_RESET);  // CS Low (adjust pin as needed)
+//
+//	  // Transmit & receive data
+//	  if (HAL_SPI_TransmitReceive(&hspi1, &txData, &rxData, 1, TIMEOUT) == HAL_OK) {
+//		  if (rxData == TEST_BYTE) {
+//			  HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_13);  // Toggle LED on success
+//		  }
+//	  }
+//
+//	  // Set CS high again
+//	  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_SET);  // CS High
+
+//	  Read_DRV_STATUS();
+//	  HAL_Delay(1000);
+//	  uint8_t spi_rx_buffer[8];
+//	  uint8_t spi_tx_buffer[1] = {0x04, 0x0};
+//
+//	  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_RESET);
+//	  HAL_Delay(1);
+//	  HAL_SPI_TransmitReceive(&hspi1, spi_tx_buffer, spi_rx_buffer, sizeof(spi_rx_buffer), HAL_MAX_DELAY);
+//	  HAL_Delay(1);
+//	  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_SET);
+
+//	  uint8_t UL = spi_rx_buffer[0];
+//	  uint8_t UH = spi_rx_buffer[1];
+//	  uint8_t VL = spi_rx_buffer[2];
+//	  uint8_t VH = spi_rx_buffer[3];
+//	  uint8_t WL = spi_rx_buffer[4];
+//	  uint8_t WH = spi_rx_buffer[5];
+//	  uint8_t DRV_EN = spi_rx_buffer[6];
+//
+//	  sprintf(txData, "UL:%d UH:%d VL:%d VH:%d WL:%d WH:%d DRV_EN: %d\r\n", UL, UH, VL, VH, WL, WH, DRV_EN);
+//
+//	  HAL_UART_Transmit(&huart2, (uint8_t*)txData, strlen(txData), HAL_MAX_DELAY);
+
+//	  for (int i = 0; i < 8; i++) {
+//	      char debugMsg[50];
+//	      sprintf(debugMsg, "spi_rx_buffer[%d]: %d\r\n", i, spi_rx_buffer[i]);
+//	      HAL_UART_Transmit(&huart2, (uint8_t*)debugMsg, strlen(debugMsg), HAL_MAX_DELAY);
+//	  }
+//
+//	  HAL_Delay(1000);
+
+
+//	  select_spi_read(0x04 , data_buffer, sizeof(data_buffer));
+//	  HAL_UART_Transmit(&huart2, (uint8_t *)data_buffer, sizeof(data_buffer), 10);
+
+//	  uint32_t gstat = read_spi(0x01, 0x00000000);
+//	  sprintf(txData, "GSTAT: %08lX\r\n", gstat);
+//	  HAL_UART_Transmit(&huart2, (uint8_t *)txData, strlen(txData), 10);
+
+
+	  //write_spi(0x00, 0x40);
+//	  uint8_t TX_Buffer [5] = {0};
+//	  HAL_SPI_Transmit(&hspi1, TX_Buffer, 1, 1000); //Sending in Blocking mode
+//	  HAL_Delay(100);
 
 	  //set_speed(500, 1);
 	  //HAL_Delay(100);
 
-	  uint32_t ioin = read_spi(0x04, 0x00000000);
+	  //uint32_t ioin = read_spi(0x04, 0x00000000);
+//	  uint8_t RX_Buffer [12];
+//	  uint8_t ioin = HAL_SPI_Receive(&hspi1, RX_Buffer, 12, 1000); //Receiving in Blocking mode
+//	  HAL_Delay(100);
 
-	  uint8_t UL = (ioin >> 0) & 1;
-	  uint8_t UH = (ioin >> 1) & 1;
-	  uint8_t VL = (ioin >> 2) & 1;
-	  uint8_t VH = (ioin >> 3) & 1;
-	  uint8_t WL = (ioin >> 4) & 1;
-	  uint8_t WH = (ioin >> 5) & 1;
-	  uint8_t DRV_EN = (ioin >> 6) & 1;
+//	  uint32_t UL = (ioin >> 0) & 1;
+//	  uint32_t UH = (ioin >> 1) & 1;
+//	  uint32_t VL = (ioin >> 2) & 1;
+//	  uint32_t VH = (ioin >> 3) & 1;
+//	  uint32_t WL = (ioin >> 4) & 1;
+//	  uint32_t WH = (ioin >> 5) & 1;
+//	  uint32_t DRV_EN = (ioin >> 6) & 1;
+//
+//	  sprintf(txData, "UL:%d UH:%d VL:%d VH:%d WL:%d WH:%d DRV_EN: %d\r\n", UL, UH, VL, VH, WL, WH, DRV_EN);
+//
+//	  HAL_UART_Transmit(&huart2, (uint32_t *)txData, strlen(txData), 10);
 
-	  sprintf(txData, "UL:%d UH:%d VL:%d VH:%d WL:%d WH:%d DRV_EN%d\r\n", UL, UH, VL, VH, WL, WH, DRV_EN);
 
-	  HAL_UART_Transmit(&huart2, (uint8_t *)txData, strlen(txData), 10);
-
-
-	  HAL_Delay(500);
+	  //HAL_Delay(5000);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -226,7 +402,10 @@ void SystemClock_Config(void)
   RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI;
   RCC_OscInitStruct.HSIState = RCC_HSI_ON;
   RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
-  RCC_OscInitStruct.PLL.PLLState = RCC_PLL_NONE;
+  RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
+  RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSI;
+  RCC_OscInitStruct.PLL.PLLMUL = RCC_PLL_MUL2;
+  RCC_OscInitStruct.PLL.PREDIV = RCC_PREDIV_DIV1;
   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
   {
     Error_Handler();
@@ -245,13 +424,81 @@ void SystemClock_Config(void)
   {
     Error_Handler();
   }
-  PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_USART2|RCC_PERIPHCLK_TIM1;
+  PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_USART2|RCC_PERIPHCLK_TIM1
+                              |RCC_PERIPHCLK_ADC12;
   PeriphClkInit.Usart2ClockSelection = RCC_USART2CLKSOURCE_PCLK1;
+  PeriphClkInit.Adc12ClockSelection = RCC_ADC12PLLCLK_DIV1;
   PeriphClkInit.Tim1ClockSelection = RCC_TIM1CLK_HCLK;
   if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInit) != HAL_OK)
   {
     Error_Handler();
   }
+}
+
+/**
+  * @brief ADC1 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_ADC1_Init(void)
+{
+
+  /* USER CODE BEGIN ADC1_Init 0 */
+
+  /* USER CODE END ADC1_Init 0 */
+
+  ADC_MultiModeTypeDef multimode = {0};
+  ADC_ChannelConfTypeDef sConfig = {0};
+
+  /* USER CODE BEGIN ADC1_Init 1 */
+
+  /* USER CODE END ADC1_Init 1 */
+
+  /** Common config
+  */
+  hadc1.Instance = ADC1;
+  hadc1.Init.ClockPrescaler = ADC_CLOCK_ASYNC_DIV1;
+  hadc1.Init.Resolution = ADC_RESOLUTION_12B;
+  hadc1.Init.ScanConvMode = ADC_SCAN_DISABLE;
+  hadc1.Init.ContinuousConvMode = DISABLE;
+  hadc1.Init.DiscontinuousConvMode = DISABLE;
+  hadc1.Init.ExternalTrigConvEdge = ADC_EXTERNALTRIGCONVEDGE_NONE;
+  hadc1.Init.ExternalTrigConv = ADC_SOFTWARE_START;
+  hadc1.Init.DataAlign = ADC_DATAALIGN_RIGHT;
+  hadc1.Init.NbrOfConversion = 1;
+  hadc1.Init.DMAContinuousRequests = DISABLE;
+  hadc1.Init.EOCSelection = ADC_EOC_SINGLE_CONV;
+  hadc1.Init.LowPowerAutoWait = DISABLE;
+  hadc1.Init.Overrun = ADC_OVR_DATA_OVERWRITTEN;
+  if (HAL_ADC_Init(&hadc1) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+  /** Configure the ADC multi-mode
+  */
+  multimode.Mode = ADC_MODE_INDEPENDENT;
+  if (HAL_ADCEx_MultiModeConfigChannel(&hadc1, &multimode) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+  /** Configure Regular Channel
+  */
+  sConfig.Channel = ADC_CHANNEL_1;
+  sConfig.Rank = ADC_REGULAR_RANK_1;
+  sConfig.SingleDiff = ADC_SINGLE_ENDED;
+  sConfig.SamplingTime = ADC_SAMPLETIME_1CYCLE_5;
+  sConfig.OffsetNumber = ADC_OFFSET_NONE;
+  sConfig.Offset = 0;
+  if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN ADC1_Init 2 */
+
+  /* USER CODE END ADC1_Init 2 */
+
 }
 
 /**
@@ -311,10 +558,10 @@ static void MX_SPI1_Init(void)
   hspi1.Init.Mode = SPI_MODE_MASTER;
   hspi1.Init.Direction = SPI_DIRECTION_2LINES;
   hspi1.Init.DataSize = SPI_DATASIZE_4BIT;
-  hspi1.Init.CLKPolarity = SPI_POLARITY_HIGH;
+  hspi1.Init.CLKPolarity = SPI_POLARITY_LOW;
   hspi1.Init.CLKPhase = SPI_PHASE_1EDGE;
-  hspi1.Init.NSS = SPI_NSS_SOFT;
-  hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_4;
+  hspi1.Init.NSS = SPI_NSS_HARD_OUTPUT;
+  hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_2;
   hspi1.Init.FirstBit = SPI_FIRSTBIT_MSB;
   hspi1.Init.TIMode = SPI_TIMODE_DISABLE;
   hspi1.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;
@@ -427,9 +674,20 @@ static void MX_GPIO_Init(void)
   /* GPIO Ports Clock Enable */
   __HAL_RCC_GPIOA_CLK_ENABLE();
   __HAL_RCC_GPIOC_CLK_ENABLE();
+  __HAL_RCC_GPIOB_CLK_ENABLE();
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(DRV_EN_GPIO_Port, DRV_EN_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin : PA5 */
+  GPIO_InitStruct.Pin = GPIO_PIN_5;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
   /*Configure GPIO pin : DRV_EN_Pin */
   GPIO_InitStruct.Pin = DRV_EN_Pin;
