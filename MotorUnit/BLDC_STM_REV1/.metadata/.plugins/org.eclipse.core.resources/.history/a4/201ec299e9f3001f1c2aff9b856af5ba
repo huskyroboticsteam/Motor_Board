@@ -95,11 +95,11 @@ uint8_t address = 0;
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
-static void MX_SPI1_Init(void);
 static void MX_TIM1_Init(void);
 static void MX_USART2_UART_Init(void);
 static void MX_CAN_Init(void);
 static void MX_ADC1_Init(void);
+static void MX_SPI1_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -157,34 +157,52 @@ static void MX_ADC1_Init(void);
 //	  HAL_GPIO_WritePin (GPIOA, SPI1_NSS_Pin, GPIO_PIN_SET);
 //}
 
-uint32_t SPI_ReadRegister(uint8_t register_address) {
-    uint32_t tx_data = (0x80 | (register_address << 1));  // 0x80 for Read command
-    uint32_t rx_data = 0;
-
-    // Transmit and receive the data via SPI
-    HAL_SPI_TransmitReceive(&hspi1, (uint8_t*)&tx_data, (uint8_t*)&rx_data, 4, HAL_MAX_DELAY);
-
-    return rx_data; // Return the 32-bit response
-}
-
-// Function to read and extract DRV_STATUS data
-void Read_DRV_STATUS() {
-    uint32_t drv_status = SPI_ReadRegister(0xFB); // Address for DRV_STATUS register is 0xFB
-
-    // Extract the individual states from the 32-bit response
-    uint8_t WH = (drv_status >> 23) & 1;
-    uint8_t VH = (drv_status >> 22) & 1;
-    uint8_t UH = (drv_status >> 21) & 1;
-    uint8_t WL = (drv_status >> 20) & 1;
-    uint8_t VL = (drv_status >> 19) & 1;
-    uint8_t UL = (drv_status >> 18) & 1;
-    uint8_t DRV_EN = (drv_status >> 17) & 1;
-
-    // Print the results (you can use them as needed)
-    printf("WH: %d, VH: %d, UH: %d\n", WH, VH, UH);
-    printf("WL: %d, VL: %d, UL: %d\n", WL, VL, UL);
-    printf("DRV_EN: %d\n", DRV_EN);
-}
+// Function to send and receive SPI data (Blocking)
+//uint32_t SPI_ReadRegister(uint8_t register_address) {
+//    uint32_t tx_data = (0x80 | (register_address << 1));  // 0x80 for Read command
+//    uint32_t rx_data = 0;
+//
+//    // Transmit and receive the data via SPI
+//    HAL_SPI_TransmitReceive(&hspi1, (uint8_t*)&tx_data, (uint8_t*)&rx_data, 4, HAL_MAX_DELAY);
+//
+//    return rx_data; // Return the 32-bit response
+//}
+//
+//// Function to send a string over UART
+//void UART_Printf(const char* str) {
+//    HAL_UART_Transmit(&huart2, (uint8_t*)str, strlen(str), HAL_MAX_DELAY);
+//}
+//
+//// Function to read and extract DRV_STATUS data and print via UART
+//void Read_DRV_STATUS() {
+//    uint32_t drv_status = SPI_ReadRegister(0x04); // Address for DRV_STATUS register is 0x04
+//
+//    // Extract the individual states from the 32-bit response
+//    uint8_t UL = (drv_status >> 0) & 1;
+//    uint8_t UH = (drv_status >> 1) & 1;
+//    uint8_t VL = (drv_status >> 2) & 1;
+//    uint8_t VH = (drv_status >> 3) & 1;
+//    uint8_t WL = (drv_status >> 4) & 1;
+//    uint8_t WH = (drv_status >> 5) & 1;
+//    uint8_t DRV_EN = (drv_status >> 6) & 1;
+//
+//    // Additional status bits
+//    uint8_t OTPW = (drv_status >> 8) & 1;
+//    uint8_t OT136 = (drv_status >> 9) & 1;
+//    uint8_t OT143 = (drv_status >> 10) & 1;
+//    uint8_t OT150 = (drv_status >> 11) & 1;
+//    uint8_t VERSION = (drv_status >> 24) & 0xFF;
+//
+//    // Print the results to UART
+//    char uart_buffer[150];
+//    snprintf(uart_buffer, sizeof(uart_buffer),
+//             "UL: %d, UH: %d, VL: %d, VH: %d, WL: %d, WH: %d, DRV_EN: %d\r\n"
+//             "OTPW: %d, OT136°C: %d, OT143°C: %d, OT150°C: %d\r\n"
+//             "VERSION: 0x%02X\r\n",
+//             UL, UH, VL, VH, WL, WH, DRV_EN, OTPW, OT136, OT143, OT150, VERSION);
+//
+//    UART_Printf(uart_buffer);
+//}
 /* USER CODE END 0 */
 
 /**
@@ -216,22 +234,27 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
-  MX_SPI1_Init();
   MX_TIM1_Init();
   MX_USART2_UART_Init();
   MX_CAN_Init();
   MX_ADC1_Init();
+  MX_SPI1_Init();
   /* USER CODE BEGIN 2 */
-  HAL_UART_Transmit(&huart2, (uint8_t *)"Starting\r\n", 10, 10);
+
+
+//  HAL_UART_Transmit(&huart2, (uint8_t *)"Starting\r\n", 10, 10);
+  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_SET);
   HAL_GPIO_WritePin(DRV_EN_GPIO_Port, DRV_EN_Pin, GPIO_PIN_SET);
-
-  char buffer[32];
-  GPIO_PinState pin_state = HAL_GPIO_ReadPin(DRV_EN_GPIO_Port, DRV_EN_Pin);
-  sprintf(buffer, "Enable: %d\r\n", pin_state);
-  HAL_UART_Transmit(&huart2, (uint8_t *)buffer, sizeof(buffer), 10);
-
-
-  uint8_t data_buffer[8];
+//
+//  char buffer[32];
+//  GPIO_PinState pin_state = HAL_GPIO_ReadPin(DRV_EN_GPIO_Port, DRV_EN_Pin);
+//  sprintf(buffer, "Enable: %d\r\n", pin_state);
+//  HAL_UART_Transmit(&huart2, (uint8_t *)buffer, sizeof(buffer), 10);
+//
+//
+//  uint8_t data_buffer[8];
+#define TEST_BYTE  0xD3
+#define TIMEOUT    100
 
   /* USER CODE END 2 */
 
@@ -239,7 +262,58 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  Read_DRV_STATUS();
+
+	  uint8_t txData = TEST_BYTE;
+	  uint8_t rxData = 0x00;
+
+	  // Set CS Low
+	  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_RESET);
+
+	  // Send and receive data
+	  if (HAL_SPI_TransmitReceive(&hspi1, &txData, &rxData, 1, TIMEOUT) == HAL_OK) {
+		  char buffer[50];
+		  snprintf(buffer, sizeof(buffer), "Sent: 0x%02X, Received: 0x%02X\r\n", txData, rxData);
+		  HAL_UART_Transmit(&huart2, (uint8_t *)buffer, strlen(buffer), 100);
+	  } else {
+		  HAL_UART_Transmit(&huart2, (uint8_t *)"SPI communication failed!\r\n", strlen("SPI communication failed!\r\n"), 100);
+	  }
+
+	  // Set CS High
+	  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_SET);
+//	  uint8_t spi_rx_buffer[6];
+//
+//	  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_RESET); //CS LOW
+//	  HAL_SPI_Recieve(&hspi1, spi_rx_buffer, sizeof(spi_rx_buffer));
+//	  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_SET); //CS HIGH
+//
+//	  HAL_Delay(1000000);
+
+//	  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);  // Turn ON LED (D13)
+//	  HAL_Delay(1000); // 1-second delay
+//	  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET); // Turn OFF LED
+//	  HAL_Delay(1000);
+
+
+//	#define TEST_BYTE  0xA5
+//	#define TIMEOUT    100
+//	  uint8_t txData = TEST_BYTE;
+//	  uint8_t rxData = 0x00;
+//
+//	  // Ensure CS is low before sending data (if manually controlled)
+//	  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_RESET);  // CS Low (adjust pin as needed)
+//
+//	  // Transmit & receive data
+//	  if (HAL_SPI_TransmitReceive(&hspi1, &txData, &rxData, 1, TIMEOUT) == HAL_OK) {
+//		  if (rxData == TEST_BYTE) {
+//			  HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_13);  // Toggle LED on success
+//		  }
+//	  }
+//
+//	  // Set CS high again
+//	  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_SET);  // CS High
+
+//	  Read_DRV_STATUS();
+//	  HAL_Delay(1000);
 //	  uint8_t spi_rx_buffer[8];
 //	  uint8_t spi_tx_buffer[1] = {0x04, 0x0};
 //
@@ -483,8 +557,8 @@ static void MX_SPI1_Init(void)
   hspi1.Instance = SPI1;
   hspi1.Init.Mode = SPI_MODE_MASTER;
   hspi1.Init.Direction = SPI_DIRECTION_2LINES;
-  hspi1.Init.DataSize = SPI_DATASIZE_4BIT;
-  hspi1.Init.CLKPolarity = SPI_POLARITY_HIGH;
+  hspi1.Init.DataSize = SPI_DATASIZE_8BIT;
+  hspi1.Init.CLKPolarity = SPI_POLARITY_LOW;
   hspi1.Init.CLKPhase = SPI_PHASE_1EDGE;
   hspi1.Init.NSS = SPI_NSS_HARD_OUTPUT;
   hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_2;
@@ -600,9 +674,20 @@ static void MX_GPIO_Init(void)
   /* GPIO Ports Clock Enable */
   __HAL_RCC_GPIOA_CLK_ENABLE();
   __HAL_RCC_GPIOC_CLK_ENABLE();
+  __HAL_RCC_GPIOB_CLK_ENABLE();
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(DRV_EN_GPIO_Port, DRV_EN_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin : PA5 */
+  GPIO_InitStruct.Pin = GPIO_PIN_5;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
   /*Configure GPIO pin : DRV_EN_Pin */
   GPIO_InitStruct.Pin = DRV_EN_Pin;

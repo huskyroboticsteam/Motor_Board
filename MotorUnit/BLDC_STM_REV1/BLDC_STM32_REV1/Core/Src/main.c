@@ -253,7 +253,7 @@ int main(void)
 //
 //
 //  uint8_t data_buffer[8];
-#define TEST_BYTE  0x0
+#define TEST_BYTE  0xA4
 #define TIMEOUT    100
 
   /* USER CODE END 2 */
@@ -274,6 +274,7 @@ int main(void)
 		  char buffer[50];
 		  snprintf(buffer, sizeof(buffer), "Sent: 0x%02X, Received: 0x%02X\r\n", txData, rxData);
 		  HAL_UART_Transmit(&huart2, (uint8_t *)buffer, strlen(buffer), 100);
+		  rxData = 0x00;
 	  } else {
 		  HAL_UART_Transmit(&huart2, (uint8_t *)"SPI communication failed!\r\n", strlen("SPI communication failed!\r\n"), 100);
 	  }
@@ -557,7 +558,7 @@ static void MX_SPI1_Init(void)
   hspi1.Instance = SPI1;
   hspi1.Init.Mode = SPI_MODE_MASTER;
   hspi1.Init.Direction = SPI_DIRECTION_2LINES;
-  hspi1.Init.DataSize = SPI_DATASIZE_4BIT;
+  hspi1.Init.DataSize = SPI_DATASIZE_8BIT;
   hspi1.Init.CLKPolarity = SPI_POLARITY_LOW;
   hspi1.Init.CLKPhase = SPI_PHASE_1EDGE;
   hspi1.Init.NSS = SPI_NSS_HARD_OUTPUT;
