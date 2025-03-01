@@ -255,7 +255,45 @@ int main(void)
 //  uint8_t data_buffer[8];
 #define TEST_BYTE  0xA4
 #define TIMEOUT    100
+#define IOIN	   0x04
 
+//  uint8_t txData = IOIN; //transmit
+//  	  uint8_t rxData = 0x00; //receive
+//  	   uint8_t txData[2] = {IOIN, 0x00};
+//  	   uint8_t rxData[2] = {0};
+
+  	  // Set CS Low
+  	  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_RESET);
+
+  //	  HAL_SPI_Transmit(&hspi1, &txData, 1, TIMEOUT);
+  //	  char buffer[50];
+  //	  snprintf(buffer, sizeof(buffer), "Sent: 0x%02X\r\n", txData);
+  //	  HAL_UART_Transmit(&huart2, (uint8_t *)buffer, strlen(buffer), 100);
+
+  //	  HAL_Delay(100);
+
+  //	  HAL_SPI_Receive(&hspi1, &rxData, 1, TIMEOUT);
+  //	  char bufferRx[50];
+  //	  snprintf(bufferRx, sizeof(bufferRx), "Received: 0x%02X\r\n", rxData);
+  //	  HAL_UART_Transmit(&huart2, (uint8_t *)bufferRx, strlen(bufferRx),100);
+
+//  	  if (HAL_SPI_Transmit(&hspi1, &txData, 2, TIMEOUT) == HAL_OK) {
+//  		  char buffer[50];
+//  		  snprintf(buffer, sizeof(buffer), "Sent: 0x%02X ", txData);
+//  		  HAL_UART_Transmit(&huart2, (uint8_t *)buffer, strlen(buffer), 100);
+//  	  } else {
+//  		  HAL_UART_Transmit(&huart2, (uint8_t *)"SPI communication failed!\r\n", strlen("SPI communication failed!\r\n"),100);
+//  	  }
+
+  	  //HAL_Delay(5);
+
+//  	  if (HAL_SPI_Receive(&hspi1, &rxData, 2, TIMEOUT) == HAL_OK) {
+//  		  char bufferRx[50];
+//  		  snprintf(bufferRx, sizeof(bufferRx), "Received: 0x%02X\r\n", rxData);
+//  		  HAL_UART_Transmit(&huart2, (uint8_t *)bufferRx, strlen(bufferRx),100);
+//  	  } else {
+//  		  HAL_UART_Transmit(&huart2, (uint8_t *)"SPI communication failed!\r\n", strlen("SPI communication failed!\r\n"),100);
+//  	  }
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -263,21 +301,53 @@ int main(void)
   while (1)
   {
 
-	  uint8_t txData = TEST_BYTE;
-	  uint8_t rxData = 0x00;
+	  uint8_t txData = IOIN; //transmit
+	  uint8_t rxData = 0x00; //receive
+	  // uint8_t txData[2] = {IOIN, 0x00};
+	  // uint8_t rxData[2] = {0};
 
 	  // Set CS Low
 	  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_RESET);
+//
+////	  HAL_SPI_Transmit(&hspi1, &txData, 1, TIMEOUT);
+////	  char buffer[50];
+////	  snprintf(buffer, sizeof(buffer), "Sent: 0x%02X\r\n", txData);
+////	  HAL_UART_Transmit(&huart2, (uint8_t *)buffer, strlen(buffer), 100);
+//
+////	  HAL_Delay(100);
+//
+////	  HAL_SPI_Receive(&hspi1, &rxData, 1, TIMEOUT);
+////	  char bufferRx[50];
+////	  snprintf(bufferRx, sizeof(bufferRx), "Received: 0x%02X\r\n", rxData);
+////	  HAL_UART_Transmit(&huart2, (uint8_t *)bufferRx, strlen(bufferRx),100);
+//
+	  if (HAL_SPI_Transmit(&hspi1, &txData, 2, TIMEOUT) == HAL_OK) {
+		  char buffer[50];
+		  snprintf(buffer, sizeof(buffer), "Sent: 0x%02X ", txData);
+		  HAL_UART_Transmit(&huart2, (uint8_t *)buffer, strlen(buffer), 100);
+	  } else {
+		  HAL_UART_Transmit(&huart2, (uint8_t *)"SPI communication failed!\r\n", strlen("SPI communication failed!\r\n"),100);
+	  }
+//
+//	  //HAL_Delay(5);
+//
+	  if (HAL_SPI_Receive(&hspi1, &rxData, 2, TIMEOUT) == HAL_OK) {
+		  char bufferRx[50];
+		  snprintf(bufferRx, sizeof(bufferRx), "Received: 0x%02X\r\n", rxData);
+		  HAL_UART_Transmit(&huart2, (uint8_t *)bufferRx, strlen(bufferRx),100);
+	  } else {
+		  HAL_UART_Transmit(&huart2, (uint8_t *)"SPI communication failed!\r\n", strlen("SPI communication failed!\r\n"),100);
+	  }
 
 	  // Send and receive data
-	  if (HAL_SPI_TransmitReceive(&hspi1, &txData, &rxData, 1, TIMEOUT) == HAL_OK) {
-		  char buffer[50];
-		  snprintf(buffer, sizeof(buffer), "Sent: 0x%02X, Received: 0x%02X\r\n", txData, rxData);
-		  HAL_UART_Transmit(&huart2, (uint8_t *)buffer, strlen(buffer), 100);
-		  rxData = 0x00;
-	  } else {
-		  HAL_UART_Transmit(&huart2, (uint8_t *)"SPI communication failed!\r\n", strlen("SPI communication failed!\r\n"), 100);
-	  }
+//	  if (HAL_SPI_TransmitReceive(&hspi1, &txData, &rxData, 1, TIMEOUT) == HAL_OK) {
+//		  char buffer[50];
+//		  snprintf(buffer, sizeof(buffer), "Sent: 0x%02X, Received: 0x%02X\r\n", txData, rxData);
+//		  HAL_UART_Transmit(&huart2, (uint8_t *)buffer, strlen(buffer), 100);
+//		  rxData = 0x00;
+//	  } else {
+//		  HAL_UART_Transmit(&huart2, (uint8_t *)"SPI communication failed!\r\n", strlen("SPI communication failed!\r\n"), 100);
+//	  }
 
 	  // Set CS High
 	  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_SET);
