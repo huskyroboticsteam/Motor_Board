@@ -1,3 +1,6 @@
 [submodule "GeneralPurposeMotorBoard/HindsightCAN"]
 	path = GeneralPurposeMotorBoard/HindsightCAN
 	url = https://github.com/huskyroboticsteam/HindsightCAN.git
+[submodule "MotorUnit/psoc_project_template"]
+	path = MotorUnit/psoc_project_template
+	url = https://github.com/huskyroboticsteam/PSoC_Project_Template.git
