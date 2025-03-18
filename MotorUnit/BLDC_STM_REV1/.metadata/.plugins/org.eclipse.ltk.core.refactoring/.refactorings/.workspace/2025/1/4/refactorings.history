@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Delete resource &apos;BLDC_Board&apos;" deleteContents="false" description="Delete resource &apos;BLDC_Board&apos;" element1="/BLDC_Board" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1737835226847"/>&#x0A;<refactoring comment="Delete resource &apos;BLDC_STM32_REV1/Core/Inc/BLDC_stuff.h&apos;" deleteContents="false" description="Delete resource &apos;BLDC_STM32_REV1/Core/Inc/BLDC_stuff.h&apos;" element1="/BLDC_STM32_REV1/Core/Inc/BLDC_stuff.h" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1737836399808"/>
+</session>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item key="selection" value="SPI1"/>
+		<item key="wrap" value="true"/>
+		<item key="casesensitive" value="false"/>
+		<item key="wholeword" value="false"/>
+		<item key="incremental" value="false"/>
+		<item key="isRegEx" value="false"/>
+		<list key="findhistory">
+			<item value="spi1"/>
+			<item value="PA4"/>
+			<item value="huart"/>
+			<item value="DRV_EN_Pin"/>
+			<item value="DRV_EN"/>
+			<item value="read_spi"/>
+			<item value="read_s[i"/>
+			<item value="receive"/>
+			<item value="recei"/>
+			<item value="rece"/>
+			<item value="recieve"/>
+			<item value="CAN"/>
+			<item value="set_spe"/>
+			<item value="set_speed"/>
+			<item value="MAX_"/>
+		</list>
+		<list key="replacehistory">
+		</list>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="1062"/>
+		<item key="DIALOG_Y_ORIGIN" value="165"/>
+		<item key="DIALOG_WIDTH" value="336"/>
+		<item key="DIALOG_HEIGHT" value="400"/>
+		<item key="DIALOG_FONT_NAME" value="1|.AppleSystemUIFont|11.0|0|COCOA|1|.AppleSystemUIFont"/>
+	</section>
+</section>
