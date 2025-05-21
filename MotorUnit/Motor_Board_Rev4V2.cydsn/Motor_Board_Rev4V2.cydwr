@@ -32,13 +32,13 @@
       <Data key="b45ad6d0-a495-4d75-8250-dcb7d7acab51" value="Pin_Enc_B" />
       <Data key="b561a610-e1ca-4f8c-9281-59a70030b09c/23b8206d-1c77-4e61-be4a-b4037d5de5fc" value="DBG_UART_tx" />
       <Data key="b561a610-e1ca-4f8c-9281-59a70030b09c/78e33e5d-45ea-4b75-88d5-73274e8a7ce4" value="DBG_UART_rx" />
-      <Data key="c7ec105c-e205-4975-bb67-3a429e9556ce" value="Pin_Motor1_PWM" />
+      <Data key="c7ec105c-e205-4975-bb67-3a429e9556ce" value="Pin_Motor_PWM" />
       <Data key="cda343a7-a70d-4278-90ef-7776c8b47560" value="LED_DBG1" />
       <Data key="d7a43c91-7193-4eb2-b307-7cd22f89dd72" value="Pin_Motor_Fault" />
       <Data key="dcfee0a2-041d-4713-a6ba-2a624d30d1cc" value="LED_DBG2" />
       <Data key="e851a3b9-efb8-48be-bbb8-b303b216c393" value="LED_ERR" />
       <Data key="e3689af5-c003-445f-92c0-77e8997a796d" value="DIP3" />
-      <Data key="ea7ac395-c578-483d-9079-f06d54e481d6" value="Pin_Motor1_Current" />
+      <Data key="ea7ac395-c578-483d-9079-f06d54e481d6" value="Pin_Motor_Current" />
       <Data key="ed092b9b-d398-4703-be89-cebf998501f6" value="CAN_TX" />
       <Data key="fdbeebe6-6c2e-4be3-b814-39f6988666e7" value="Pin_Limit2" />
     </Group>
@@ -3779,11 +3779,6 @@
         <Data key="Port Format" value="4,0" />
       </Group>
     </Group>
-    <Group key="1f4c3558-72b1-448e-b2d3-f701d3f26c9f">
-      <Group key="0">
-        <Data key="Port Format" value="5,3" />
-      </Group>
-    </Group>
     <Group key="8d318d8b-cf7b-4b6b-b02c-ab1c5c49d0ba">
       <Group key="0">
         <Data key="Port Format" value="4,3" />
@@ -3806,7 +3801,7 @@
     </Group>
     <Group key="6598047f-0b89-4d9a-9c7d-4e4b9c9e3337">
       <Group key="0">
-        <Data key="Port Format" value="7,1" />
+        <Data key="Port Format" value="5,2" />
       </Group>
     </Group>
     <Group key="77715107-f8d5-47e5-a629-0fb83101ac6b">
@@ -3836,7 +3831,7 @@
     </Group>
     <Group key="c7ec105c-e205-4975-bb67-3a429e9556ce">
       <Group key="0">
-        <Data key="Port Format" value="7,0" />
+        <Data key="Port Format" value="5,3" />
       </Group>
     </Group>
     <Group key="cda343a7-a70d-4278-90ef-7776c8b47560">
@@ -3869,7 +3864,11 @@
         <Data key="Port Format" value="2,5" />
       </Group>
     </Group>
-    <Group key="UnAssigned Pins" />
+    <Group key="UnAssigned Pins">
+      <Group key="1f4c3558-72b1-448e-b2d3-f701d3f26c9f">
+        <Data key="0" value="133922661762708635" />
+      </Group>
+    </Group>
   </Group>
   <Group key="PlaceDir">
     <Data key="count" value="0" />
